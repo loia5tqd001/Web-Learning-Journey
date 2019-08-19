@@ -8,7 +8,7 @@ const htmlList = document.getElementById('todo-list');
 // constants
 const draftInput = 'draft-input';
 const draftTodolist = 'draft-todolist';
-const apiServer = 'http://localhost:9095';
+const apiServer = 'http://localhost:9095/todos';
 
 // global variables
 let todoList = [];
@@ -64,20 +64,24 @@ function saveToLocal() {
     localStorage.setItem(draftTodolist, JSON.stringify(todoList));
 }
 
-function saveToCloud() {
-    const todos = [];
-    for (let i = 0; i < todoList.length; i++) {
-        todos.push({
-            id: i,
-            content: todoList[i]
+async function saveToCloud() { 
+    await axios.get(apiServer)
+    .then(res => {
+        const toDelete = apiServer + '/' + res.data.id; 
+        axios.delete(toDelete);
+    })
+
+    let i = 0;
+    todoList.forEach(async task => {
+        await axios.post('http://localhost:9095/todos', {
+            id: i++,
+            content: task
         });
-    }
-    axios.put(`${apiServer}/todos`, { data: todos } )
-    .then((res) => console.log(res));
+    })
 }
 
 function loadFromCloud() {
-    axios.get(`${apiServer}/todos`)
+    axios.get(apiServer)
     .then((res) => {
         todoList = res.data.map((record) => {
             return record.content; 
