@@ -1,22 +1,49 @@
+// html elements
 const input = document.getElementById('input');
+const buttonLoad = document.getElementById('button-load');
 const buttonAdd = document.getElementById('button-add');
 const buttonSave = document.getElementById('button-save');
 const htmlList = document.getElementById('todo-list');
-const todoList = [];
 
+// constants
+const draftInput = 'draft-input';
+const draftTodolist = 'draft-todolist';
+const apiServer = 'http://localhost:9095';
+
+// global variables
+let todoList = [];
+
+// event listeners adding
+buttonLoad.addEventListener('click', loadFromCloud);
 buttonAdd.addEventListener('click', addTaskToList);
+buttonSave.addEventListener('click', saveToCloud);
 htmlList.addEventListener('click', removeTaskFromList);
 input.addEventListener('keydown', function(e) {
     if (e.key === 'Enter') {
         addTaskToList();
     }
 });
+input.addEventListener('change', saveDraftInput);
 
+// main function
+main();
+function main() {
+    input.value = sessionStorage.getItem(draftInput);
+    const stringData = localStorage.getItem(draftTodolist);
+    if (stringData !== null) {
+        todoList = JSON.parse(stringData);
+    }
+    render();
+}
+
+// function declarations
 function addTaskToList() {
     if (input.value.replace(/\s+/g, '') === '') return;
     todoList.push(input.value);
     input.value = '';
     render();
+    saveToLocal();
+    saveDraftInput();
 }
 
 function removeTaskFromList(e) {
@@ -25,13 +52,44 @@ function removeTaskFromList(e) {
     const taskId = buttonDelete.dataset.id;
     todoList.splice(taskId, 1);
     render();
+    saveToLocal();
+    saveDraftInput();
+}
+
+function saveDraftInput() {
+    sessionStorage.setItem(draftInput, input.value);
+}
+
+function saveToLocal() {
+    localStorage.setItem(draftTodolist, JSON.stringify(todoList));
+}
+
+function saveToCloud() {
+    const todos = [];
+    for (let i = 0; i < todoList.length; i++) {
+        todos.push({
+            id: i,
+            content: todoList[i]
+        });
+    }
+    axios.put(`${apiServer}/todos`, { data: todos } )
+    .then((res) => console.log(res));
+}
+
+function loadFromCloud() {
+    axios.get(`${apiServer}/todos`)
+    .then((res) => {
+        todoList = res.data.map((record) => {
+            return record.content; 
+        });
+        render();
+        saveToLocal();
+    });
 }
 
 function render() {
-    if (todoList.length === 0) return;
     const liS = todoList.map((task) => {
         return `<li>${task} <button data-id=${todoList.indexOf(task)}>X</button></li>`;
     });
     htmlList.innerHTML = liS.join('');
 }
-

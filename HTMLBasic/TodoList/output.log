@@ -1,0 +1,106 @@
+
+  \{^_^}/ hi!
+
+  Loading db.json
+  Done
+
+  Resources
+  http://localhost:9095/todos
+
+  Home
+  http://localhost:9095
+
+  Type s + enter at any time to create a snapshot of the database
+  Watching...
+
+  Error, can't read from stdin
+  Creating a snapshot from the CLI won't be possible
+[0mGET /todos [36m304 [0m16.307 ms - -[0m
+[0mGET /todos [36m304 [0m4.460 ms - -[0m
+[0mGET /todos [36m304 [0m3.028 ms - -[0m
+[0mGET /todos [36m304 [0m3.694 ms - -[0m
+[0mGET /todos [36m304 [0m2.979 ms - -[0m
+[0mGET /todos [36m304 [0m3.038 ms - -[0m
+[0mGET /todos [36m304 [0m2.972 ms - -[0m
+[0mGET /todos [36m304 [0m2.609 ms - -[0m
+[0mGET /todos [36m304 [0m2.891 ms - -[0m
+[0mGET /todos [36m304 [0m3.840 ms - -[0m
+[0mGET /todos [36m304 [0m3.694 ms - -[0m
+[0mGET /todos [36m304 [0m2.675 ms - -[0m
+[0mGET /todos [36m304 [0m3.043 ms - -[0m
+[0mGET /todos [36m304 [0m2.048 ms - -[0m
+[0mGET /todos [36m304 [0m3.089 ms - -[0m
+[0mGET /todos [36m304 [0m3.049 ms - -[0m
+[0mGET /todos [36m304 [0m2.623 ms - -[0m
+[0mGET /todos [36m304 [0m12.382 ms - -[0m
+[0mGET /todos [36m304 [0m3.484 ms - -[0m
+[0mGET /todos [36m304 [0m5.169 ms - -[0m
+[0mGET /todos [36m304 [0m2.989 ms - -[0m
+[0mGET /todos [36m304 [0m2.803 ms - -[0m
+[0mGET /todos [36m304 [0m2.884 ms - -[0m
+[0mGET /todos [36m304 [0m2.598 ms - -[0m
+[0mGET /todos [36m304 [0m2.609 ms - -[0m
+[0mGET /todos [36m304 [0m2.879 ms - -[0m
+[0mGET /todos [36m304 [0m2.901 ms - -[0m
+[0mGET /todos [36m304 [0m2.621 ms - -[0m
+[0mGET /todos [36m304 [0m3.379 ms - -[0m
+[0mGET /todos [36m304 [0m2.976 ms - -[0m
+[0mGET /todos [36m304 [0m3.240 ms - -[0m
+[0mGET /todos [36m304 [0m2.614 ms - -[0m
+[0mGET /todos [32m200 [0m2.599 ms - 165[0m
+[0mGET /todos [36m304 [0m2.851 ms - -[0m
+[0mGET /todos [36m304 [0m2.862 ms - -[0m
+[0mGET /todos [36m304 [0m2.656 ms - -[0m
+[0mGET /todos [36m304 [0m3.922 ms - -[0m
+[0mGET /todos [36m304 [0m3.640 ms - -[0m
+[0mGET /todos [36m304 [0m4.055 ms - -[0m
+[0mGET /todos [36m304 [0m4.077 ms - -[0m
+[0mGET /todos [36m304 [0m3.169 ms - -[0m
+[0mGET /todos [36m304 [0m3.877 ms - -[0m
+[0mGET /todos [36m304 [0m4.249 ms - -[0m
+[0mPOST /todos [32m201 [0m22.018 ms - 320[0m
+[0mPOST /todos [32m201 [0m6.697 ms - 123[0m
+[0mPOST / [33m404 [0m2.627 ms - 2[0m
+[0mGET /todos [32m200 [0m4.351 ms - 682[0m
+  Error reading /home/loia5tqd001/Desktop/LearnWebCoderTokyo/HTMLBasic/TodoList/db.json
+No data, empty input at 1:1
+
+^
+  Read error has been fixed :)
+  db.json has changed, reloading...
+
+  Loading db.json
+  Done
+
+  Resources
+  http://localhost:9095/todos
+
+  Home
+  http://localhost:9095
+
+[0mGET /todos [32m200 [0m4.084 ms - 165[0m
+[0mPOST / [33m404 [0m2.109 ms - 2[0m
+[0mGET /todos [36m304 [0m3.125 ms - -[0m
+[0mPUT /todos [33m404 [0m3.369 ms - 2[0m
+[0mPUT /todos [33m404 [0m2.854 ms - 2[0m
+[0mGET /todos [36m304 [0m4.679 ms - -[0m
+[0mPUT /todos [33m404 [0m4.890 ms - 2[0m
+[0mGET /todos [36m304 [0m3.308 ms - -[0m
+[0mGET /todos [36m304 [0m2.936 ms - -[0m
+[0mGET /todos [36m304 [0m3.227 ms - -[0m
+[0mGET /todos [36m304 [0m2.890 ms - -[0m
+[0mPUT /todos [33m404 [0m3.187 ms - 2[0m
+[0mPUT /todos [33m404 [0m3.603 ms - 2[0m
+[0mPUT /todos [33m404 [0m4.126 ms - 2[0m
+[0mPUT /todos [33m404 [0m3.104 ms - 2[0m
+[0mGET /todos [36m304 [0m4.306 ms - -[0m
+[0mPUT / [33m404 [0m1.859 ms - 2[0m
+[0mPUT / [33m404 [0m3.297 ms - 2[0m
+[0mPUT /todos [33m404 [0m3.513 ms - 2[0m
+[0mPUT /todos [33m404 [0m3.869 ms - 2[0m
+[0mPUT /todos [33m404 [0m2.794 ms - 2[0m
+[0mPUT /todos [33m404 [0m2.932 ms - 2[0m
+[0mDELETE /todos [33m404 [0m4.526 ms - 2[0m
+[0mDELETE /todos [33m404 [0m3.596 ms - 2[0m
+[0mPUT /todos [33m404 [0m5.218 ms - 2[0m
+[0mPUT /todos [33m404 [0m4.923 ms - 2[0m
