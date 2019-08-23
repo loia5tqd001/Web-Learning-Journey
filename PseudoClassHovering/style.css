@@ -22,6 +22,13 @@
 .thumbnail .icon {
     color: white;
     font-size: 60px;
+    transform: scale(0.5);
+    transition: all 0.25s;
+}
+
+.overlay:hover .icon {
+    transform: scale(0.8);
+    transition: all 0.25s;
 }
 
 .thumbnail .overlay {
@@ -31,6 +38,7 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.616);
     opacity: 0;
+    transition: all 0.25s;
 }
 
 .thumbnail .overlay:hover {
