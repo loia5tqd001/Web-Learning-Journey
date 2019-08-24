@@ -1,0 +1,48 @@
+:root {
+    --transition: all 0.2s;
+    --width: 320px;
+    --height: 176px;
+    --border-radius: calc(var(--height) * 0.5);
+}
+
+body {
+    background-color: #f3f3f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.switch {
+    -webkit-appearance: none;
+    width: var(--width);
+    height: var(--height);
+    background-color: #c6c6c6;
+    border-radius: var(--border-radius);
+    border: gray 1px solid;
+    outline: none;
+    position: relative;
+    transition: var(--transition);
+}
+
+.switch:checked {
+    background-color: mediumspringgreen;
+    border: mediumspringgreen 1px solid;
+}
+
+.switch:before {
+    content: '';
+    width: calc(var(--height) - 2px);
+    height: calc(var(--height) - 2px);
+    border-radius: var(--border-radius);
+    background-color: white;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    transition: var(--transition);
+    box-shadow: rgba(50,50,50,0.4) 0px 12px 20px -4px;
+}
+
+.switch:checked:before {
+    left: calc(var(--width) - var(--height));
+}
