@@ -1,2 +1,2 @@
 # Learn Web Development
-#### Each learning step is on each branch..
+#### Learning journeys are separately on folders..
