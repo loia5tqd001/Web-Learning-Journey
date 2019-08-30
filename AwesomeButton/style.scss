@@ -1,9 +1,9 @@
 // Custom:
-$ani-time: 2s;
-$color-primary: #0c002b;
-$color-secondary: #1779ff;
+$ani-time: 1.5s;
+$color-primary: #251352;
+$color-secondary: #317eeb;
 $size: 40px;
-$btn-shadow: 0 $size*0.5 $size*1.5 rgba(black,.5);
+$btn-shadow: 0 $size*0.6 $size*1.6 rgba(black,.5);
 $btn-padding: $size $size*2;
 
 // Common:
@@ -29,6 +29,7 @@ a {
     box-shadow: $btn-shadow;
     overflow: hidden;
 
+    // Half Left Part Of Button:
     &:before {
         content: '';
         position: absolute;
@@ -38,118 +39,46 @@ a {
         width: 50%;
         background: rgba(white, .05);
     }
-}
 
-
-// Custom for Spans In Button:
-// $custom-span: (
-//     1: (
-//         from: left,
-//         to: right,
-//         side: top,
-//         width: 100%,
-//         height: 2px,
-//         animation-delay: 0,
-//         keyframe: animate1,
-//     ),
-//     2: (
-//         from: top,
-//         to: bottom,
-//         side: right,
-//         width: 2px,
-//         height: 100%,
-//         animation-delay: $ani-time / 2,
-//         keyframe: animate2,
-//     ),
-//     3: (
-//         from: right,
-//         to: left,
-//         side: bottom,
-//         width: 100%,
-//         height: 2px,
-//         animation-delay: 0,
-//         keyframe: animate3,
-//     ),
-//     4: (
-//         from: bottom,
-//         to: top,
-//         side: left,
-//         width: 2px,
-//         height: 100%,
-//         animation-delay: $ani-time / 2,
-//         keyframe: animate4,
-//     )
-// );
-$custom-span-1: (
-    from: left,
-    to: right,
-    side: top,
-    width: 100%,
-    height: 2px,
-    animation-delay: 0,
-    keyframe: animate1,
-);
-$custom-span-2: (
-    from: top,
-    to: bottom,
-    side: right,
-    width: 2px,
-    height: 100%,
-    animation-delay: $ani-time / 2,
-    keyframe: animate2,
-);
-$custom-span-3: (
-    from: right,
-    to: left,
-    side: bottom,
-    width: 100%,
-    height: 2px,
-    animation-delay: 0,
-    keyframe: animate3,
-);
-$custom-span-4: (
-    from: bottom,
-    to: top,
-    side: left,
-    width: 2px,
-    height: 100%,
-    animation-delay: $ani-time / 2,
-    keyframe: animate4,
-);
-
-a span {
-    @function get($nth, $attr) {
-        @if($nth == 1) {
-            @return map-get($custom-span-1, $attr);
+    // 4 Edges Of Button:
+    span {
+        $custom-span: (
+            1: (from: left, to: right, side: top, width: 100%, height: 2px, animation-delay: 0),
+            2: (from: top, to: bottom, side: right, width: 2px, height: 100%, animation-delay: $ani-time / 2),
+            3: (from: right, to: left, side: bottom, width: 100%, height: 2px, animation-delay: 0),
+            4: (from: bottom, to: top, side: left, width: 2px, height: 100%, animation-delay: $ani-time / 2),
+        );
+        @function get-cust($nth, $attr) {
+            @return map-get(map-get($custom-span, $nth), $attr);
         }
-        @if($nth == 2) {
-            @return map-get($custom-span-2, $attr);
-        }
-        @if($nth == 3) {
-            @return map-get($custom-span-3, $attr);
-        }
-        @if($nth == 4) {
-            @return map-get($custom-span-4, $attr);
-        }
-    }
-    @mixin child-span($nth) {
-        &:nth-child(#{$nth}) {
-            position: absolute;
-            #{get($nth, side)}: 0;
-            #{get($nth, from)}: -100%;
-            width: get($nth, width);
-            height: get($nth, height);
-            background: linear-gradient(to get($nth, to), $color-primary, $color-secondary);
-            animation: get($nth, keyframe) $ani-time linear infinite;
-            animation-delay: get($nth, animation-delay);
-            @keyframes #{get($nth, keyframe)} {
-                0% { #{get($nth, from)}: -100%; }
-                100% { #{get($nth, from)}: 100%; }
+        @mixin child-span($nth) {
+            &:nth-child(#{$nth}) {
+                position: absolute;
+                #{get-cust($nth, side)}: 0;
+                #{get-cust($nth, from)}: -100%;
+                width: get-cust($nth, width);
+                height: get-cust($nth, height);
+                background: linear-gradient(to get-cust($nth, to), $color-primary, $color-secondary);
+                animation: animate#{$nth} $ani-time linear infinite;
+                animation-delay: get-cust($nth, animation-delay);
+                @keyframes animate#{$nth} {
+                    0% { #{get-cust($nth, from)}: -100%; }
+                    100% { #{get-cust($nth, from)}: 100%; }
+                }
             }
         }
+        @each $nth, $_ in $custom-span {
+            @include child-span($nth);
+        }
+
+        // @for $i from 1 through length($custom-span) {
+        //     @include child-span($i);
+        // }
+
+        // @include child-span(1);
+        // @include child-span(2);
+        // @include child-span(3);
+        // @include child-span(4);
     }
-    @include child-span(1);
-    @include child-span(2);
-    @include child-span(3);
-    @include child-span(4);
 }
+
