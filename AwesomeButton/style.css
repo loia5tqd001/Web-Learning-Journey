@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: #251352;
+  background: #4f4c58;
   font-family: sans-serif;
 }
 
@@ -11,10 +11,10 @@ a {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  color: #317eeb;
+  color: #c8c6ce;
   padding: 40px 80px;
   font-size: 40px;
-  letter-spacing: 2px;
+  letter-spacing: 2.66667px;
   text-transform: uppercase;
   text-decoration: none;
   -webkit-box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
@@ -25,9 +25,9 @@ a {
 a:before {
   content: '';
   position: absolute;
-  top: 2px;
-  left: 2px;
-  bottom: 2px;
+  top: 2.66667px;
+  left: 2.66667px;
+  bottom: 2.66667px;
   width: 50%;
   background: rgba(255, 255, 255, 0.05);
 }
@@ -37,9 +37,9 @@ a span:nth-child(1) {
   top: 0;
   left: -100%;
   width: 100%;
-  height: 2px;
-  background: -webkit-gradient(linear, left top, right top, from(#251352), to(#317eeb));
-  background: linear-gradient(to right, #251352, #317eeb);
+  height: 2.66667px;
+  background: -webkit-gradient(linear, left top, right top, from(#4f4c58), to(#c8c6ce));
+  background: linear-gradient(to right, #4f4c58, #c8c6ce);
   -webkit-animation: animate1 1.5s linear infinite;
           animation: animate1 1.5s linear infinite;
   -webkit-animation-delay: 0;
@@ -68,10 +68,10 @@ a span:nth-child(2) {
   position: absolute;
   right: 0;
   top: -100%;
-  width: 2px;
+  width: 2.66667px;
   height: 100%;
-  background: -webkit-gradient(linear, left top, left bottom, from(#251352), to(#317eeb));
-  background: linear-gradient(to bottom, #251352, #317eeb);
+  background: -webkit-gradient(linear, left top, left bottom, from(#4f4c58), to(#c8c6ce));
+  background: linear-gradient(to bottom, #4f4c58, #c8c6ce);
   -webkit-animation: animate2 1.5s linear infinite;
           animation: animate2 1.5s linear infinite;
   -webkit-animation-delay: 0.75s;
@@ -101,9 +101,9 @@ a span:nth-child(3) {
   bottom: 0;
   right: -100%;
   width: 100%;
-  height: 2px;
-  background: -webkit-gradient(linear, right top, left top, from(#251352), to(#317eeb));
-  background: linear-gradient(to left, #251352, #317eeb);
+  height: 2.66667px;
+  background: -webkit-gradient(linear, right top, left top, from(#4f4c58), to(#c8c6ce));
+  background: linear-gradient(to left, #4f4c58, #c8c6ce);
   -webkit-animation: animate3 1.5s linear infinite;
           animation: animate3 1.5s linear infinite;
   -webkit-animation-delay: 0;
@@ -132,10 +132,10 @@ a span:nth-child(4) {
   position: absolute;
   left: 0;
   bottom: -100%;
-  width: 2px;
+  width: 2.66667px;
   height: 100%;
-  background: -webkit-gradient(linear, left bottom, left top, from(#251352), to(#317eeb));
-  background: linear-gradient(to top, #251352, #317eeb);
+  background: -webkit-gradient(linear, left bottom, left top, from(#4f4c58), to(#c8c6ce));
+  background: linear-gradient(to top, #4f4c58, #c8c6ce);
   -webkit-animation: animate4 1.5s linear infinite;
           animation: animate4 1.5s linear infinite;
   -webkit-animation-delay: 0.75s;
