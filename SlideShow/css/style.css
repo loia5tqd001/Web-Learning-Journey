@@ -1,0 +1,217 @@
+* {
+  margin: 0;
+}
+
+.slideshow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 100vh;
+  background: #7f807d66;
+}
+
+.slideshow .content {
+  position: relative;
+  padding-top: 30vh;
+  width: 200px;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+}
+
+.content__carrousel {
+  width: 100%;
+  -webkit-animation: rotar 20s infinite linear;
+          animation: rotar 20s infinite linear;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+@-webkit-keyframes rotar {
+  from {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+  to {
+    -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
+  }
+}
+
+@keyframes rotar {
+  from {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+  to {
+    -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
+  }
+}
+
+.content__carrousel:hover {
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+  cursor: pointer;
+}
+
+.content__carrousel figure {
+  position: absolute;
+  width: 100%;
+  height: 120px;
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.content__carrousel figure:nth-child(1), .content__carrousel figure:nth-child(1):hover {
+  -webkit-transition: 300ms;
+  transition: 300ms;
+}
+
+.content__carrousel figure:nth-child(1) {
+  -webkit-transform: rotateY(0deg) translateZ(300px);
+          transform: rotateY(0deg) translateZ(300px);
+}
+
+.content__carrousel figure:nth-child(1):hover {
+  -webkit-transform: rotateY(0deg) translateZ(300px) scale(1.2);
+          transform: rotateY(0deg) translateZ(300px) scale(1.2);
+}
+
+.content__carrousel figure:nth-child(2), .content__carrousel figure:nth-child(2):hover {
+  -webkit-transition: 300ms;
+  transition: 300ms;
+}
+
+.content__carrousel figure:nth-child(2) {
+  -webkit-transform: rotateY(40deg) translateZ(300px);
+          transform: rotateY(40deg) translateZ(300px);
+}
+
+.content__carrousel figure:nth-child(2):hover {
+  -webkit-transform: rotateY(40deg) translateZ(300px) scale(1.2);
+          transform: rotateY(40deg) translateZ(300px) scale(1.2);
+}
+
+.content__carrousel figure:nth-child(3), .content__carrousel figure:nth-child(3):hover {
+  -webkit-transition: 300ms;
+  transition: 300ms;
+}
+
+.content__carrousel figure:nth-child(3) {
+  -webkit-transform: rotateY(80deg) translateZ(300px);
+          transform: rotateY(80deg) translateZ(300px);
+}
+
+.content__carrousel figure:nth-child(3):hover {
+  -webkit-transform: rotateY(80deg) translateZ(300px) scale(1.2);
+          transform: rotateY(80deg) translateZ(300px) scale(1.2);
+}
+
+.content__carrousel figure:nth-child(4), .content__carrousel figure:nth-child(4):hover {
+  -webkit-transition: 300ms;
+  transition: 300ms;
+}
+
+.content__carrousel figure:nth-child(4) {
+  -webkit-transform: rotateY(120deg) translateZ(300px);
+          transform: rotateY(120deg) translateZ(300px);
+}
+
+.content__carrousel figure:nth-child(4):hover {
+  -webkit-transform: rotateY(120deg) translateZ(300px) scale(1.2);
+          transform: rotateY(120deg) translateZ(300px) scale(1.2);
+}
+
+.content__carrousel figure:nth-child(5), .content__carrousel figure:nth-child(5):hover {
+  -webkit-transition: 300ms;
+  transition: 300ms;
+}
+
+.content__carrousel figure:nth-child(5) {
+  -webkit-transform: rotateY(160deg) translateZ(300px);
+          transform: rotateY(160deg) translateZ(300px);
+}
+
+.content__carrousel figure:nth-child(5):hover {
+  -webkit-transform: rotateY(160deg) translateZ(300px) scale(1.2);
+          transform: rotateY(160deg) translateZ(300px) scale(1.2);
+}
+
+.content__carrousel figure:nth-child(6), .content__carrousel figure:nth-child(6):hover {
+  -webkit-transition: 300ms;
+  transition: 300ms;
+}
+
+.content__carrousel figure:nth-child(6) {
+  -webkit-transform: rotateY(200deg) translateZ(300px);
+          transform: rotateY(200deg) translateZ(300px);
+}
+
+.content__carrousel figure:nth-child(6):hover {
+  -webkit-transform: rotateY(200deg) translateZ(300px) scale(1.2);
+          transform: rotateY(200deg) translateZ(300px) scale(1.2);
+}
+
+.content__carrousel figure:nth-child(7), .content__carrousel figure:nth-child(7):hover {
+  -webkit-transition: 300ms;
+  transition: 300ms;
+}
+
+.content__carrousel figure:nth-child(7) {
+  -webkit-transform: rotateY(240deg) translateZ(300px);
+          transform: rotateY(240deg) translateZ(300px);
+}
+
+.content__carrousel figure:nth-child(7):hover {
+  -webkit-transform: rotateY(240deg) translateZ(300px) scale(1.2);
+          transform: rotateY(240deg) translateZ(300px) scale(1.2);
+}
+
+.content__carrousel figure:nth-child(8), .content__carrousel figure:nth-child(8):hover {
+  -webkit-transition: 300ms;
+  transition: 300ms;
+}
+
+.content__carrousel figure:nth-child(8) {
+  -webkit-transform: rotateY(280deg) translateZ(300px);
+          transform: rotateY(280deg) translateZ(300px);
+}
+
+.content__carrousel figure:nth-child(8):hover {
+  -webkit-transform: rotateY(280deg) translateZ(300px) scale(1.2);
+          transform: rotateY(280deg) translateZ(300px) scale(1.2);
+}
+
+.content__carrousel figure:nth-child(9), .content__carrousel figure:nth-child(9):hover {
+  -webkit-transition: 300ms;
+  transition: 300ms;
+}
+
+.content__carrousel figure:nth-child(9) {
+  -webkit-transform: rotateY(320deg) translateZ(300px);
+          transform: rotateY(320deg) translateZ(300px);
+}
+
+.content__carrousel figure:nth-child(9):hover {
+  -webkit-transform: rotateY(320deg) translateZ(300px) scale(1.2);
+          transform: rotateY(320deg) translateZ(300px) scale(1.2);
+}
+
+.content__carrousel img {
+  width: 100%;
+  height: 100%;
+  image-rendering: optimizeQuality;
+  -webkit-transition: 300ms;
+  transition: 300ms;
+}
+/*# sourceMappingURL=style.css.map */
