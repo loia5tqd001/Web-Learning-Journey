@@ -1,0 +1,98 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css");
+@import url("https://fonts.googleapis.com/css?family=Chakra+Petch");
+body {
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #13022c 0%, #00a0c1 100%);
+  -webkit-filter: brightness(150%);
+          filter: brightness(150%);
+  font-family: 'Chakra Petch', sans-serif;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+h2#title {
+  color: #60c3d6;
+  font-size: 2.5rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-animation: animate-title 20s infinite;
+          animation: animate-title 20s infinite;
+}
+
+@-webkit-keyframes animate-title {
+  0%, 20%, 40%, 60%, 100% {
+    text-shadow: 0px 0px 10px rgba(3, 134, 162, 0.2);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    text-shadow: 0px 0px 10px rgba(3, 134, 162, 0.9);
+  }
+}
+
+@keyframes animate-title {
+  0%, 20%, 40%, 60%, 100% {
+    text-shadow: 0px 0px 10px rgba(3, 134, 162, 0.2);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    text-shadow: 0px 0px 10px rgba(3, 134, 162, 0.9);
+  }
+}
+
+ul.todolist, .add-bar {
+  border: 2px solid red;
+  border-radius: 10px;
+  background: linear-gradient(126deg, rgba(6, 24, 66, 0.6) 0%, rgba(3, 134, 162, 0.6) 100%);
+  -webkit-box-shadow: 0px 5px 35px #000;
+          box-shadow: 0px 5px 35px #000;
+  width: 450px;
+  padding: 0;
+}
+
+ul.todolist {
+  min-height: 400px;
+  list-style: none;
+  color: rgba(255, 255, 255, 0.8);
+  overflow: hidden;
+}
+
+ul.todolist li.todo-item {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  width: 100%;
+  min-height: 35px;
+  display: -ms-grid;
+  display: grid;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -ms-grid-columns: auto auto 1fr auto;
+      grid-template-columns: auto auto 1fr auto;
+}
+
+ul.todolist li.todo-item * {
+  margin: 5px 10px;
+}
+
+.add-bar {
+  min-height: 50px;
+  max-height: 100px;
+  height: 50px;
+}
+/*# sourceMappingURL=style.css.map */
