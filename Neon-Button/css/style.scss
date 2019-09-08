@@ -1,0 +1,77 @@
+// config color here
+$color--primary: #2196f3;
+$color--middle: darken($color--primary, 30%);
+$color--dark: darken($color--primary, 47%);
+
+// config size and speed for neon button here
+$size:             12px;
+$padding:          $size*1.5 $size*3;
+$border-thickness: $size*0.2;
+$letter-spacing:   $size*0.4;
+$font-size:        $size*4;
+$speed:            1000ms;
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: $color--dark;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+a {
+  position: relative;
+  display: inline-block;
+  padding: $padding;
+  color: $color--primary;
+  box-shadow: 0 0 $size*8 rgba(black, .6);
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing;
+  text-decoration: none;
+  font-size: $font-size;
+  overflow: hidden;
+  transition: $speed*.2;
+
+  &:hover {
+    color: $color--middle;
+    background: $color--primary;
+    box-shadow: 0 0 $size*1 0 $color--primary,
+                0 0 $size*4 0 $color--primary,
+                0 0 $size*8 0 $color--primary;
+    transition-delay: $speed;
+  }
+  span {
+    position: absolute;
+    display: block;
+  }
+
+  // configs for 4 spans here
+  $spans-map: (
+    1: (from: left, to: right, side: top, width: 100%, height: $border-thickness),
+    2: (from: top, to: bottom, side: right, width: $border-thickness, height: 100%),
+    3: (from: right, to: left, side: bottom, width: 100%, height: $border-thickness),
+    4: (from: bottom, to: top, side: left, width: $border-thickness, height: 100%),
+  );
+  @function get-attr($nth, $attr) {
+    @return map-get(map-get($spans-map, $nth), $attr);
+  }
+  @mixin custom-span($nth) {
+    span:nth-child(#{$nth}) {
+      #{get-attr($nth, side)}: 0;
+      #{get-attr($nth, from)}: -100%;
+      width: get-attr($nth, width);
+      height: get-attr($nth, height);
+      background: linear-gradient(to get-attr($nth, to), transparent, $color--primary);
+    }
+    &:hover span:nth-child(#{$nth}) {
+      #{get-attr($nth, from)}: 100%;
+      transition: $speed;
+      transition-delay: $speed * 0.25 * ($nth - 1);
+    }
+  }
+  @each $i, $_ in $spans-map {
+    @include custom-span($i);
+  }
+}

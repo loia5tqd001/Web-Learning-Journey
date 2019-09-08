@@ -1,0 +1,115 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 100vh;
+  background: #021422;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+a {
+  position: relative;
+  display: inline-block;
+  padding: 18px 36px;
+  color: #2196f3;
+  -webkit-box-shadow: 0 0 96px rgba(0, 0, 0, 0.6);
+          box-shadow: 0 0 96px rgba(0, 0, 0, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 4.8px;
+  text-decoration: none;
+  font-size: 48px;
+  overflow: hidden;
+  -webkit-transition: 200ms;
+  transition: 200ms;
+}
+
+a:hover {
+  color: #064475;
+  background: #2196f3;
+  -webkit-box-shadow: 0 0 12px 0 #2196f3, 0 0 48px 0 #2196f3, 0 0 96px 0 #2196f3;
+          box-shadow: 0 0 12px 0 #2196f3, 0 0 48px 0 #2196f3, 0 0 96px 0 #2196f3;
+  -webkit-transition-delay: 1000ms;
+          transition-delay: 1000ms;
+}
+
+a span {
+  position: absolute;
+  display: block;
+}
+
+a span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2.4px;
+  background: -webkit-gradient(linear, left top, right top, from(transparent), to(#2196f3));
+  background: linear-gradient(to right, transparent, #2196f3);
+}
+
+a:hover span:nth-child(1) {
+  left: 100%;
+  -webkit-transition: 1000ms;
+  transition: 1000ms;
+  -webkit-transition-delay: 0ms;
+          transition-delay: 0ms;
+}
+
+a span:nth-child(2) {
+  right: 0;
+  top: -100%;
+  width: 2.4px;
+  height: 100%;
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(#2196f3));
+  background: linear-gradient(to bottom, transparent, #2196f3);
+}
+
+a:hover span:nth-child(2) {
+  top: 100%;
+  -webkit-transition: 1000ms;
+  transition: 1000ms;
+  -webkit-transition-delay: 250ms;
+          transition-delay: 250ms;
+}
+
+a span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2.4px;
+  background: -webkit-gradient(linear, right top, left top, from(transparent), to(#2196f3));
+  background: linear-gradient(to left, transparent, #2196f3);
+}
+
+a:hover span:nth-child(3) {
+  right: 100%;
+  -webkit-transition: 1000ms;
+  transition: 1000ms;
+  -webkit-transition-delay: 500ms;
+          transition-delay: 500ms;
+}
+
+a span:nth-child(4) {
+  left: 0;
+  bottom: -100%;
+  width: 2.4px;
+  height: 100%;
+  background: -webkit-gradient(linear, left bottom, left top, from(transparent), to(#2196f3));
+  background: linear-gradient(to top, transparent, #2196f3);
+}
+
+a:hover span:nth-child(4) {
+  bottom: 100%;
+  -webkit-transition: 1000ms;
+  transition: 1000ms;
+  -webkit-transition-delay: 750ms;
+          transition-delay: 750ms;
+}
+/*# sourceMappingURL=style.css.map */
