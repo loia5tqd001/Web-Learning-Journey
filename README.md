@@ -1,2 +1,2 @@
 # Learn Web Development
-#### Learning journeys are separately on folders..
+#### Tiny projects are separated into folders..
