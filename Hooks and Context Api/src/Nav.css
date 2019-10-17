@@ -1,0 +1,9 @@
+.container {
+  height: 50;
+  background: #154313;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 10px;
+  color: white;
+}
