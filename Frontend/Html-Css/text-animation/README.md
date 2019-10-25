@@ -1,0 +1,3 @@
+# Text animation
+
+![](./record.gif)
