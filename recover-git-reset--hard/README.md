@@ -3,6 +3,7 @@
 I once accidentally typed
 ```git
 git init
+git add .
 git reset --hard
 ```
 and bump! all of my code gone. I was super panic, went all around stack overflow, googling,... but unfortunately, my repo was just initialized, had not have any history yet, so I can't just [`git reset --hard HEAD@{1}`](https://stackoverflow.com/a/5127681/9787887) to "undo reset --hard by a reset --hard".

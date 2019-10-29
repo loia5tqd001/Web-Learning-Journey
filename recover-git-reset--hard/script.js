@@ -11,7 +11,7 @@ const listKeyword = [
 
 main()
 async function main() {
-  const lostFolder = ".git/lost-found/other"
+  const lostFolder = "git/lost-found/other" // original worked is ".git/lost-found/other" (after git fsck --lost-found)
   const allLostFiles = await fs.readdir(lostFolder)
 
   await Promise.all(
