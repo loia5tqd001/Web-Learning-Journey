@@ -1,0 +1,50 @@
+
+import { StyleSheet, Dimensions } from 'react-native';
+
+const { width: winWidth, height: winHeight } = Dimensions.get('window');
+
+export default StyleSheet.create({
+  alignCenter: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  preview: {
+    height: winHeight*4/11,
+    width: winWidth,
+    position: 'absolute',
+    left: 0,
+    top: winHeight*3/11,
+  },
+  bottomToolbar: {
+    width: winWidth,
+    position: 'absolute',
+    height: 100,
+    bottom: '5%',
+  },
+  captureBtn: {
+    width: 75,
+    height: 75,
+    borderWidth: 2,
+    borderRadius: 60,
+    backgroundColor:'#000',
+    borderColor: "#000",
+    alignItems:"center",
+    justifyContent:'center',
+  },
+  captureBtnActive: {
+    width: 100,
+    height: 100,
+    backgroundColor: "red",
+    alignItems:"center",
+    justifyContent:'center',
+  },
+  cameraText: {
+    fontSize: 17,
+    fontWeight: '600',
+    color: '#444',
+    alignSelf: 'center',
+    position: "absolute",
+    top: winHeight*7/11 + 20,
+  },
+});

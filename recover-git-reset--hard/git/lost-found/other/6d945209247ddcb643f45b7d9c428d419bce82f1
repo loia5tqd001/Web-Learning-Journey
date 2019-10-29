@@ -1,0 +1,24 @@
+import { createStore, useStore } from "react-hookstore"
+
+const init = {
+  cameraRef: null,
+  frontIdUri: "",
+  backIdUri: "",
+  faceUri: ""
+}
+const CameraStore = createStore("camera-store", init, reducer)
+
+export const MERGE_STATE = "merge-state"
+
+function reducer(state, action) {
+  switch (action.type) {
+    case MERGE_STATE:
+      return { ...state, ...action.mergeState }
+
+    default:
+      return state
+  }
+}
+
+export default CameraStore
+export { useStore }

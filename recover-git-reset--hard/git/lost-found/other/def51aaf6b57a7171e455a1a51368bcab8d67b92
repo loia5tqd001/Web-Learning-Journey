@@ -1,0 +1,13 @@
+import CardFlip from 'react-native-card-flip';
+import {Image} from 'react-native'
+
+export default () => {
+    <CardFlip style={{width: 200, height: 120}} ref={(card) => this.card = card} >
+        <TouchableOpacity style={styles.card} onPress={() => this.card.flip()} >
+            <Image style={{width: "100%", height: "100%"}} />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.card} onPress={() => this.card.flip()} >
+            <Image style={{width: "100%", height: "100%"}} />
+        </TouchableOpacity>
+    </CardFlip>
+}
