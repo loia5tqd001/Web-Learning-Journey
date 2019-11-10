@@ -1,0 +1,16 @@
+.container {
+  background: var(--main-deep-dark);
+}
+
+.tabContent {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2rem;
+  align-items: center;
+  font-size: 2rem;
+  padding: 2.5rem;
+}
+
+img {
+  width: 32rem;
+}
