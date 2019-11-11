@@ -1,0 +1,11 @@
+{
+  "name": "rest-shop",
+  "version": "1.0.0",
+  "description": "A Node.js RESTful API tutorial project (build a simple shop API)",
+  "main": "index.js",
+  "author": "NHL",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
