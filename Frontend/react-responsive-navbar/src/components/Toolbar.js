@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from "styled-components"
-import media from "styled-media-query"
 import DrawerToggleButton from "./DrawerToggleButton"
 import { COLORS } from '../theme/colors'
+import { device } from '../media_query'
 
 const StyledHeader = styled.header`
   position: fixed;
@@ -27,10 +27,12 @@ const StyledHeader = styled.header`
     }
 
     &-item {
-      display: none;
-      ${media.greaterThan("medium")`
+      @media ${device.mobile} {
+        display: none;
+      }
+      @media ${device.desktop} {
         display: inline-block;
-      `}
+      }
     }
 
     &-item ul {

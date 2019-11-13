@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from "styled-components";
-import media from 'styled-media-query'
+import { device } from '../media_query'
 
 const HamburgerButton = styled.button`
   display: flex;
@@ -17,9 +17,9 @@ const HamburgerButton = styled.button`
     outline: none;
   }
 
-  ${media.greaterThan('medium')`
+  @media ${device.desktop} {
     display: none;
-  `}
+  }
 
   .__line {
     width: 30px;
