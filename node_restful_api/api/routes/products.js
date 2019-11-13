@@ -1,6 +1,5 @@
 const express = require('express')
 const router = express.Router()
-module.exports = router
 
 router.get('/', (req, res, next) => {
   res.status(200).json({
@@ -9,10 +8,14 @@ router.get('/', (req, res, next) => {
   })
 })
 
-router.post('/:products', (req, res, next) => {
-  const { products } = req.params
+router.post('/', (req, res, next) => {
+  const product = {
+    name: req.body.name,
+    price: req.body.price
+  }
   res.status(201).json({
-    message: 'Added products ' + products
+    message: 'Added product',
+    product
   })
 })
 
@@ -40,3 +43,5 @@ router.delete('/:productId', (req, res, next) => {
     message: 'Deleted product with id of ' + productId
   })
 })
+
+module.exports = router;

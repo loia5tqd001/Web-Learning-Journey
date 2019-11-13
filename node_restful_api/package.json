@@ -3,9 +3,16 @@
   "version": "1.0.0",
   "description": "A Node.js RESTful API tutorial project (build a simple shop API)",
   "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
   "author": "NHL",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
   }
 }
