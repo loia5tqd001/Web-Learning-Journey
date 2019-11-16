@@ -1,9 +1,18 @@
 const express = require('express')
 const app = express()
 const morgan = require('morgan')
+const mongoose = require('mongoose')
 
 const productRoutes = require('./api/routes/products') 
 const orderRoutes = require('./api/routes/orders')
+
+mongoose.connect(
+  `mongodb+srv://loia5tqd001:${process.env.MONGO_ATLAT_PW}@cluster0-b0m35.mongodb.net/test?retryWrites=true&w=majority`,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  }
+);
 
 app.use(morgan('dev')) // for logging
 app.use(express.json()) // for body-parsing //https://medium.com/@mmajdanski/express-body-parser-and-why-may-not-need-it-335803cd048c
