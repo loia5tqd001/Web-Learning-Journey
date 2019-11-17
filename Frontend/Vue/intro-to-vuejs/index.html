@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Product App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  
+  <div id="app">
+    <div class="nav-bar">
+      {{ cart.map(x => x.color) }}
+    </div>
+    
+    <div class="cart">
+      <p class="cart-info" :class="{ emptyCart: cart === 0 }">
+        Cart({{ cart.length }})
+      </p>
+      <button class="btn-remove" @click="removeFromCart" :disabled="!cart.length">Remove one</button>
+    </div>
+
+    <product :premium="premium" :cart="cart" @add-to-cart="addToCart"/>
+    
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="main.js"></script>
+  
+</body>
+</html>
