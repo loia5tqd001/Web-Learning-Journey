@@ -1,3 +1,5 @@
+// Challange: Find all toys that are wished but not available. Do not duplicate
+
 var availableToys = [
   { name: 'PX4', color: 'red' },
   { name: 'ABC', color: 'white' },
@@ -37,4 +39,24 @@ function process(availableToys, wishes) {
   return result
 }
 
+function process2(availableToys, wishes) {
+  // filter wishes that can't be found in available list
+  var result = wishes.filter(function(wish) {
+    return availableToys.find(function(avai) {
+      return JSON.stringify(avai) === JSON.stringify(wish)
+    })
+  })
+
+  // remove duplicate
+  result = result.filter(function(el) {
+    return el !== result.find(function(el2) {
+      return JSON.stringify(el2) === JSON.stringify(el)
+    })
+  })
+
+  return result
+}
+
+console.log('Expected: ', result)
 console.log(process(availableToys, wishes))
+console.log(process2(availableToys, wishes))
