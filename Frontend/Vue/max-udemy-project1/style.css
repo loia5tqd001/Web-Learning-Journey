@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+body { 
+  font-family: 'Montserrat', sans-serif; 
+  height: 90vh;
+}
+
+#app {
+  max-width: 1000px;
+  height: 100%;
+  margin: 30px auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: min-content min-content 1fr;
+  grid-template-areas: 
+    'you monster'
+    'buttons buttons'
+    'logs logs';
+  grid-gap: 20px;
+}
+.you { grid-area: you; }
+.monster { grid-area: monster; }
+.buttons { grid-area: buttons; }
+.logs { grid-area: logs; }
+
+.status {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;;
+}
+.name {
+  text-align: center;
+  font-weight: bold;
+}
+.health-bar {
+  position: relative;
+  width: 400px;
+  max-width: 80%;
+  height: 50px;
+  background: #ccc;
+  margin: 0 auto;
+}
+.--remain {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: #3C77E8;
+  transition: width .3s;
+}
+.health-number {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+
+.card {
+  box-shadow: 2px 4px 5px rgba(0, 0, 0, .2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80px;
+  padding: 30px 0;
+}
+
+.btn {
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, .6);
+  margin: 0 10px;
+  padding: 10px 20px;
+  background: #D94FFF;
+  font-weight: bold;
+  outline: none;
+  transition: filter .1s, transform .05s, box-shadow .05s;
+}
+.btn:hover {
+  filter: brightness(1.1);
+}
+.btn:active {
+  transform: translateY(1px);
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, .6);
+  user-select: none;
+}
+.btn:disabled {
+  opacity: 1;
+}
+.btn.--red { background: #E85F3C; }
+.btn.--orange { background: #FFCD42; } 
+.btn.--green { background: #2DFF9D; }
+.btn.--blue { background: #3C77E8; }
+
+.log {
+  width: 70%;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 4px;
+  margin: 4px;
+  font-weight: bold;
+}
+.log.--monster {
+  background: #FF8642;
+  color: #EB0013;
+}
+.log.--player {
+  background: #2EB1FF;
+  color: #483CE8;
+}
+.log.--player.--healing {
+  color: white;
+}

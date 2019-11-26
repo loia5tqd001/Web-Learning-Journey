@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Monster Slayer</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="app">
+
+    <health-status
+      classname="you"
+      label="YOU"
+      :health="yourHealth"
+      :isattacked="isYouAttacked"
+      :ishealing="isYouHealing"
+      :roundtime="ROUND_TIME"
+      ></health-status>
+      <health-status
+      classname="monster"
+      label="MONSTER"
+      :health="monsterHealth"
+      :isattacked="isMonsterAttacked"
+      :roundtime="ROUND_TIME"
+    ></health-status>
+
+    <div class="card buttons">
+      <template v-if="!isPlaying">
+        <button class="btn" @click="startGame">START NEW GAME</button>
+      </template>
+
+      <template v-else>
+        <div class="btn-wrapper">
+          <button :disabled="isAttacking" @click="onAttack" class="btn --red">ATTACK</button>
+          <button :disabled="isAttacking" @click="onSpecialAttack" class="btn --orange">SPECIAL ATTACK</button>
+          <button :disabled="isAttacking" @click="onHealing" class="btn --green">HEAL</button>
+          <button :disabled="isAttacking" @click="giveUp" class="btn --blue">GIVE UP</button>
+        </div>
+      </template>
+    </div>
+
+    <div v-show="logs.length" class="logs">
+      <div class="card">
+        <p v-for="log in logs" class="log" :class="log.className">{{ log.text }}</p>
+      </div>
+    </div>    
+
+  </div>
+  
+  <script src="./app.js"></script>
+</body>
+</html>
