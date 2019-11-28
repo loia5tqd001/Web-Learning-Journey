@@ -3,7 +3,7 @@
     <div class="holder">
 
       <ValidationObserver ref="observer" tag="form" @submit.prevent="addSkill">
-        <ValidationProvider name="Skill" rules="min:5" v-slot="{ errors }">
+        <ValidationProvider name="Skill" rules="min:5" #default="{ errors }">
           <input v-model="skill" type="text" placeholder="Enter a skill that you have.."/>
           <transition name="alert-in" enter-active-class="animated shake" leave-active-class="animated flipOutX">
             <span class="alert" v-if="errors[0]">{{ errors[0] }}</span>
@@ -27,8 +27,14 @@
 
 
 <script>
+import { ValidationProvider, ValidationObserver } from 'vee-validate/dist/vee-validate.full'
+
 export default {
   name: 'Skills',
+  components: {
+    ValidationProvider,
+    ValidationObserver,
+  },
   data() {
     return {
       skills: [
