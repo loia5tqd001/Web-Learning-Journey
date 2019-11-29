@@ -3,8 +3,8 @@
     <div class="holder">
 
       <ValidationObserver ref="observer" tag="form" @submit.prevent="addSkill">
-        <ValidationProvider name="Skill" rules="min:5" #default="{ errors }">
-          <input v-model="skill" type="text" placeholder="Enter a skill that you have.."/>
+        <ValidationProvider name="Skill" rules="min:5|required" #default="{ errors }">
+          <input v-model.lazy="skill" type="text" placeholder="Enter a skill that you have.."/>
           <transition name="alert-in" enter-active-class="animated shake" leave-active-class="animated flipOutX">
             <span class="alert" v-if="errors[0]">{{ errors[0] }}</span>
           </transition>
@@ -48,9 +48,11 @@ export default {
   },
   methods: {
     async addSkill() {
-      const isValid = await this.$refs.observer.validate();
+      const validator = this.$refs.observer
+      const isValid = await validator.validate()
       if (isValid) {
         this.skills.push({ skill: this.skill })
+        validator.reset()
         this.skill = ''
       }
     },
