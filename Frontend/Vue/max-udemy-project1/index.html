@@ -46,9 +46,9 @@
     </div>
 
     <div v-show="logs.length" class="logs">
-      <div class="card">
-        <p v-for="log in logs" class="log" :class="log.className">{{ log.text }}</p>
-      </div>
+      <transition-group name="pulse" tag="div" class="card">
+        <p v-for="(log, id) in logs" :key="logs.length-id" class="log" :class="log.className">{{ log.text }}</p>
+      </transition-group>
     </div>    
 
   </div>
