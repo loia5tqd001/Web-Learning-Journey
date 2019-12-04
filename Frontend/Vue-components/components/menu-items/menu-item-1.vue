@@ -34,7 +34,6 @@ module.exports = {
     padding: 0;
   }
   nav {
-    font-family: 'Montserrat', sans-serif;
     background: var(--colors--background);
     font-size: var(--font-size);
     width: var(--width);
