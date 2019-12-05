@@ -17,13 +17,18 @@
     </div>
     <div class="about">
       <h1>Hello!</h1><br>
-      <p>I'm Nguyen Huynh Loi, currently a junior student at the University of Information Technology. I'm learning VueJS and looking for opportunities to do the jobs require (or prefer) that technology. </p>
+      <p>I'm Nguyen Huynh Loi, currently a junior student at <link-1 href="https://en.uit.edu.vn/">the University of Information Technology</link-1>. I'm learning VueJS and looking for opportunities to do the jobs require (or prefer) that technology. </p>
     </div>
   </div>
 </template>
 
 <script>
+// import Link1 from '../misc/link-1'
+
 module.exports = {
+  components: {
+    'link-1': httpVueLoader('../misc/link-1.vue'),
+  },
   data() {
     return {
       name: 'Nguyen Huynh Loi',
@@ -46,7 +51,7 @@ module.exports = {
     --hover-color: #f43772;
     --compliment-hover-color: #37cfd7;
     --background-color: #333;
-    --width: 260px;
+    --width: 360px;
     --avatar-size: 220px;
   }
   .container {
@@ -60,7 +65,8 @@ module.exports = {
     align-items: center;
     width: var(--width);
     padding: 40px 15px 10px;
-    border: 4px solid #ebebeb;
+    border: 4px solid #fff;
+    /* border: 4px solid #ebebeb; */
   }
   .card img {
     border: 10px solid #f8f8f8;
@@ -113,6 +119,17 @@ module.exports = {
     background-color: var(--hover-color);
   }
 
+  .card img,
+  .card .info .name,
+  .card .divider {
+    transition: transform .3s ease;
+  }
+  .card:hover img,
+  .card:hover .info .name,
+  .card:hover .divider {
+    transform: translate(0, -2px);
+  }
+
   .divider {
     transition: border-color .3s ease;
   }
@@ -148,7 +165,7 @@ module.exports = {
     padding: 2em;
   }
   .about {
-    border-left: 5px solid #ebebeb;
+    border-left: 5px solid #fff;
   }
 
 </style>

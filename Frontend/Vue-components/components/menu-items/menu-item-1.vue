@@ -27,8 +27,8 @@ module.exports = {
     --font-size: 20px;
     --time-animation: .3s;
     --colors--background: #333;
-    --colors--nav--normal: #aaa;
-    --colors--nav--hover: #eee;
+    --colors--nav--normal: #eee;
+    --colors--nav--hover: #f43772;
 
     margin: 0;
     padding: 0;
@@ -38,6 +38,9 @@ module.exports = {
     font-size: var(--font-size);
     width: var(--width);
     padding: .3em;
+    position: sticky;
+    top: 0;
+    border: 10px solid white;
   }
   ul {
     display: flex;
