@@ -24,7 +24,6 @@ module.exports = {
     --minus-translate: calc(var(--translate) * -1);
   }
   a {
-    display: inline-block;
     color: white;
     text-decoration: none;
     transition: .3s;
@@ -32,6 +31,11 @@ module.exports = {
   a:hover {
     text-shadow: var(--minus-translate) var(--translate) 0 #f43772;
     transform: translate(var(--translate), var(--minus-translate));
+  }
+  @media (min-width: 992px) {
+    a {
+      display: inline-block;
+    }
   }
 
 </style>

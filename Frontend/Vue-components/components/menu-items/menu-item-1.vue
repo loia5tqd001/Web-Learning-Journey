@@ -40,6 +40,7 @@ module.exports = {
     padding: .3em;
     position: sticky;
     top: 0;
+    z-index: 10;
     border: 10px solid white;
   }
   ul {
