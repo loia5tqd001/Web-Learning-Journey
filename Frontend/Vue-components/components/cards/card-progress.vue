@@ -7,7 +7,10 @@
       </svg>
       <h2>{{percent}}<span>%</span></h2>
     </div>
-    <h2 class="text">{{skill}}</h2> 
+    <div class="text">
+      <h2>{{skill}}</h2> 
+      <h2>{{skill}}</h2> 
+    </div>
   </div>
 </template>
 
@@ -38,7 +41,7 @@ module.exports = {
       return {
         cx: '50%',
         cy: '50%',
-        r: +((100 - this.strokeWidth) / 2) + '%',
+        r: ((100 - this.strokeWidth) / 2) + '%',
         'stroke-width': this.strokeWidth + '%'
       }
     },
@@ -54,9 +57,9 @@ module.exports = {
 
 <style scoped>
   * {
-    --width: 250px;
-    --height: 300px;
-    --circle-width: 150px;
+    --width: 15rem;
+    --height: 18rem;
+    --circle-width: 9rem;
     --color1: #1b1b1b;
     --color2: #222;
     --text-color: #777;
@@ -112,6 +115,7 @@ module.exports = {
     position: absolute;
     width: 100%;
     height: 100%;
+    transform: scaleX(-1) rotate(-90deg);
   }
   .percent svg circle {
     fill: none;
@@ -120,6 +124,16 @@ module.exports = {
   .percent svg circle:nth-child(1) {
     stroke: var(--color1);
   }
+  .card:hover .percent svg circle:nth-child(2) {
+    transform-origin: 50% 50%;
+    animation: spinPulse .4s ease-in-out;
+  }
+  @keyframes spinPulse {
+    0% { transform:rotate(-30deg); opacity:1;}
+    50% { transform:rotate(180deg); opacity:0; }
+    100% { transform:rotate(360deg); opacity:1; }
+  }
+
   .percent h2 {
     color: var(--text-color);
     font-weight: 700;
@@ -136,6 +150,12 @@ module.exports = {
   }
 
   .text {
+    margin-top: 1rem;
+    height: 1.4rem;
+    overflow: hidden;
+  }
+  .text h2 {
+    margin: 0;
     color: var(--text-color);
     font-weight: 700;
     font-size: 1.2rem;
@@ -144,9 +164,12 @@ module.exports = {
     transition: color var(--transition-time),
                 transform var(--transition-time);
   }
-  .card:hover .text {
+  .card:hover .text h2 {
     color: var(--text-color-hover);
-    transform: var(--translateY);
+    transform: translateY(-100%);
+  }
+  .card:hover .text h2:nth-child(1) {
+    transform: translateY(-1000%);
   }
 
 </style>

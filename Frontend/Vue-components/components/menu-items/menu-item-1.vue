@@ -15,7 +15,7 @@
 module.exports = {
   data() {
     return {
-      navs: [ 'Home', 'About', 'Services', 'Portfolio', 'Team', 'Contact' ]
+      navs: [ 'Home', 'About', 'Skills', 'Projects', 'Misc', 'Contact' ]
     }
   }
 }
@@ -36,6 +36,7 @@ module.exports = {
   nav {
     background: var(--colors--background);
     font-size: var(--font-size);
+    min-width: 700px;
     width: var(--width);
     padding: .3em;
     position: sticky;

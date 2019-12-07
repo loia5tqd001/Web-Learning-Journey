@@ -7,11 +7,11 @@
         <div class="divider"></div>
         <span class="title">{{ title }}</span>
         <ul class="socials">        
-          <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-          <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-          <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-          <li><a href="#"><i class="fab fa-google-plus"></i></a></li>
-          <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+          <li title="Facebook"><a target="_blank" href="https://www.facebook.com/loia5tqd001"><i class="fab fa-facebook"></i></a></li>
+          <li title="Linkedin"><a target="_blank" href="https://www.linkedin.com/in/loia5tqd001"><i class="fab fa-linkedin"></i></a></li>
+          <li title="Youtube"><a target="_blank" href="https://www.youtube.com/channel/UCon9VN0fA7ezNQLc-mheUvA"><i class="fab fa-youtube"></i></a></li>
+          <li title="Github"><a target="_blank" href="https://www.github.com/loia5tqd001"><i class="fab fa-github"></i></a></li>
+          <li title="Stackoverflow"><a target="_blank" href="https://www.stackoverflow.com/users/9787887"><i class="fab fa-stack-overflow"></i></a></li>
         </ul>
       </div>
     </div>
@@ -51,8 +51,8 @@ module.exports = {
     --hover-color: #f43772;
     --compliment-hover-color: #37cfd7;
     --background-color: #333;
-    --width: 360px;
-    --avatar-size: 220px;
+    --width: 25rem;
+    --avatar-size: 15rem;
   }
   .container {
     background-color: var(--background-color);
@@ -66,7 +66,6 @@ module.exports = {
     width: var(--width);
     padding: 40px 15px 10px;
     border: 4px solid #fff;
-    /* border: 4px solid #ebebeb; */
   }
   .card img {
     border: 10px solid #f8f8f8;
