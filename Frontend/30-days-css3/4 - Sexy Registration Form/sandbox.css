@@ -1,0 +1,105 @@
+.register-wrapper {
+  height: 100%;
+  background: linear-gradient(135deg, #5bf0f0, #40aaac);
+  padding: 100px;
+  color: #999;
+  position: relative;
+  z-index: 0;
+}
+
+.register-block {
+  background: white;
+  border-radius: 5px;
+  -webkit-box-shadow: 2px 4px 3rem 5px #0003;
+          box-shadow: 2px 4px 3rem 5px #0003;
+  padding: 2rem;
+  width: 15rem;
+  margin: auto;
+  position: relative;
+}
+
+.register-block .register-title {
+  border-bottom: 1px dashed #ccc;
+  padding-bottom: 1.5rem;
+  margin: 0;
+}
+
+.register-block p {
+  font-size: 1rem;
+}
+
+.register-block form {
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 1rem;
+}
+
+.register-block form input {
+  width: 100%;
+  border-radius: 5px;
+  padding: 1rem;
+  font-size: 1rem;
+  outline: none;
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-bottom-width: 3px;
+  -webkit-transition: border-bottom-color .5s ease;
+  transition: border-bottom-color .5s ease;
+}
+
+.register-block form input:active, .register-block form input:focus {
+  border-bottom-color: #bbb;
+}
+
+.register-block form input[type="submit"] {
+  cursor: pointer;
+  font-weight: 300;
+  color: white;
+  background: #f24b5b;
+  border-color: #f24b5b;
+  -webkit-transition: background .3s ease;
+  transition: background .3s ease;
+  background-size: 1.2rem 1.2rem;
+  background-image: linear-gradient(45deg, #fff0, #fff0 25%, #fff3 25%, #fff3 50%, #fff0 50%, #fff0 75%, #fff3 75%, #fff3 100%);
+}
+
+.register-block form input[type="submit"]:hover {
+  background-size: 3rem 3rem;
+  background-image: linear-gradient(45deg, #fff0, #fff0 25%, #fff3 25%, #fff3 50%, #fff0 50%, #fff0 75%, #fff3 75%, #fff3 100%);
+  background-position: -50px -10px;
+}
+
+.register-block::before, .register-block::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  height: 50%;
+  background: #eee;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  -webkit-transition: bottom .3s ease;
+  transition: bottom .3s ease;
+}
+
+.register-block::before {
+  left: 1rem;
+  right: 1rem;
+  bottom: .5rem;
+}
+
+.register-block::after {
+  left: .5rem;
+  right: .5rem;
+  bottom: .5rem;
+}
+
+.register-block:hover::before {
+  bottom: -1rem;
+}
+
+.register-block:hover::after {
+  bottom: -.5rem;
+}
+/*# sourceMappingURL=sandbox.css.map */
