@@ -1,0 +1,28 @@
+/* ========================================
+
+    CODE YOUR STYLES BELOW!
+
+   ====================================== */
+
+img {
+  transition: filter .3s;
+} 
+img:hover {
+  filter: none;
+}
+
+.grayscale {
+  filter: grayscale(100%);
+}
+.blur {
+  filter: blur(4px);
+}
+.invert {
+  filter: invert(100%);
+}
+.sepia {
+  filter: sepia(60%);
+}
+.saturate {
+  filter: saturate(0%);
+}
