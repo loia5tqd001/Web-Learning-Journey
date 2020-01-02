@@ -1,0 +1,17 @@
+.sandbox {
+  width: 60%;
+  margin: 0 auto 40px 9rem;
+}
+
+.sticky-sidebar {
+  position: fixed;
+  top: 10rem;
+  bottom: 10rem;
+  right: 5rem;;
+  background: #e7eef1;
+  padding: 0 4rem;
+  border-radius: 5px;
+  box-shadow: 0 1.5rem 0 -1rem #ecaeba;
+  display: grid;
+  align-items: center;
+}
