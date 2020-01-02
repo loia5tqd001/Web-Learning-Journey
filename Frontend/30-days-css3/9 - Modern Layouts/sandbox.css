@@ -1,0 +1,119 @@
+.sandbox header {
+  grid-area: header;
+  margin: 0;
+}
+.sandbox article {
+  grid-area: article;
+  margin: 0;
+}
+.sandbox aside {
+  grid-area: aside;
+  margin: 0;
+}
+.sandbox footer {
+  grid-area: footer;
+  margin: 0;
+}
+.sandbox nav {
+  margin: 0;
+}
+
+
+.layout1 {
+  display: grid;
+  grid-template-columns: 6fr 4fr;
+  grid-gap: 20px;
+  align-items: start;
+  grid-template-areas: 
+    '. .'
+    'header header'
+    'article article'
+    'aside aside'
+    'footer footer'
+    ;
+}
+@media screen and ( min-width: 768px ) {
+  .layout1 {
+    grid-template-areas: 
+      '. .'
+      'header header'
+      'article aside'
+      'footer footer'
+      ;
+  }
+}
+
+
+.layout2 aside:first-of-type {
+  grid-area: left-aside;
+  align-self: stretch;
+}
+.layout2 aside:last-of-type {
+  grid-area: right-aside;
+}
+.layout2 {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-gap: 20px;
+  align-items: start;
+  grid-template-areas: 
+    '. . .'
+    'header header header'
+    'left-aside left-aside left-aside'
+    'article article article'
+    'right-aside right-aside right-aside'
+    'footer footer footer'
+    ;
+}
+@media screen and ( min-width: 768px ) {
+  .layout2 {
+    grid-template-areas: 
+      '. . .'
+      'header header header'
+      'left-aside article right-aside'
+      'footer footer footer'
+      ;
+  }
+  .layout2 header {
+    display: grid;
+    grid-template-columns: 2fr 8fr;
+    grid-column-gap: 20px;
+    align-items: stretch;
+  }
+  .layout2 header > * {
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  
+  }
+}
+
+
+.layout3 header {
+  margin: 0 0 2%;
+}
+.layout3 {
+  display: flex;
+  flex-direction: column;
+}
+@media screen and ( min-width: 768px ) {
+  .layout3 header {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  .layout3 header nav {
+    flex: 8;
+  }
+  .layout3 header .logo {
+    flex: 2;
+    margin: 0 0 0 2%;
+  }
+  .layout3 .articles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2%;
+  }
+  .layout3 .articles article {
+    grid-area: auto;
+  }
+}
