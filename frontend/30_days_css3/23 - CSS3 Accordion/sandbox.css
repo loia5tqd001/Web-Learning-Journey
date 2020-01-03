@@ -1,0 +1,29 @@
+.accordion {
+  background: white;
+}
+
+.accordion .accordion__title {
+  background: #3ea9aa;
+  color: white;
+  display: block;
+  padding: .5em;
+  box-shadow: 
+    inset 0 2px #fff7,
+    inset 0 -1px #0001,
+    0 4px 0 #338A94, 
+    0 4px 2px #0007
+  ;
+}
+
+.accordion .accordion__content {
+  height: 0;
+  overflow: hidden;
+}
+.accordion .accordion__content p {
+  padding: 1.5em;
+  margin: 0;
+}
+
+.accordion .accordion__content:target {
+  height: auto;
+}
