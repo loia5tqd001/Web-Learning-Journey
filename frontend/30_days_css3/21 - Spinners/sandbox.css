@@ -1,0 +1,73 @@
+.spinner-1 {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  box-shadow: inset -3px 0 0 3px currentColor;
+  clip-path: inset(0 0 32px 0);
+  animation: rotate-clockwise 1s linear infinite;
+  position: relative;
+}
+@keyframes rotate-clockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.spinner-2 {
+  --size: .6em;
+
+  margin: 2em;
+  position: relative;
+  animation: rotate-counter-clockwise 1s linear infinite;
+}
+.spinner-2,
+.spinner-2::before,
+.spinner-2::after {
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background: currentColor;
+}
+.spinner-2::before,
+.spinner-2::after {
+  content: '';
+  position: absolute;
+  top: 0;
+}
+.spinner-2::before {
+  right: 200%;
+  animation: orbit-left 1s linear infinite;
+
+}
+.spinner-2::after {
+  left: 200%;
+  animation: orbit-right 1s linear infinite;
+}
+@keyframes rotate-counter-clockwise {
+  0%, 50% {
+    transform: rotate(0deg);
+  }
+  50%, 100% {
+    transform: rotate(-360deg);
+  }
+}
+@keyframes orbit-left {
+  25% {
+    right: 250%;
+  }
+  0%, 50%, 100% {
+    right: 200%;
+  }
+}
+@keyframes orbit-right {
+  25% {
+    left: 250%;
+  }
+  0%, 50%, 100% {
+    left: 200%;
+  }
+}
