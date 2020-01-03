@@ -1,0 +1,307 @@
+.facebook-style-btn {
+  font-size: .9rem;
+  border-radius: 2px;
+  padding: 6px 12px;
+
+  @mixin themify($bg-color, $fg-color, $bd-color, $darken) {
+    background: $bg-color;
+    color: $fg-color;
+    border: 1px solid $bd-color;
+    
+    &:hover {
+      background: darken($bg-color, $darken);
+    }
+    &:active {
+      background: darken($bg-color, 10%);
+      border-color: darken($bg-color, $darken);
+    }
+  }
+
+  &.facebook-style-dark {
+    $-bg-color: #4267b2;
+    $-fg-color: #fff;
+    $-bd-color: $-bg-color;
+    @include themify($-bg-color, $-fg-color, $-bd-color, 8%)
+  }
+
+  &.facebook-style-light {
+    $-bg-color: #f6f7f9;
+    $-fg-color: #4b4f56;
+    $-bd-color: darken($-bg-color, 20%);
+    @include themify($-bg-color, $-fg-color, $-bd-color, 4%)
+  }
+}
+
+.btn-3d-1 {
+  $shadow-color: darken(orangered, 15%);
+
+  padding: 1rem 2rem;
+  font-size: 1.4rem;
+  background: orangered;
+  border: none;
+  color: white;
+  box-shadow: -6px 6px 0 0 $shadow-color;
+  outline: none;
+  position: relative;
+  
+  &::before,
+  &::after {
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 0;
+  }
+  &::before {
+    left: -6px;
+    top: 0;
+    border: 3px solid $shadow-color;
+    border-top: 3px solid #0000;
+    border-left: 3px solid #0000;
+  } 
+  &::after {
+    right: 0;
+    bottom: -6px;
+    border: 3px solid $shadow-color;
+    border-right: 3px solid #0000;
+    border-bottom: 3px solid #0000;
+  } 
+  
+  &:hover {
+    background: darken(orangered, 5%);
+  }
+  &:active {
+    left: -3px;
+    bottom: -3px;
+    box-shadow: -3px 3px 0 0 darken(orangered, 15%);
+    background: darken(orangered, 10%);
+
+    &::before,
+    &::after {
+      border-width: 1.5px;
+    }
+    &:before {
+      left: -3px;
+    }
+    &:after {
+      bottom: -3px;
+    }
+  }
+}
+
+.btn-3d-2 {
+  font-size: 1.4rem;
+  border-radius: 50%;
+  width: 7rem;
+  height: 7rem;
+  color: white;
+  background: radial-gradient(darken(yellow, 2%), darken(yellow, 18%));
+  border: 1px solid gray;
+  outline: none;
+  text-shadow: 1px -1px 0 darken(yellow, 10%);
+  box-shadow: inset 0 1px 0 yellow,
+              0 1px 0 0 darken(yellow, 20%),
+              0 2px 0 0 darken(yellow, 25%),
+              0 3px 0 0 darken(yellow, 29%),
+              0 4px 0 0 darken(yellow, 32%),
+              0 6px 0 0 darken(yellow, 34%),
+              0 7px 0 0 darken(yellow, 35%),
+              0 8px 0 0 darken(yellow, 37%),
+              0 9px 0 0 darken(yellow, 38%),
+              0 10px 0 0 darken(yellow, 39%);
+  &:hover {
+    filter: brightness(90%);
+  }
+  &:active {
+    filter: brightness(85%);
+    transform: translateY(3px);
+    box-shadow: inset 0 1px 0 yellow,
+                0 1px 0 0 darken(yellow, 20%),
+                0 2px 0 0 darken(yellow, 25%),
+                0 3px 0 0 darken(yellow, 29%),
+                0 4px 0 0 darken(yellow, 32%),
+                0 6px 0 0 darken(yellow, 34%),
+                0 7px 0 0 darken(yellow, 35%);
+  }
+}
+
+.gradient-button-1,
+.gradient-button-2 {
+  font-size: 1.4rem;
+  padding: 1.2rem 2rem;
+  box-sizing: border-box;
+  outline: none;
+  background: transparent;
+  transition: color .2s ease-in-out,
+  background .2s ease-in-out;
+  
+  
+}
+
+.gradient-button-1 {
+  color: orangered;
+  border: 10px solid transparent;
+  border-image: linear-gradient(to top right, orangered, yellow);
+  border-image-slice: 1;
+  
+  &:hover {
+    background: linear-gradient(to top right, orangered, yellow);
+    color: white;
+  }
+}
+
+.gradient-button-2 {
+  color: orangered;
+  border: 4px solid transparent;
+  border-image: linear-gradient(to right, orangered, transparent);
+  border-image-slice: 1;
+
+  &:hover {
+    background: linear-gradient(to right, orangered, transparent);
+    color: white;
+    border-right: none;
+  }
+}
+
+.animated-button-1,
+.animated-button-2 {
+  font-size: 1.4rem;
+  color: white;
+  padding: 1.2rem 2rem;
+  border: 1px solid #555;
+}
+
+.animated-button-1 {
+  $bg-size: 40px;
+  background: url(pattern.png);
+  background-size: $bg-size;
+
+  &:hover {
+    animation: loading-button 1s linear infinite backwards;
+    
+    @keyframes loading-button {
+      from {
+        background-position-x: 0;
+      }
+      to {
+        background-position-x: $bg-size;
+      }
+    }
+  }
+}
+
+.animated-button-2 {
+  background: #42b4b5;
+  transition: padding .2s ease-out;
+  position: relative;
+  
+  &::after {
+    content: '»';
+    position: absolute;
+    opacity: 0;
+    right: .9rem;
+    transition: opacity .2s ease-out,
+                right .2s ease-out;
+  }
+  
+  &:hover {
+    padding: 1.2rem 2.7rem 1.2rem 1.3rem;
+    
+    &::after {
+      opacity: 1;
+      right: 1.1rem;
+    }
+  }
+}
+
+.toggle-1 {
+  // $red: #f2395a;
+  $gray: #aaa;
+  $blue: #00b3b4;
+  
+  display: inline-block;
+  font-family: Helvetica, Arial, sans-serif;
+  vertical-align: top;
+  
+  & &__input {
+    display: none;
+  }
+  
+  & &__button {
+    display: inline-block;
+    width: 5rem;
+    height: 2rem;
+    background: $gray;
+    cursor: pointer;
+    position: relative;
+    transition: background .3s ease;
+    
+    &::before {
+      position: absolute;
+      top: calc(50% - 10px);
+      right: 2em;
+      display: inline-block; 
+      content: 'OFF';
+      padding: 2px .2rem 0;
+      font-size: 1rem;
+      background: white;
+      color: $gray;
+      line-height: 1.2;
+      letter-spacing: 1px;
+      transition: .3s ease;
+    }
+  }
+
+  & &__input:checked + &__button {
+    background: $blue;    
+  }
+  & &__input:checked + &__button::before {
+    content: 'ON';
+    color: $blue;
+    right: .4em;
+  }
+}
+
+.toggle-2 {
+  $gray: #aaa;
+  $blue: #00b3b4;
+  
+  display: inline-block;
+  font-family: Helvetica, Arial, sans-serif;
+  cursor: pointer;
+  
+  & &__input {
+    display: none;
+  }
+  
+  & &__button {
+    color: $gray;
+    background: #eee;
+    padding: .5rem 1rem;
+    border: 1px solid $gray;
+    text-transform: uppercase;
+    font-size: 1rem;
+    transition: .3s ease;
+    
+    &::before {
+      $size: 10px;
+
+      content: '';
+      width: $size;
+      height: $size;
+      display: inline-block;
+      margin: 0 .3rem .4px -.1rem;
+      background: $gray;
+      border-radius: 50%;
+      transition: background .3s ease;
+    }
+  }
+
+  & &__input:checked + &__button {
+    color: white;
+    background: $blue;
+
+    &::before {
+      background: white;
+    }
+  } 
+}

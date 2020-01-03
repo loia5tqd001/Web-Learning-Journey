@@ -1,0 +1,109 @@
+.register-wrapper {
+  height: 100%;
+  background: linear-gradient(135deg, #5bf0f0, #40aaac);
+  padding: 100px;
+  color: #999;
+  position: relative;
+  z-index: 0;
+}
+
+.register-block {
+  background: white;
+  border-radius: 5px;
+  box-shadow: 2px 4px 3rem 5px #0003;
+  padding: 2rem;
+  width: 15rem;
+  margin: auto;
+  position: relative;
+
+  .register-title {
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 1.5rem;
+    margin: 0;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  form {
+    display: grid;
+    grid-gap: 1rem;
+
+    input {
+      width: 100%;
+      border-radius: 5px;
+      padding: 1rem;
+      font-size: 1rem;
+      outline: none;
+      display: inline-block;
+      box-sizing: border-box;
+      border: 1px solid #ddd;
+      border-bottom-width: 3px;
+      transition: border-bottom-color .5s ease;
+      
+      &:active,
+      &:focus {
+        border-bottom-color: #bbb;
+      }
+    }
+
+    input[type="submit"] {
+      @mixin stripe-bg($offset) {
+        background-size: $offset $offset;
+        background-image: linear-gradient(45deg, 
+                                          #fff0, 
+                                          #fff0 25%, 
+                                          #fff3 25%, 
+                                          #fff3 50%,
+                                          #fff0 50%,
+                                          #fff0 75%,
+                                          #fff3 75%,
+                                          #fff3 100%,
+                                          );
+      }
+
+      cursor: pointer;
+      font-weight: 300;
+      color: white;
+      background: #f24b5b;
+      border-color: #f24b5b;
+      transition: background .3s ease;
+
+      @include stripe-bg(1.2rem);
+      &:hover {
+        @include stripe-bg(3rem);
+        background-position: -50px -10px;
+      }
+    }
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    height: 50%;
+    background: #eee;
+    border: 1px solid #ccc;
+    border-radius: 5px;;
+    transition: bottom .3s ease;
+  }
+  &::before {
+    left: 1rem; 
+    right: 1rem;
+    bottom: .5rem;
+  }
+  &::after {
+    left: .5rem;
+    right: .5rem;
+    bottom: .5rem;
+  }
+  &:hover::before {
+    bottom: -1rem;
+  }
+  &:hover::after {
+    bottom: -.5rem;
+  }
+
+}

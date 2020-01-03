@@ -1,0 +1,104 @@
+.animation-bar-1 {
+  width: 100%;
+  height: 1.5em;
+  border-radius: 1.5em;
+  background: #cfd5d8;
+  padding: .3em;
+  box-shadow: 
+    inset 1px 2px 1px #0002,
+    0 1px #fff5;
+}
+.animation-bar-1 span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 1.5em 0 0 1.5em;
+  background: linear-gradient(to bottom, #f24b5b, #a7303c);
+  position: relative;
+  animation: animation-bar-1__span 3s ease-in infinite alternate;
+}
+.animation-bar-1 span::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, #fff5 0%,
+                                     #fff5 25%,
+                                     #fff0 25%,
+                                     #fff0 50%,
+                                     #fff5 50%,
+                                     #fff5 75%,
+                                     #fff0 75%,
+                                     #fff0 100%
+                                     ) 
+                                     0/40px 40px;
+  animation: animation-bar-1__span__after 2s ease-out infinite alternate;
+}
+@keyframes animation-bar-1__span {
+  from {
+    width: 5%;
+  }
+  to {
+    width: 70%;
+  }
+}
+@keyframes animation-bar-1__span__after {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: 400px;
+  }
+}
+
+.animation-bar-2 {
+  width: 100%;
+  height: 1em;
+  background: #cfd5d8;
+  box-shadow: 
+    inset 1px 2px 1px #0002,
+    0 1px #fff5;
+}
+.animation-bar-2 span {
+  background: linear-gradient(to bottom, #3ea9aa, #217172);
+  height: 100%;
+  width: 50%;
+  display: block;
+  position: relative;
+  animation: animation-bar-2__span 3s ease-in-out infinite alternate;
+}
+.animation-bar-2 span::before {
+  content: '';
+  position: absolute;
+  display: block;
+  right: 0;
+  bottom: 100%;
+  border: .25em solid transparent;
+  border-top: .25em solid #333;
+  border-right: .25em solid #333;
+}
+.animation-bar-2 span::after {
+  content: attr(data-label);
+  position: absolute;
+  display: block;
+  right: 0;
+  bottom: 100%;
+  transform: translateY(-.5em);
+  font-size: .8rem;
+  color: white;
+  background: #333;
+  padding: .5em .2em;
+  border-radius: .2em .2em 0 .2em;
+  line-height: 1;
+}
+@keyframes animation-bar-2__span {
+  from {
+    width: 10%;
+  }
+  to {
+    width: 100%;
+  }
+}
