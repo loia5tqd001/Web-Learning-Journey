@@ -1,0 +1,13 @@
+@supports (border-radius: 50%) {
+
+    .circle {
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        background: orangered;
+        line-height: 100px;
+        text-align: center;
+        color: white;
+    }
+
+}
