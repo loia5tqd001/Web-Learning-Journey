@@ -1,0 +1,66 @@
+@media screen and (min-width: 768px) {
+  
+  .layout1 main {
+    display: flex;
+  }
+  .layout1 main article {
+    flex: 1 58%;
+    margin-right: 2%;
+  }
+  .layout1 main aside {
+    flex: 1 40%;
+  }
+
+
+  .layout2 header {
+    display: flex;
+  }
+  .layout2 header > * {
+    margin-bottom: 0;
+  }
+  .layout2 header nav {
+    margin-left: 2%;
+    flex: 1;
+  }
+  .layout2 header nav ul {
+    display: flex;
+    padding: 0 .8em;
+  }
+  .layout2 header nav ul li:not(:last-child) {
+    margin-right: 1em;
+  }
+
+  .layout2 main {
+    display: flex;
+  }
+  .layout2 main > *:not(:last-child) {
+    margin-right: 2%;
+  }
+
+
+  .layout3 header {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  .layout3 header nav {
+    flex: 1;
+    margin-right: 2%;
+  }
+  .layout3 header nav ul {
+    display: flex;
+  }
+  .layout3 header nav ul li:not(:last-child) {
+    margin-right: 1em;
+  }
+
+  .layout3 .articles {
+    display: flex;
+  }
+  .layout3 .articles article {
+    flex: 1;
+  }
+  .layout3 .articles article:not(:last-child) {
+    margin-right: 2%;
+  }
+
+}
