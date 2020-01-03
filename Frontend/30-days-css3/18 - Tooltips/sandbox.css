@@ -1,0 +1,113 @@
+.tooltip {
+  display: block;
+  background: #F24B5B;
+  color: white;
+  margin: 0 auto;
+  padding: 1em 0;
+  text-align: center;
+  width: 13em;
+  position: relative;
+
+  --rec-size: .3em;
+  --half-rec-size: calc( var(--rec-size) / 2 )
+}
+.tooltip::before,
+.tooltip::after {
+  position: absolute;
+  opacity: 0;
+  transition: 
+    opacity .3s ease-out, 
+    transform .15s ease-out
+    ;
+}
+.tooltip::after {
+  content: '';
+  border: var(--rec-size) solid #0000;
+}
+.tooltip::before {
+  content: attr(title);
+  width: 80%;
+  line-height: 2em;
+  border-radius: .2em;
+  background: #000b;
+}
+.tooltip:hover::before,
+.tooltip:hover::after {
+  opacity: 1;
+}
+
+/* top */
+.tooltip.top::before {
+  bottom: calc( 100% + var(--rec-size) );
+  left: 10%;  
+  transform: scale(.5) translateY(1em);
+  transform-origin: center 150%;
+}
+.tooltip.top::after {
+  left: calc( 50% - var(--rec-size) );
+  bottom: calc( 100% - var(--rec-size) );
+  border-top: var(--rec-size) solid #000b;
+  transform: translateY(1em);
+}
+.tooltip.top:hover::before,
+.tooltip.top:hover::after {
+  transform: scale(1) translateY(0);
+}
+
+/* right */
+.tooltip.right::before {
+  left: calc( 100% + var(--rec-size) );
+  top: 50%;
+  transform: translate(-2em, -50%) scale(.5);
+  transform-origin: left center;
+}
+.tooltip.right::after {
+  border-right: var(--rec-size) solid #000b;
+  left: calc( 100% - var(--rec-size) );
+  top: calc( 50% - var(--rec-size) );
+  transform: translate(-2em, 0);
+}
+.tooltip.right:hover::before {
+  transform: scale(1) translateY(-50%);
+}
+.tooltip.right:hover::after {
+  transform: scale(1) translateY(0);
+}
+
+/* bottom */
+.tooltip.bottom::before {
+  top: calc( 100% + var(--rec-size) );
+  right: 10%;  
+  transform: scale(.5) translateY(1em);
+  transform-origin: center -150%;
+}
+.tooltip.bottom::after {
+  left: calc( 50% - var(--rec-size) );
+  top: calc( 100% - var(--rec-size) );
+  border-bottom: var(--rec-size) solid #000b;
+  transform: translateY(-1em);
+}
+.tooltip.bottom:hover::before,
+.tooltip.bottom:hover::after {
+  transform: scale(1) translateY(0);
+}
+
+/* left */
+.tooltip.left::before {
+  right: calc( 100% + var(--rec-size) );
+  top: 50%;
+  transform: translate(2em, -50%) scale(.5);
+  transform-origin: right center;
+}
+.tooltip.left::after {
+  border-left: var(--rec-size) solid #000b;
+  right: calc( 100% - var(--rec-size) );
+  top: calc( 50% - var(--rec-size) );
+  transform: translate(2em, 0);
+}
+.tooltip.left:hover::before {
+  transform: scale(1) translateY(-50%);
+}
+.tooltip.left:hover::after {
+  transform: scale(1) translateY(0);
+}
