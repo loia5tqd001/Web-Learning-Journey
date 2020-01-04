@@ -1,0 +1,39 @@
+.dropdown__hover {
+  padding: .8em;
+  color: white;
+  background: #333;
+  border: none;
+  outline: none;
+  font-size: 1.5rem;
+  position: relative;
+  z-index: 3;
+}
+
+.dropdown__hover:hover {
+  cursor: pointer;
+  background: #222;
+}
+
+.dropdown__menu {
+  background: white;
+  box-shadow: 1px 2px 2px #0002;
+  width: min-content;
+  position: absolute;
+  opacity: 0;
+  transition: .2s;
+  z-index: 2;
+  transform: translateY(-.5em) scaleY(0);
+  transform-origin: center 0%;
+}
+.dropdown__menu a {
+  display: block;
+  width: max-content;
+  min-width: 10em;
+  padding: .8em;
+  border: none;
+}
+
+.dropdown__hover:hover ~ .dropdown__menu {
+  opacity: 1;
+  transform: translateY(0) scaleY(1);
+}
