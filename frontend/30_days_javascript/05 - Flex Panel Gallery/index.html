@@ -17,6 +17,9 @@
     
     body {
       margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
     
     *, *:before, *:after {
@@ -24,8 +27,70 @@
     }
 
     .panels {
-      min-height: 100vh;
+      flex: 1;
       overflow: hidden;
+      display: flex;
+    }
+    .panels > input[type="checkbox"] {
+      display: none;
+    }
+
+    .panel {
+      flex: 1;
+      display: grid;
+      place-items: center;
+      cursor: default;
+    }
+    input[type="checkbox"]:checked + .panel {
+      flex: 5;
+    }
+
+    .panel > p:first-child {
+      transform: translateY(-20vh);
+      animation: slide-down-reverse .3s .7s both;
+    }
+    input[type="checkbox"]:checked + .panel > p:first-child {
+      animation: slide-down .2s .7s both;
+    }
+
+    .panel > p:last-child {
+      animation: slide-up-reverse .35s .7s both;
+    }
+    input[type="checkbox"]:checked + .panel > p:last-child {
+      animation: slide-up .25s .7s both;
+    }
+    
+    @keyframes slide-down {
+      from {
+        transform: translateY(-20vh);
+      }
+      to {
+        transform: translateY(0);
+      }
+    }
+    @keyframes slide-down-reverse {
+      from {
+        transform: translateY(0);
+      }
+      to {
+        transform: translateY(-20vh);
+      }
+    }
+    @keyframes slide-up {
+      from {
+        transform: translateY(20vh);
+      }
+      to {
+        transform: translateY(0);
+      }
+    }
+    @keyframes slide-up-reverse {
+      from {
+        transform: translateY(0);
+      }
+      to {
+        transform: translateY(20vh);
+      }
     }
 
     .panel {
@@ -75,33 +140,39 @@
 
   </style>
 
+  <h1 class="claim">I tried using CSS only for this exercise, it turned out it's worse in the result, but I'll keep it anyway. The javascript solution is already covered in <a target="_blank" href="./index-FINISHED.html">the FINISHED version</a></h1>
 
   <div class="panels">
-    <div class="panel panel1">
+    <input type="checkbox" id="check1">
+    <label class="panel panel1" for="check1">
       <p>Hey</p>
       <p>Let's</p>
       <p>Dance</p>
-    </div>
-    <div class="panel panel2">
+    </label>
+    <input type="checkbox" id="check2">
+    <label class="panel panel2" for="check2">
       <p>Give</p>
       <p>Take</p>
       <p>Receive</p>
-    </div>
-    <div class="panel panel3">
+    </label>
+    <input type="checkbox" id="check3">
+    <label class="panel panel3" for="check3">
       <p>Experience</p>
       <p>It</p>
       <p>Today</p>
-    </div>
-    <div class="panel panel4">
+    </label>
+    <input type="checkbox" id="check4">
+    <label class="panel panel4" for="check4">
       <p>Give</p>
       <p>All</p>
       <p>You can</p>
-    </div>
-    <div class="panel panel5">
+    </label>
+    <input type="checkbox" id="check5">
+    <label class="panel panel5" for="check5">
       <p>Life</p>
       <p>In</p>
       <p>Motion</p>
-    </div>
+    </label>
   </div>
 
   <script>
