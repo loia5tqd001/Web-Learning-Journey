@@ -17,6 +17,51 @@
 <script>
 const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
 
+const cities = []
+
+fetch(endpoint)
+  .then(res => res.json())
+  .then(data => cities.push(...data))
+  
+
+const suggestions = document.querySelector('.search-form ul.suggestions')
+const input = document.querySelector('.search-form input.search')
+input.addEventListener('input', onInputChange)
+
+
+function filterCities(searchKey, cities) {
+  const regex = new RegExp(searchKey, 'gi')
+  return cities
+          .filter(({ city, state }) => state.match(regex) || city.match(regex))
+          .map(({ city, state, population }) => ({
+            city: city.replace(regex, `<span class="hl">$&</span>`),
+            state: state.replace(regex, `<span class="hl">$&</span>`),
+            population: population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+          }))
+}
+
+function onInputChange() {
+  const searchKey = this.value.trim()
+
+  if (!searchKey) {
+    suggestions.innerHTML = `
+      <li>Filter for a city</li>
+      <li>or a state</li>
+    `
+    return
+  }
+
+  const matchedCities = filterCities(searchKey, cities)
+  suggestions.innerHTML = matchedCities.map( ({ city, state, population }) => `
+    <li>
+      <span class="name">${city}, ${state}</span> 
+      <span class="population">${population}</span>
+    </li>
+  `).join('\n')
+}
+
+
+
 </script>
 </body>
 </html>
