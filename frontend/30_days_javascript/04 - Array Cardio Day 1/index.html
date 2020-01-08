@@ -31,28 +31,91 @@
 
     // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
+      console.group(`1. Filter the list of inventors for those who were born in the 1500's`)
+
+      const fifteens = inventors.filter(inventor => inventor.year >= 1500 && inventor.year < 1600)
+      console.table({...fifteens})
+      
+      console.groupEnd()
+
 
     // Array.prototype.map()
     // 2. Give us an array of the inventors' first and last names
+      console.group(`2. Give us an array of the inventors' first and last names`)
+
+      const fullnames = inventors.map(inventor => ({ first: inventor.first, last: inventor.last }))
+      console.table(fullnames)
+
+      console.groupEnd()
+
 
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
+      console.group(`3. Sort the inventors by birthdate, oldest to youngest`)
+
+      const sortedByBirthdate = inventors.sort((a, b) => a.year - b.year)
+      console.table(sortedByBirthdate)
+
+      console.groupEnd()
+
 
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live?
+      console.group(`4. How many years did all the inventors live?`)
+
+      const years = inventors.reduce((sum, inventor) => sum + inventor.passed - inventor.year, 0)
+      console.log(years)
+
+      console.groupEnd()
+
 
     // 5. Sort the inventors by years lived
+      console.group(`5. Sort the inventors by years lived`)
+
+      const sortedByYearsLived = 
+        inventors.sort((a, b) => (a.passed - a.year) - (b.passed - b.year))
+                 .map(inventor => ({ ...inventor, lived: inventor.passed - inventor.year }))
+      console.table(sortedByYearsLived)
+
+      console.groupEnd()
+
+
 
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
 
 
+
     // 7. sort Exercise
     // Sort the people alphabetically by last name
+      console.group(`7. Sort the people alphabetically by last name`)
+
+      const sortedByLastname = 
+        people.map(person => {
+          const [first, last] = person.split(', ')
+          return { first, last }
+        })
+        .sort((a, b) => a.last > b.last ? 1 : -1)
+
+      console.table(sortedByLastname)
+
+      console.groupEnd()
+
 
     // 8. Reduce Exercise
     // Sum up the instances of each of these
-    const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+      const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+
+      console.group(`8. Sum up the instances of each of these`)
+      console.log(data)
+
+      const sumup = data.reduce((acc, cur) => {
+        acc[cur] = acc.hasOwnProperty(cur) ? acc[cur] + 1 : 1
+        return acc
+      },{})
+      console.table(sumup)
+
+      console.groupEnd()
 
   </script>
 </body>
