@@ -3,10 +3,88 @@
 <head>
   <meta charset="UTF-8">
   <title>HTML5 Canvas</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      width: 100vw;
+    }
+  </style>
 </head>
 <body>
-<canvas id="draw" width="800" height="800"></canvas>
+<canvas id="draw"></canvas>
 <script>
+  const canvas = document.querySelector('#draw')
+  const ctx = canvas.getContext('2d')
+  canvas.width = window.innerWidth
+  canvas.height = window.innerHeight
+  ctx.lineJoin = 'round';
+  ctx.lineCap = 'round';
+
+  let isMouseDown = false
+  let lastPos = { x: 0, y: 0 }
+  let hue = 0
+  const MIN_STROKE = 10
+  const MAX_STROKE = 400
+  let mouseHoldInterval = null
+  
+
+  function onMouseDown(e) {
+    isMouseDown = true
+    lastPos.x = e.offsetX
+    lastPos.y = e.offsetY
+    ctx.lineWidth = MIN_STROKE
+
+    mouseHoldInterval = setInterval(() => {
+      attemptAddingStroke(1)
+      draw(lastPos.x, lastPos.y)
+    }, 100)
+  }
+
+  function onMouseUp(e) {
+    isMouseDown = false
+    clearInterval(mouseHoldInterval)
+  }
+
+  function onMouseMove(e) {
+    if (!isMouseDown) return
+
+    draw(e.offsetX, e.offsetY)
+
+    const traceWidth = Math.sqrt((e.offsetX - lastPos.x) ** 2 + (e.offsetY - lastPos.y) ** 2)
+    attemptAddingStroke(traceWidth * 0.1)
+    lastPos.x = e.offsetX
+    lastPos.y = e.offsetY
+  }
+
+  function onKeyDown(e) {
+    if (e.key === 'c') {
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+    }
+  }
+
+  function attemptAddingStroke(amount) {
+    ctx.lineWidth += amount
+    if (ctx.lineWidth >= MAX_STROKE) {
+      ctx.lineWidth = MAX_STROKE
+    }
+  }
+
+  function draw(x, y) {
+    ctx.strokeStyle = `hsl(${hue++}, 100%, 50%)`
+    ctx.beginPath()
+    ctx.moveTo(lastPos.x, lastPos.y)
+    ctx.lineTo(x, y)
+    ctx.stroke()
+  }
+
+  window.addEventListener('mousedown', onMouseDown)
+  window.addEventListener('mouseup', onMouseUp)
+  window.addEventListener('mousemove', onMouseMove)
+  window.addEventListener('keydown', onKeyDown)
+
+
 </script>
 
 <style>
