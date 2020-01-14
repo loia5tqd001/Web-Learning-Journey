@@ -96,6 +96,86 @@
   </div>
 
 <script>
+
+  const checkboxes= [...document.querySelectorAll(
+    '.inbox .item input[type="checkbox"]'
+  )]
+
+  checkboxes.forEach( checkbox => 
+    checkbox.addEventListener('click', onCheckbox)
+  )
+
+  function getRange(array, point1, point2) {
+    // if (!point1 && !point2) return []
+    // if (!point1) return [point2]
+    // if (!point2) return [point1]
+    
+    const index1 = array.indexOf(point1)
+    const index2 = array.indexOf(point2)
+    return index1 < index2 ? array.slice(index1, index2 + 1) : array.slice(index2, index1 + 1)
+  }
+
+  let lastCheck = null
+
+  function onCheckbox(e) {
+    if (e.shiftKey) {
+      getRange(checkboxes, this, lastCheck)
+        .forEach(chb => chb.checked = this.checked)
+    }
+
+    lastCheck = this
+  }
+
+  // function getRange(array, point1, point2) {
+  //   if (!point1 && !point2) return []
+  //   if (!point1) return [point2]
+  //   if (!point2) return [point1]
+
+  //   const arr = array instanceof Array ? array : Array.from(array)
+  //   const index1 = arr.indexOf(point1)
+  //   const index2 = arr.indexOf(point2)
+  //   return index1 < index2 ? arr.slice(index1, index2 + 1) : arr.slice(index2, index1 + 1)
+  // }
+
+  // let lastCheck = null
+  // let lastShift = null
+
+  // function onCheckbox(e) {
+  //   console.log(e.shiftKey)
+
+  //   if (e.shiftKey) {
+  //     const action = this.checked
+
+  //     const iLastShift = checkboxes.indexOf(lastShift)
+  //     const isLastCheck = checkboxes.indexOf(lastCheck)
+  //     const min = Math.min(iLastShift, isLastCheck)
+  //     const max = Math.max(iLastShift, isLastCheck)
+  //     const iThis = checkboxes.indexOf(this)
+
+  //     if (iThis >= min && iThis <= max) {
+  //       getRange(checkboxes, lastShift, this)
+  //         .forEach(checkbox => (checkbox !== this) && (checkbox.checked = this.checked))
+
+  //       getRange(checkboxes, lastCheck, this)
+  //         .forEach(checkbox => checkbox.checked = !this.checked)
+  //     } else {
+  //       getRange(checkboxes, lastShift, this)
+  //         .forEach(checkbox => checkbox.checked = false)
+
+  //       getRange(checkboxes, lastCheck, this)
+  //         .forEach(checkbox => checkbox.checked = true)
+  //     }
+
+
+  //     lastShift = this
+  //   }
+  //   else {
+  //     lastCheck = this
+  //     lastShift = null
+  //   }
+  // }
+
+
 </script>
 </body>
 </html>
