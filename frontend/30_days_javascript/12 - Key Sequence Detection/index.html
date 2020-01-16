@@ -6,7 +6,20 @@
   <script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script>
 </head>
 <body>
+  <h3>Type 'loideptrai' to see what happen</h3>
+  
 <script>
+  const secretCode = 'loideptrai'
+  const pressed = []
+
+  function konami(e) {
+    pressed.length >= secretCode.length && pressed.shift()
+    pressed.push(e.key)
+    pressed.join('') === secretCode && cornify_add()
+    console.log(pressed.join(''))
+  }
+
+  document.addEventListener('keydown', konami)
 </script>
 </body>
 </html>
