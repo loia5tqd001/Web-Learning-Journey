@@ -7,7 +7,7 @@
 <body>
 
   <div class="hero">
-    <h1 contenteditable>🔥WOAH!</h1>
+    <h1 contenteditable>🔥WHOAMI!</h1>
   </div>
 
   <style>
@@ -35,6 +35,32 @@
   </style>
 
 <script>
+  const hero = document.querySelector('.hero')
+  const text = hero.querySelector('h1')
+  const BASE_DISTANCE_VMAX = 60
+
+  function shadowing(e) {
+    const { offsetWidth: width, offsetHeight: height } = e.currentTarget
+    let { offsetX: x, offsetY: y } = e
+
+    if (e.target !== this) {
+      x += e.target.offsetLeft
+      y += e.target.offsetTop
+    }
+    
+    const xOffset = (x/width) * BASE_DISTANCE_VMAX - BASE_DISTANCE_VMAX / 2
+    const yOffset = (y/height) * BASE_DISTANCE_VMAX - BASE_DISTANCE_VMAX / 2
+
+    text.style.textShadow = `
+      ${ xOffset}vmax ${ yOffset}vmax red,
+      ${-xOffset}vmax ${ yOffset}vmax blue,
+      ${ xOffset}vmax ${-yOffset}vmax green,
+      ${-yOffset}vmax ${ xOffset}vmax yellow
+    `
+  }
+
+  hero.addEventListener('mousemove', shadowing)
+
 </script>
 </body>
 </html>
