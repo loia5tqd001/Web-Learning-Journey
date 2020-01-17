@@ -25,6 +25,17 @@
       margin: auto;
       padding: 0;
       box-shadow: 0 0 0 20px rgba(0, 0, 0, 0.05);
+      transform-origin: center 20%;
+      animation: spread-out .5s ease-out both;
+    }
+
+    @keyframes spread-out {
+      from {
+        transform: translateY(-5em) scaleY(.5);
+      }
+      to {
+        transform: translateY(0) scaleY(1);
+      }
     }
     
     #bands li {
@@ -48,6 +59,10 @@
 <script>
 const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
 
+// deliberately made this unreadable :p
+const strip = band => band.replace(/^(a |an |the )/i, '').trim()
+const sortStrip = (a, b) => strip(a) > strip(b) ? 1 : -1
+document.getElementById('bands').innerHTML = bands.sort(sortStrip).map(band => `<li>${band}</li>`).join('\n')  
 
 </script>
 
