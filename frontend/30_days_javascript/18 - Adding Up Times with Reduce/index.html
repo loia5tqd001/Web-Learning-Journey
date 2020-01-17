@@ -5,6 +5,7 @@
   <title>Videos</title>
 </head>
 <body>
+  <h2 class="total"></h2>
   <ul class="videos">
     <li data-time="5:43">
       Video 1
@@ -182,6 +183,26 @@
     </li>
   </ul>
 <script>
+
+  const listNodes = [...document.querySelectorAll('.videos li')]
+  const totalNode = document.querySelector('h2.total')
+
+  listNodes.forEach((li, i) => {
+    li.innerHTML = `Video ${i + 1}: ${li.dataset.time}`
+  })
+
+  const totalTimeInSeconds = 
+    listNodes
+      .map(node => node.dataset.time)
+      .map(time => time.split(':'))
+      .map(([mins, secs]) => mins * 60 + Number(secs))
+      .reduce((a, b) => a + b, 0)
+      
+  const totalTimeInDate = new Date(0,0,0,0,0,totalTimeInSeconds)
+  const totalTimeString = totalTimeInDate.getHours() + ':' + totalTimeInDate.getMinutes() + ':' + totalTimeInDate.getSeconds() 
+  
+  totalNode.textContent = 'Total time: ' + totalTimeString
+
 </script>
 </body>
 </html>
