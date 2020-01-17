@@ -23,6 +23,11 @@ svg {
   margin-bottom: 50px;
 }
 
+.header {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
 .wrapper {
   padding: 20px;
   max-width: 350px;
@@ -60,12 +65,15 @@ h2 {
 }
 
 .plates input + label:before {
-  content: '⬜️';
+  content: '□';
   margin-right: 10px;
 }
 
 .plates input:checked + label:before {
-  content: '🌮';
+  content: '☑';
+}
+.plates input:checked + label {
+  text-decoration: line-through;
 }
 
 .add-items {
