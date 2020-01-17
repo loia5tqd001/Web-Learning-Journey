@@ -10,7 +10,12 @@
   <div class="photobooth">
     <div class="controls">
       <button onClick="takePhoto()">Take Photo</button>
-<!--       <div class="rgb">
+
+      <input type="radio" name="effect" id="red-effect" value="applyRedEffect">
+      <label for="red-effect">Red Effect</label>
+      <input type="radio" name="effect" id="rgb-split-effect" value="applyRgbSplitEffect" checked>
+      <label for="rgb-split-effect">RGB Split Effect</label>
+      <!-- <div class="rgb">
         <label for="rmin">Red Min:</label>
         <input type="range" min=0 max=255 name="rmin">
         <label for="rmax">Red Max:</label>
