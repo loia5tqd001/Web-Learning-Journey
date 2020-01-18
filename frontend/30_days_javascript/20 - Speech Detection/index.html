@@ -10,20 +10,50 @@
   </div>
 
 <script>
-  window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
+
+  const recognition = new SpeechRecognition()
+  recognition.interimResults = true
+  recognition.lang = 'en-US'
+
+  const words = document.querySelector('.words')
+  let p = newParagraph()
+
+  recognition.addEventListener('result', e => {
+    const { transcript } = e.results[0][0]
+
+    p.textContent = transcript.replace(/fuck|dick|shit|ass|bitch|damn/gi, (match) => {
+      return '*'.repeat(match.length)
+    })
+
+    if (e.results[0].isFinal) {
+      p = newParagraph()
+    }
+  })
+
+  function newParagraph() {
+    const p = document.createElement('p')
+    words.appendChild(p)
+    return p
+  }
+
+  recognition.addEventListener('end', () => recognition.start())
+  recognition.start()
 
 
 </script>
 
 
   <style>
+    @import url('https://fonts.googleapis.com/css?family=Indie+Flower&display=swap');
+    
     html {
       font-size: 10px;
     }
 
     body {
       background: #ffc600;
-      font-family: 'helvetica neue';
+      font-family: 'Indie Flower', cursive;
       font-weight: 200;
       font-size: 20px;
     }
