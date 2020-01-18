@@ -26,7 +26,31 @@
     </div>
 
   <script>
-    // 👀👀👀👀👀👀👀👀👀👀👀👀👀👀👀
+    const links = document.querySelectorAll('a')
+    const highlight = document.createElement('span')
+    highlight.classList.add('highlight')
+    document.body.appendChild(highlight)
+
+    function highlightLink() {
+      const linkPos = this.getBoundingClientRect()
+
+      const [OFFSET_X, OFFSET_Y] = [5, 3]
+
+      highlight.style.width = `${linkPos.width + OFFSET_X*2}px`
+      highlight.style.height = `${linkPos.height + OFFSET_Y*2}px`
+      highlight.style.transform = `translate(
+        ${linkPos.x + window.scrollX - OFFSET_X}px,
+        ${linkPos.y + window.scrollY - OFFSET_Y}px
+      )`
+
+      curLink = this
+    }
+
+    let curLink = links[0]
+    highlightLink.call(curLink)
+
+    links.forEach(link => link.addEventListener('mouseenter', highlightLink))
+    window.addEventListener('resize', () => highlightLink.call(curLink))
   </script>
 </body>
 </html>
