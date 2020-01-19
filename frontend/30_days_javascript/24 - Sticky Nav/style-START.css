@@ -16,7 +16,7 @@ body {
 
 .site-wrap {
   max-width: 700px;
-  margin: 70px auto;
+  margin: 170px auto;
   background: white;
   padding: 40px;
   text-align: justify;
@@ -25,10 +25,14 @@ body {
   transition: transform 0.5s;
 }
 
+nav.stuck + .site-wrap {
+  transform: scale(1);
+}
+
 header {
   text-align: center;
-  height: 50vh;
-  background: url(http://wes.io/iEgP/wow-so-deep.jpg) bottom center no-repeat;
+  height: 70vh;
+  background: url(hero.jpeg) bottom center no-repeat;
   background-size: cover;
   display: flex;
   align-items: center;
@@ -46,7 +50,7 @@ nav {
   top: 0;
   width: 100%;
   transition: all 0.5s;
-  position: relative;
+  position: sticky;
   z-index: 1;
 }
 
@@ -72,6 +76,10 @@ li.logo {
   transition: all .5s;
   font-weight: 600;
   font-size: 30px;
+}
+
+nav.stuck .logo {
+  max-width: 500px;
 }
 
 li.logo a {
