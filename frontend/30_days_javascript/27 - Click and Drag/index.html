@@ -35,6 +35,51 @@
   </div>
 
 <script>
+
+  const slider = document.querySelector('.items')
+
+  // const isDown = false
+
+  slider.addEventListener('mousemove', e => {
+    const isMouseDown = e.buttons === 1
+    const MOVEMENT_FACTOR = 1.5
+
+    if (isMouseDown) {
+      slider.scrollLeft -= e.movementX * MOVEMENT_FACTOR
+      slider.classList.add('active')
+    } 
+    
+    else {
+      slider.classList.remove('active')
+    }
+  })
+
+
+  // const pickupMoment = {
+  //   posX: 0,
+  //   time: null,
+  // }
+
+  // slider.addEventListener('mousedown', e => {
+  //   pickupMoment.posX = slider.scrollLeft
+  //   pickupMoment.time = new Date()
+  // })
+
+  // slider.addEventListener('mouseup', e => {
+  //   let distance = (slider.scrollLeft - pickupMoment.posX) * 3
+  //   const vel = distance / (new Date() - pickupMoment.time)
+
+  //   const interval = setInterval(() => {
+  //     if (distance > 0) {
+  //       distance -= vel
+  //       slider.scrollLeft += vel 
+  //     } else {
+  //       clearInterval(interval)
+  //     }
+  //   }, 16);
+  // })
+
+
 </script>
 
   </body>
