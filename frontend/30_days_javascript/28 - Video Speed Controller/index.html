@@ -7,14 +7,73 @@
 </head>
 <body>
 
+  <h1>Click and Drag, or scroll the mousewheel</h1>
+
   <div class="wrapper">
-    <video class="flex" width="765" height="430" src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" loop controls></video>
+    <video class="flex" width="765" height="430" src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" loop controls autoplay></video>
     <div class="speed">
       <div class="speed-bar">1×</div>
     </div>
   </div>
 
 <script>
+
+  const speed = document.querySelector('.speed')
+  const speedBar = speed.querySelector('.speed-bar')
+  const video = document.querySelector('video.flex')
+
+  const Utils = {
+    clamp(x, a, b) {
+      return Math.min(Math.max(x, a), b)
+    }
+  }
+
+  const SpeedManager = {
+    MIN_SPEED: 0.4,
+    MAX_SPEED: 4.0,
+    barHeight: speed.clientHeight,
+    video,
+
+    get SPEED_RANGE() {
+      return this.MAX_SPEED - this.MIN_SPEED
+    },
+
+    offsetYToPercent(offsetY) {
+      return offsetY / this.barHeight
+    },
+    percentToSpeed(percent) {
+      return percent * this.SPEED_RANGE + this.MIN_SPEED
+    },
+
+    getPercent() {
+      return (this.video.playbackRate - this.MIN_SPEED) / this.SPEED_RANGE
+    },
+    setPercent(percent) {
+      console.assert(percent >= 0 && percent <= 1)
+      this.video.playbackRate = this.percentToSpeed(percent)
+      speedBar.textContent = this.video.playbackRate.toFixed(1) + 'x'
+      speedBar.style.setProperty('height', percent * 100 + '%')
+    },
+    addPercent(percent) {
+      const newPercent = this.getPercent() + percent
+      this.setPercent(Utils.clamp(newPercent, 0, 1))
+    }
+  }
+
+  speed.addEventListener('mousemove', e => {
+    const isMouseDown = e.buttons === 1
+    if (!isMouseDown) return
+
+    const percent  = SpeedManager.offsetYToPercent(e.offsetY)
+    SpeedManager.setPercent(percent)
+  })
+
+  speed.addEventListener('wheel', e => {
+    const direction = Math.sign(e.deltaY)
+    const HOW_FAST = .05
+    SpeedManager.addPercent(direction * HOW_FAST)
+  })
+
 </script>
 </body>
 </html>
