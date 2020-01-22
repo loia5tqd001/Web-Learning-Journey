@@ -67,3 +67,33 @@ h1 {
 .hole.up .mole {
   top: 0;
 }
+
+.hammer {
+  display: block;
+  position: absolute;
+  top: -100vh;
+  left: 0;
+  width: 12em;
+  transform: translate(-70%, -70%) scaleX(-1);
+  cursor: none;
+  user-drag: none; 
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  z-index: 3;
+}
+.hammer.bonk {
+  animation: bonk .15s both;
+}
+@keyframes bonk {
+  from, to {
+    transform: translate(-70%, -70%) scaleX(-1);
+    transform-origin: 50% 50%;
+  }
+  50% {
+    transform: translate(-70%, -70%) scaleX(-1) rotate(45deg);
+    transform-origin: 40% bottom;
+  }
+}

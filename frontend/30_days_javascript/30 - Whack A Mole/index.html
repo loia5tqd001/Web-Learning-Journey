@@ -9,7 +9,8 @@
 <body>
 
   <h1>Whack-a-mole! <span class="score">0</span></h1>
-  <button onClick="startGame()">Start!</button>
+  <button class="start-btn" onClick="startGame()">Start!</button>
+  <img draggable="false" class="hammer" src="./hammer.svg">
 
   <div class="game">
     <div class="hole hole1">
@@ -33,9 +34,179 @@
   </div>
 
 <script>
+  // ==========: DOM ELEMENTS
   const holes = document.querySelectorAll('.hole');
   const scoreBoard = document.querySelector('.score');
   const moles = document.querySelectorAll('.mole');
+  const hammer = document.querySelector('.hammer')
+  const startBtn = document.querySelector('.start-btn')
+
+
+  // ==========: HELPER FUNCTIONS
+  function random(min, max) {
+    return Math.random() * (max - min) + min
+  }
+
+  function randomInt(min, max) {
+    console.assert(min === ~~(min) && max === ~~(max))
+    return ~~random(min, max)
+  }
+
+  function randomIntAvoid(min, max, avoid) {
+    console.assert(avoid === ~~(avoid))
+    const attemp = randomInt(min, max)
+    return attemp === avoid ? randomIntAvoid(min, max, avoid) : attemp 
+  }
+
+  function isIntersect(rect1, rect2) {
+    return rect1.top < rect2.bottom && rect1.bottom > rect2.top
+    && rect1.left < rect2.right && rect1.right > rect2.left
+  }
+
+  function floorRect(rect) {
+    return {
+      left: ~~(rect.left),
+      top: ~~(rect.top),
+      right: ~~(rect.right),
+      bottom: ~~(rect.bottom),
+    }
+  }
+
+  // ==========: DEBUG
+
+  const debugs = []
+
+  function createRect(rect) {
+    const div = document.createElement('div')
+    document.body.appendChild(div)
+    debugs.push(div)
+
+
+    div.style.setProperty('pointer-events', 'none')
+    div.style.setProperty('border', '2px solid red')
+    div.style.setProperty('position', 'absolute')
+    div.style.setProperty('z-index', '1000')
+    div.style.setProperty('left', rect.left + 'px')
+    div.style.setProperty('top', rect.top + 'px')
+    div.style.setProperty('width', (rect.right - rect.left) + 'px')
+    div.style.setProperty('height', (rect.bottom - rect.top) + 'px')
+  }
+
+  function flushDebugs() {
+    debugs.forEach(debug => {
+      document.body.removeChild(debug)
+    })
+    debugs.length = 0
+  }
+
+
+  // ==========: HANDLERS
+
+  let curHoleIndex = -1
+  let score = 0
+  let moleRects
+  calcMoleRect()
+  window.addEventListener('resize', calcMoleRect)
+
+  function calcMoleRect() {
+    moleRects = [...moles].map(mole => getMoleAttackRect(mole))
+  }
+
+  function getMoleAttackRect(mole) {
+    const moleRect = mole.getBoundingClientRect()
+    return {
+      left: moleRect.left + 30,
+      top: moleRect.top - 150,
+      right: moleRect.right - 30,
+      bottom: moleRect.top,
+    }
+  }
+
+  function getHammerAttackRect() {
+    const hammerRect = hammer.getBoundingClientRect()
+    const parent = hammer.parentNode
+    return {
+      left: parent.scrollLeft + hammerRect.left - hammer.width / 2,
+      top: parent.scrollTop + hammerRect.top + hammerRect.height / 2,
+      right: parent.scrollLeft + hammerRect.right - hammerRect.width,
+      bottom: parent.scrollTop + hammerRect.bottom,
+    }
+  }
+
+  function getRandomHole() {
+    curHoleIndex = randomIntAvoid(0, holes.length, curHoleIndex)
+    return holes[curHoleIndex]
+  }
+
+  function hammerFollow(e) {
+    hammer.style.setProperty('top', e.clientY + 'px')
+    hammer.style.setProperty('left', e.clientX + 'px')
+  }
+
+  function peep() {
+    flushDebugs()
+    const time = randomInt(
+        Math.max(400, 600 - score * 10), 
+        Math.max(600, 1200 - score * 10)
+    )
+    const hole = getRandomHole()
+    hole.classList.add('up')
+
+    setTimeout(() => {
+      hole.classList.remove('up')
+      peep()
+    }, time)
+  }
+
+  function bonk(e) {
+    if (!e.isTrusted) return
+
+    this.classList.add('bonk')
+
+    const hammerAttackRect = floorRect(getHammerAttackRect())
+    const moleAttackRect = floorRect(moleRects[curHoleIndex])
+
+    createRect(hammerAttackRect)
+    createRect(moleAttackRect)
+
+    if (isIntersect(moleAttackRect, hammerAttackRect)) {
+      const moleParent = moles[curHoleIndex].parentNode
+      if (moleParent.classList.contains('up')) {
+        moles[curHoleIndex].parentNode.classList.remove('up')
+        scoreBoard.textContent = ++score
+        lastBonkIndex = curHoleIndex
+      }
+    }
+  }
+
+  function removeBonk(e) {
+    if (e.animationName === 'bonk') {
+      this.classList.remove('bonk')
+    }
+  }
+
+  function startGame() {
+    holes.forEach(hole => hole.classList.remove('up'))
+    scoreBoard.textContent = 0
+    document.addEventListener('mousemove', hammerFollow)
+    hammer.addEventListener('click', bonk)
+    hammer.addEventListener('animationend', removeBonk)
+    peep()
+
+
+    restartable = false
+    setTimeout(() => {
+      startBtn.textContent = 'press R to restart game'
+      restartable = true
+    }, 1000)
+  }
+
+  let restartable = false
+  document.addEventListener('keydown', e => {
+    if (e.key === 'r' && restartable) {
+      startGame()
+    }
+  })
 
 </script>
 </body>
