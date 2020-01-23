@@ -1,8 +1,12 @@
 ﻿![](https://javascript30.com/images/JS3-social-share.png)
 
-# [JavaScript30](https://loia5tqd001.github.io/Web-Learning-Journey/frontend/30_days_javascript)
+# [JavaScript30][showcase]
 
 #### **No Frameworks :zap: No Compilers :zap: No Libraries :zap: No Boilerplate**
+
+### [:star: View showcase][showcase] inspired by [this :heart:](https://misslild.github.io/WesBos-30day-Coding-challenge/)
+
+---
 
 - [01 - JavaScript Drum Kit](./01%20-%20JavaScript%20Drum%20Kit)  
 - [02 - JS and CSS Clock](./02%20-%20JS%20and%20CSS%20Clock)  
@@ -34,3 +38,6 @@
 - [28 - Video Speed Controller](./28%20-%20Video%20Speed%20Controller)  
 - [29 - Countdown Timer](./29%20-%20Countdown%20Timer)  
 - [30 - Whack A Mole](./30%20-%20Whack%20A%20Mole)  
+
+
+[showcase]: https://loia5tqd001.github.io/Web-Learning-Journey/frontend/30_days_javascript
