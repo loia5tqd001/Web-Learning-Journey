@@ -53,10 +53,10 @@ h2 a:visited::before {
   position: absolute;
   display: inline-block;
   content: '';
-  left: 0;
+  left: -3px;
   top: 0;
   bottom: 0;
-  right: 100%;
+  right: calc(100% + 3px);
   background: #000;
   transition: .2s;
 }
@@ -73,7 +73,8 @@ h2 a:visited > * {
 }
 
 h2 a:hover::before {
-  right: 0;
+  left: -3px;
+  right: -6px;
 }
 
 

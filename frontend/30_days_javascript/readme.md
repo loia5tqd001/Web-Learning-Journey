@@ -1,12 +1,12 @@
-﻿![](https://javascript30.com/images/JS3-social-share.png)
-
-# [JavaScript30][showcase]
+﻿# [JavaScript30](https://javascript30.com/)
+![](https://javascript30.com/images/JS3-social-share.png)
 
 #### **No Frameworks :zap: No Compilers :zap: No Libraries :zap: No Boilerplate**
 
-### [:star: View showcase][showcase] inspired by [this :heart:](https://misslild.github.io/WesBos-30day-Coding-challenge/)
+### :star: View [showcase page][showcase] inspired by [this :heart:](https://misslild.github.io/WesBos-30day-Coding-challenge/)
 
 ---
+#### Or source code:
 
 - [01 - JavaScript Drum Kit](./01%20-%20JavaScript%20Drum%20Kit)  
 - [02 - JS and CSS Clock](./02%20-%20JS%20and%20CSS%20Clock)  
@@ -40,4 +40,4 @@
 - [30 - Whack A Mole](./30%20-%20Whack%20A%20Mole)  
 
 
-[showcase]: https://loia5tqd001.github.io/Web-Learning-Journey/frontend/30_days_javascript
+[showcase]: https://loia5tqd001.github.io/Web-Learning-Journey/frontend/30_days_javascript/index.html
