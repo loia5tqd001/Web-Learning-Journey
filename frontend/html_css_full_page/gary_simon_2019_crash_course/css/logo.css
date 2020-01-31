@@ -1,0 +1,27 @@
+.logo {
+  display: inline-block;
+  font-size: 1.3rem;
+  font-weight: bold;
+  position: relative;
+}
+
+.logo::before,
+.logo::after {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 4px;
+  border-radius: 5px;
+  left: 100%;
+  top: 0;
+}
+
+.logo::before {
+  background: var(--clr-blue-2);
+  transform: rotate(-45deg);
+}
+
+.logo::after {
+  background: var(--clr-green-1);
+  transform: rotate(-45deg) translate(-5px, 5px);
+}

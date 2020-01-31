@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Frontend Crash Course</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/header.css">
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      26andfour
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">home</a></li>
+        <li><a href="#">services</a></li>
+        <li><a href="#">about</a></li>
+        <li><a href="#">contact</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle">
+      <div></div>
+    </button>
+  </header>
+
+  <script>
+
+    const nav = document.querySelector('nav')
+    const navToggle = document.querySelector('.nav-toggle')
+
+    navToggle.addEventListener('click', e => {
+
+      function setTopLeft(el, top, left) {
+        el.style.setProperty('top', top + 'px')
+        el.style.setProperty('left', left + 'px')
+      }
+
+      e.preventDefault()
+      
+      // don't use toggle in this case, to prevent animation in page load
+      if (!nav.classList.contains('open')) {
+
+        const { top, left } = navToggle.getBoundingClientRect()
+
+        nav.classList.add('open')
+        nav.classList.remove('close')
+
+        setTopLeft(navToggle, top, left)
+
+      } else {
+
+        nav.classList.remove('open')
+        nav.classList.add('close')
+
+        setTopLeft(navToggle, 0, 0)
+      }
+    })
+
+
+  
+  </script>
+  
+</body>
+</html>
