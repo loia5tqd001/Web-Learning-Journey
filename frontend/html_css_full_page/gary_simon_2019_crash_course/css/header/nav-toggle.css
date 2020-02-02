@@ -1,7 +1,6 @@
 .nav-toggle {
   width: 1.5em;
   height: 1.5em;
-  margin-top: 2px;
   position: relative;
   border: none;
   background: none;
@@ -115,5 +114,12 @@ nav.close + .nav-toggle > div {
   to {
     bottom: 0;
     transform: rotate(0deg);
+  }
+}
+
+
+@media (min-width: 1024px) {
+  .nav-toggle {
+    display: none;
   }
 }

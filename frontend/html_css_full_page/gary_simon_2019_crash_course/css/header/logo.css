@@ -1,8 +1,11 @@
 .logo {
   display: inline-block;
+  color: var(--clr-gray-3);
+  text-decoration: none;
   font-size: 1.3rem;
   font-weight: bold;
   position: relative;
+  height: 1em;
 }
 
 .logo::before,
@@ -24,4 +27,8 @@
 .logo::after {
   background: var(--clr-green-1);
   transform: rotate(-45deg) translate(-5px, 5px);
+}
+
+.logo:hover {
+  color: var(--clr-blue-3);
 }
