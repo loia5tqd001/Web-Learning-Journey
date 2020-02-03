@@ -1,16 +1,16 @@
 .nav-toggle {
-  width: 1.5em;
-  height: 1.5em;
+  width: 1.3em;
+  height: 1.3em;
   position: relative;
   border: none;
   background: none;
   outline: none;
+  z-index: 1;
 
   --animate-time: .3s;
 }
 .nav.open + .nav-toggle {
   position: fixed;
-  z-index: 1;
 }
 
 
