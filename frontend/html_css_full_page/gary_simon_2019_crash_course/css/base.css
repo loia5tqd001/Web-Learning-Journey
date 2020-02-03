@@ -4,6 +4,7 @@
   --clr-gray-1: #E5E5E5;
   --clr-gray-2: #C4C4C4;
   --clr-gray-3: #333333;
+  --clr-gray-4: #F2F2F2;
 
   --clr-blue-1: #ACE6F9;
   --clr-blue-2: #56CCF2;
@@ -16,5 +17,11 @@
 body {
   font-family: 'Montserrat', sans-serif;
   color: var(--clr-gray-3);
-  padding: 1.5em;
+  margin: 0;
+  padding: 1.5em 0 0;
+}
+
+.container {
+  width: 85%;
+  margin: 0 auto;
 }

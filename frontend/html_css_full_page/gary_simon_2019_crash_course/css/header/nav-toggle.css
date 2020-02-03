@@ -8,7 +8,7 @@
 
   --animate-time: .3s;
 }
-nav.open + .nav-toggle {
+.nav.open + .nav-toggle {
   position: fixed;
   z-index: 1;
 }
@@ -37,26 +37,26 @@ nav.open + .nav-toggle {
 }
 
 
-nav.open + .nav-toggle::before {
+.nav.open + .nav-toggle::before {
   background: #fff;
   animation: top-nav-open var(--animate-time) linear forwards;
 }
-nav.open + .nav-toggle::after {
+.nav.open + .nav-toggle::after {
   background: #fff;
   animation: bottom-nav-open var(--animate-time) linear forwards;
 }
-nav.open + .nav-toggle > div {
+.nav.open + .nav-toggle > div {
   background: #fff;
   opacity: 0;
 }
 
-nav.close + .nav-toggle::before {
+.nav.close + .nav-toggle::before {
   animation: top-nav-close var(--animate-time) linear forwards;
 }
-nav.close + .nav-toggle::after {
+.nav.close + .nav-toggle::after {
   animation: bottom-nav-close var(--animate-time) linear forwards;
 }
-nav.close + .nav-toggle > div {
+.nav.close + .nav-toggle > div {
   opacity: 1;
 }
 

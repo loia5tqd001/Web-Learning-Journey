@@ -5,22 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Frontend Crash Course</title>
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/header/index.css">
-  <link rel="stylesheet" href="css/main/index.css">
+  <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
 
-  <header>
-    <a href="#" class="logo">
+  <header class="header container">
+    <a class="logo">
       26andfour
     </a>
-    <nav>
-      <ul>
-        <li><a href="#">home</a></li>
-        <li><a href="#">services</a></li>
-        <li><a href="#">about</a></li>
-        <li><a href="#">contact</a></li>
+    <nav class="nav">
+      <ul class="nav__list">
+        <li class="nav__item"><a>home</a></li>
+        <li class="nav__item"><a>services</a></li>
+        <li class="nav__item"><a>about</a></li>
+        <li class="nav__item"><a>contact</a></li>
       </ul>
     </nav>
     <button class="nav-toggle">
@@ -28,14 +26,83 @@
     </button>
   </header>
 
-  <main>
-    <img src="images/server.svg" alt="">
-    <h1>Web Hosting for the Modern Era</h1>
-    <p class="subhead">Go serverless and pay for what you use</p>
+  <main class="main container">
+    <img class="server-img" src="images/server.svg" alt="hosting server">
+    <h1 class="main-heading">Web Hosting for the Modern Era</h1>
+    <p class="sub-heading">Go serverless and pay for what you use</p>
     <div class="scroll-indicator"></div>
   </main>
 
+  <section class="features">
+    <div class="container">
+      <div class="features__item">
+        <div class="features__img">
+          <img src="images/calendar.svg" alt="calendar">
+        </div>
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore nonumy eirmod tempor in</p>
+      </div>
+      <div class="features__item">
+        <div class="features__img">
+          <img src="images/wallet.svg" alt="wallet">
+        </div>
+        <p>Lorem ipsum dolor sit amet, empo consetetur sadipscing elitr, sed diam nonumy eirmod tempor oro empoinvidunt ut labore labore</p>
+      </div>
+      <div class="features__item">
+        <div class="features__img">
+          <img src="images/phone.svg" alt="phone">
+        </div>
+        <p>Lorem ipsum dolor sit amet, elitr consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonial">
+    <div class="container">
+
+      <figure class="testimonial__item">
+        <img class="testimonial__img" src="images/avatar-1.png" alt="avatar 1">
+        <blockquote class="testimonial__quote">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et</blockquote>
+        <figcaption class="testimonial__name">- John Doe</figcaption>
+      </figure>
+
+      <figure class="testimonial__item">
+        <img class="testimonial__img" src="images/avatar-2.png" alt="avatar 2">
+        <blockquote class="testimonial__quote">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et</blockquote>
+        <figcaption class="testimonial__name">- Jane Doe</figcaption>
+      </figure>
+
+    </div>
+  </section>
+
+  <section class="cta container">
+    <p class="cta__label">Start your free trial now</p>
+    <button class="cta__button">Get Started</button>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <a class="logo">
+        26andfour
+      </a>
+      <p class="footer__address">
+        KTX Khu B, phường Đông Hòa, thị xã Dĩ An, tỉnh Bình Dương
+      </p>
+      <ul class="footer__links">
+        <li class="footer__links__item">
+          <a class="footer__link">Term of Service</a>
+        </li>
+        <li class="footer__links__item">
+          <a class="footer__link">Privacy Policy</a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+
+
   <script>
+
+    document.querySelectorAll('a').forEach(a => a.href = 'javascript:')
+    
 
     const nav = document.querySelector('nav')
     const navToggle = document.querySelector('.nav-toggle')
