@@ -1,0 +1,52 @@
+.testimonial figure,
+.testimonial blockquote,
+.testimonial figcaption {
+  margin: 0;
+  padding: 0;
+}
+
+.testimonial {
+  background: var(--clr-gray-4);
+  padding: 3em 0 1em;
+  margin-top: -2em;
+}
+
+.testimonial .testimonial__item {
+  display: grid;
+  grid-gap: 1em;
+  text-align: center;
+  justify-items: center;
+  margin: 3em auto;
+}
+
+.testimonial .testimonial__img {
+  display: inline-block;
+  width: 5em;
+  height: 5em;
+}
+
+.testimonial .testimonial__name {
+  color: var(--clr-blue-2);
+  font-weight: bold;
+}
+
+@media (min-width: 1024px) {
+  .testimonial > .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2em;
+    padding: 3em 0;
+  }
+
+  .testimonial .testimonial__item {
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr auto;
+    text-align: left;
+    justify-items: normal;
+    grid-row-gap: 0;
+  }
+
+  .testimonial .testimonial__img {
+    grid-row: 1/3;
+  }
+}
