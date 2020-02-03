@@ -1,0 +1,78 @@
+.footer {
+  background: var(--clr-blue-4);
+  color: #fff;
+  transform: skewY(2deg);
+  border-radius: 0 2em 0 0;
+  padding-bottom: 2em;
+  margin: 2em 0 -2em 0;
+}
+/* why negative margin at footer DOESN"T JUST WORK: https://stackoverflow.com/a/53600403/9787887 */
+html { overflow: auto; }
+body { overflow: hidden; }
+
+.footer::before,
+.footer::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translateY(-100%);
+}
+.footer::before {
+  background: var(--clr-blue-4);
+  width: 2em;
+  height: 2em;
+}
+.footer::after {
+  background: #fff;
+  width: 4em;
+  height: 4em;
+  border-radius: 50%;
+}
+
+.footer .container {
+  padding: 5em 0;
+  text-align: center;
+  transform: skewY(-2deg);
+}
+
+.footer .logo {
+  color: #fff;
+}
+
+.footer__address {
+  margin: 2em 0;
+}
+
+.footer__links {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer__link {
+  text-decoration: none;
+  color: #fff;
+  margin: 0 1em;
+}
+
+@media (min-width: 1024px) {
+  .footer {
+    padding-bottom: 1em;
+    margin-top: 0;
+  }
+
+  .footer .container {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas: auto auto;
+    justify-items: left;
+  }
+
+  .footer .logo {
+    grid-column: 1/3;
+  }
+}
