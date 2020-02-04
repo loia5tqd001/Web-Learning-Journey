@@ -46,6 +46,10 @@ h2 {
   position: relative;
 }
 
+h2 svg {
+  margin-right: .3rem;
+}
+
 h2::after {
   content: '';
   position: absolute;
@@ -67,4 +71,10 @@ a:visited {
 
 p.project span {
   font-size: .85rem;
+}
+
+@media only screen and (min-resolution: 97dpi) {
+  body {
+    font-size: 0.8rem;
+  }
 }
