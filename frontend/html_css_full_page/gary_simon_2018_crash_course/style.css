@@ -191,3 +191,9 @@ body {
   }
 
 }
+
+@media (max-height: 719px), (min-resolution: 97dpi) {
+  .container {
+    transform: scale(.8);
+  }
+}
