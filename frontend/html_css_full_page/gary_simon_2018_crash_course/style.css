@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+
+/* Desktop first */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(to top right, #493240, #FF0099) no-repeat;
+  color: #333;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 1140px;
+  height: 720px;
+  display: grid;
+  grid-template-columns: minmax(30%, 300px) 1fr;
+  box-shadow: 0 5px 30px #0004;
+}
+
+.header {
+  display: none;
+}
+
+.aside {
+  background: #E2D0BB;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.avatar {
+  margin: 3em auto;
+}
+
+.avatar__img {
+  margin: 1em;
+}
+
+.avatar__name {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav {
+  width: 100%;
+}
+
+.nav__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  background: #C3B5A6;
+}
+
+.nav__item {
+  padding: 1em;
+}
+
+.nav__item:hover,
+.nav__item:active {
+  background: #E5D9CC;
+  cursor: pointer;
+}
+
+.nav__item:not(:last-child) {
+  border-bottom: 1px solid #E2D0BB;
+}
+
+.nav__link {
+  color: #333;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.overlay {
+  display: none;
+}
+
+
+.main {
+  background: #C88DB1 url(assets/bg-shape.svg) no-repeat right bottom;
+  color: #fff;
+  padding: 3em;
+  position: relative;
+}
+
+.main__heading {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-top: 20%;
+}
+
+.main__subheading {
+  font-size: 1.25rem;
+}
+
+.main__cta {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  width: 15rem;
+  height: 4rem;
+  border: none;
+  border-radius: .5rem;
+  background: #FF0099;
+  box-shadow: 0 0 10px #F098;
+  transition: box-shadow .3s;
+  margin-top: 5%;
+  outline: none;
+}
+
+.main__cta:hover {
+  box-shadow: 0 0 30px #F098;
+  cursor: pointer;
+}
+.main__cta:active {
+  box-shadow: 0 0 10px #F09;
+}
+
+
+@media only screen and (max-width: 1139px) {
+
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 64px 1fr;
+    min-height: inherit;
+    /* 
+      https://stackoverflow.com/q/49395367/9787887
+      https://stackoverflow.com/a/8468131/9787887
+    */
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    padding: 0 1.5em 0 2.5em;
+    justify-content: space-between;
+    background: #E5D9CC;
+  }
+
+  .header__menu {
+    cursor: pointer;
+  }
+
+  .aside {
+    position: fixed;
+    z-index: 2;
+    width: 75%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    transform: translateX(-100%);
+    transition: transform .3s;
+  }
+  
+  .aside.active {
+    box-shadow: 4px 0 4px #0004;
+    transform: translateX(0);
+  }
+
+  .aside.active + .overlay {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0003;
+  }
+
+  .main {
+    height: 100%;
+    background-size: 100%;
+  }
+
+  .main__heading {
+    font-size: 2.5rem;
+  }
+
+}

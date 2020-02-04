@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>2018 Crash Course - Gary Simon</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <div class="container">
+
+    <header class="header">
+      <h3 class="header__title">N. Huynh Loi</h3>
+      <img class="header__menu" src="assets/hamburger.svg" alt="hamburger">
+    </header>
+
+    <aside class="aside">
+      <figure class="avatar">
+        <img class="avatar__img" src="assets/avatar.png" alt="avatar">
+        <figcaption class="avatar__name">N. Huynh Loi</figcaption>
+      </figure>
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item"><a class="nav__link" href="javascript:">home</a></li>
+          <li class="nav__item"><a class="nav__link" href="javascript:">about me</a></li>
+          <li class="nav__item"><a class="nav__link" href="javascript:">portfolio</a></li>
+          <li class="nav__item"><a class="nav__link" href="javascript:">contact</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <div class="overlay"></div>
+
+    <main class="main">
+      <h1 class="main__heading">I'm a designer of things</h1>
+      <p class="main__subheading">You design this thing and make it reality in the browser, oh yeah. Imagine the possibilities of your new skills.</p>
+      <button class="main__cta">Hire me</button>
+    </main>
+
+  </div>
+
+
+  <script>
+    const menu = document.querySelector('.header__menu')
+    const aside = document.querySelector('.aside')
+    const overlay = document.querySelector('.overlay')
+
+    menu.addEventListener('click', toggleNav)
+    overlay.addEventListener('click', toggleNav)
+
+    function toggleNav(e) {
+      aside.classList.toggle('active')
+      e.preventDefault()
+    }
+  </script>
+
+
+</body>
+</html>
