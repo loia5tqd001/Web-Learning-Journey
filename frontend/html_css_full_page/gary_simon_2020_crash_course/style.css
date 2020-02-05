@@ -19,7 +19,7 @@ body {
 }
 
 .hero > * {
-  animation: fade-in 1s .5s forwards;
+  animation: fade-in 1s .2s backwards
 }
 
 @keyframes fade-in {
@@ -191,6 +191,7 @@ body {
     grid-column: 2/3;
     grid-row: 2;
     padding: 1rem 2rem;
+    margin: 1rem auto;
   }
 
   .form {
