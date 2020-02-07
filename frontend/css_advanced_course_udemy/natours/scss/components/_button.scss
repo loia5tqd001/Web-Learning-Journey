@@ -1,0 +1,65 @@
+.button {
+
+  &:link, &:visited {
+    display: inline-block;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.2rem 3rem;
+    border-radius: 999rem;
+    outline: none;
+  }
+
+  &.--white {
+    color: $color-gray-dark;
+    background: $color-white;
+
+    &::before, &::after {
+      background: $color-white;
+    }
+  }
+
+  &.--animated {
+    position: relative;
+    transition: transform .2s ease-out, box-shadow .2s ease-out;
+    animation: moveInFromBottom .4s ease-out .6s backwards;
+
+    @at-root %button--animated-before-after {
+      content: '';
+      position: absolute;
+      top:0; right:0; bottom:0; left: 0;
+      border-radius: 999rem;
+      transition: border .1s ease-out;
+      z-index: -1;
+    }
+
+    &::before {
+      @extend %button--animated-before-after;
+      animation: pulse 1.3s ease-out .4s infinite reverse;
+      // animation: name duration timing-function delay iteration-count direction fill-mode; 
+    }
+    &::after {
+      @extend %button--animated-before-after;
+      transition: opacity .5s, transform .4s;
+      transform: scale(.9);
+    }
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 .5rem 1rem rgba($color-black,.2);
+
+      &::before {
+        animation: none;
+      }
+      &::after {
+        opacity: 0;
+        transform: scale(1.5, 1.6);
+      }
+    }
+
+    &:active {
+      transform: translateY(-1px);
+      box-shadow: 0 .25rem .5rem rgba($color-black,.2);
+    }
+  }
+
+}
