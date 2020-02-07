@@ -156,14 +156,14 @@ body {
 }
 .button.--animated:hover::after {
   opacity: 0;
-  transform: scaleX(1.5) scaleY(1.6);
+  transform: scale(1.5, 1.6);
 }
 
 
 @keyframes moveInBottom {
   0% {
     opacity: 0;
-    transform: translateY(2rem);
+    transform: translate(0, 2rem);
   }
   100% {
     opacity: 1;
