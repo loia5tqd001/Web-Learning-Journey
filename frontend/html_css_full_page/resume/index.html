@@ -4,9 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Nguyen Huynh Loi's resume">
   <title>Resume</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/js/all.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
   <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
   
@@ -36,7 +39,7 @@
 
 
   <h2><i class="fas fa-briefcase"></i> Skills</h2>
-  <p>
+  <p class="skills">
     <strong>HTML5, CSS3, Javascript, SCSS, VueJS, ReactJs</strong> <br>
     <strong>Git, Github</strong> <br>
     <strong>Figma, Photoshop</strong> <br>
@@ -48,46 +51,49 @@
 
   <p class="project">
     <strong>Tool Đăng Ký Học Phần UIT</strong> <br>
-    <span>Technology</span>: <strong>Google Sheets, SheetJs, Bootstrap, ...</strong> <br>
-    <span>Summary</span>: Help UIT students register for classes easier <br>
-    <span>Url</span>: <a href="https://github.com/loia5tqd001/Dang-Ky-Hoc-Phan-UIT"><strong>https://github.com/loia5tqd001/Dang-Ky-Hoc-Phan-UIT</strong></a> <br>
+    <span class="li">Technology</span>: <strong>Google Sheets, SheetJs, Bootstrap, ...</strong> <br>
+    <span class="li">Summary</span>: Help UIT students register for classes easier <br>
+    <span class="li">Url</span>: <a href="https://github.com/loia5tqd001/Dang-Ky-Hoc-Phan-UIT">https://github.com/loia5tqd001/Dang-Ky-Hoc-Phan-UIT</a> <br>
   </p>
 
   <p class="project">
     <strong>Netflix Redesign</strong> <br>
-    <span>Technology</span>: <strong>Vuejs, Figma</strong> <br>
-    <span>Summary</span>: Project for the Human-Computer Interaction class <br>
-    <span>Url</span>: <a href="https://github.com/loia5tqd001/Clone-Netflix-SE215"><strong>https://github.com/loia5tqd001/Clone-Netflix-SE215</strong></a> <br>
+    <span class="li">Technology</span>: <strong>Vuejs, Figma</strong> <br>
+    <span class="li">Summary</span>: Project for the Human-Computer Interaction class <br>
+    <span class="li">Url</span>: <a href="https://github.com/loia5tqd001/Clone-Netflix-SE215">https://github.com/loia5tqd001/Clone-Netflix-SE215</a> <br>
   </p>
 
   <p class="project">
     <strong>Game Captain America and The Avengers NES remake</strong> <br>
-    <span>Technology</span>: <strong>C++ DirectX</strong> <br>
-    <span>Summary</span>: My biggest project so far with a team of 3 people <br>
-    <span>Url</span>: <a href="https://github.com/loia5tqd001/SE102-UIT-Game-Captain-America-and-The-Avengers"><strong>https://github.com/loia5tqd001/SE102-UIT-Game-Captain-America-and-The-Avengers</strong></a> <br>
+    <span class="li">Technology</span>: <strong>C++ DirectX</strong> <br>
+    <span class="li">Summary</span>: My biggest project so far with a team of 3 people <br>
+    <span class="li">Url</span>: <a href="https://github.com/loia5tqd001/SE102-UIT-Game-Captain-America-and-The-Avengers">https://github.com/loia5tqd001/SE102-UIT-Game-Captain-America-and-The-Avengers</a> <br>
   </p>
 
   <p class="project">
-    <strong>Github Contribution Graph Manipulation</strong> <br>
-    <span>Technology</span>: <strong>Bash</strong> <br>
-    <span>Summary</span>: Cheat Github contribution graph in order to draw my name <br>
-    <span>Result</span>: <a href="https://github.com/loia5tqd001?tab=overview&from=2019-12-01&to=2019-12-31"><strong>https://github.com/loia5tqd001?tab=overview&from=2019-12-01&to=2019-12-31</strong></a> <br>
+    <strong>Github Contribution Graph Manipulator</strong> <br>
+    <span class="li">Technology</span>: <strong>Bash</strong> <br>
+    <span class="li">Summary</span>: Cheat Github contribution graph in order to draw my name <br>
+    <span class="li">Result</span>: <a href="https://github.com/loia5tqd001?tab=overview&from=2019-12-01&to=2019-12-31">https://github.com/loia5tqd001?tab=overview&from=2019-12-01&to=2019-12-31</a> <br>
   </p>
 
 
   <h2><i class="fas fa-award"></i> Awards</h2>
   <p class="project">
     <strong>Academic Excellence Award</strong> <br>
-    <span>Program</span>: <a href="https://devc-challenge.coderschool.vn">https://devc-challenge.coderschool.vn</a> <br>
-    <span>Summary</span>: Get the highest score among the class <br>
-    <span>Technology</span>: <strong>React Native</strong> <br> 
+    <span class="li">Program</span>: <a href="https://devc-challenge.coderschool.vn">https://devc-challenge.coderschool.vn</a> <br>
+    <span class="li">Summary</span>: Get the highest score among the class <br>
+    <span class="li">Technology</span>: <strong>React Native</strong> <br> 
   </p>
 
 
 
   <script>
 
-    document.querySelectorAll('a').forEach(a => a.setAttribute('target', '_blank'))
+    document.querySelectorAll('a').forEach(a => {
+      a.setAttribute('target', '_blank')
+      a.setAttribute('rel', 'noreferrer')
+    })
 
   </script>
 

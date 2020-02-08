@@ -24,7 +24,7 @@ header {
   text-decoration: none;
 }
 
-.media svg {
+.media .fab {
   text-decoration: none;
   display: inline-block;
   margin-right: .4em;
@@ -46,10 +46,6 @@ h2 {
   position: relative;
 }
 
-h2 svg {
-  margin-right: .3rem;
-}
-
 h2::after {
   content: '';
   position: absolute;
@@ -69,8 +65,21 @@ a:visited {
   border-color: var(--main-color);
 }
 
+p.skills > strong::before {
+  content: '\2022  ';
+}
+
 p.project span {
   font-size: .85rem;
+}
+p.project > strong:first-child {
+  text-transform: uppercase;
+  font-size: 1.1em;
+  letter-spacing: .1rem;
+  color:rgb(10, 78, 100);
+}
+.li::before {
+  content: '\2022  ';
 }
 
 @media only screen and (min-resolution: 97dpi) {
