@@ -1,5 +1,18 @@
 .section-about {
   margin-top: -50vh;
-  padding: calc(50vh + 10rem) 0 0 0;
+  padding: calc(50vh + 10rem) 0 20% 0;
   background: $color-gray-light-1;
+}
+
+.section-features {
+  background-image: linear-gradient(to right, rgba($color-primary-light, .8), rgba($color-primary-dark, .8)), url("../../img/hero.jpg");
+  background-size: cover;
+  background-position: top;
+  transform: skewY(-7deg);
+  padding: 20rem 0;
+  margin-top: -20rem;
+
+  & > * {
+    transform: skewY(7deg);
+  }
 }

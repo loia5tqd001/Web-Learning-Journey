@@ -5,3 +5,11 @@
     clear: both;
   }
 }
+
+@mixin gradient-text {
+  display: inline-block;
+  color: transparent;
+  background: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+          background-clip: text;
+  -webkit-background-clip: text;
+}

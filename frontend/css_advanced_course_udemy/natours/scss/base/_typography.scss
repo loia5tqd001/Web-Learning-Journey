@@ -1,6 +1,6 @@
 body {
+  font-size: $default-font-size;
   font-family: "Lato", sans-serif;
-  padding: 2rem;
   color: $color-gray-dark;
   font-weight: 400;
   line-height: 1.7;
@@ -31,14 +31,10 @@ body {
 .heading-secondary {
   font-size: 3.5rem;
   font-weight: 700;
-  display: inline-block;
-  color: transparent;
-  background: linear-gradient(to right, $color-primary-light, $color-primary-dark);
-  -webkit-background-clip: text;
-          background-clip: text;
   text-transform: uppercase;
   letter-spacing: 2px;
   transition: transform .2s, text-shadow .2s;
+  @include gradient-text;
 
   &:hover {
     transform: skew(5deg, 2deg) scale(1.1);
