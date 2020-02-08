@@ -132,12 +132,16 @@ html {
 }
 
 body {
-  font-size: 1.6rem;
+  padding: 2rem;
+}
+
+ul {
+  list-style-type: none;
 }
 
 body {
+  font-size: 1.6rem;
   font-family: "Lato", sans-serif;
-  padding: 2rem;
   color: #777;
   font-weight: 400;
   line-height: 1.7;
@@ -373,11 +377,29 @@ body {
 
 .button.--white {
   color: #777;
+}
+
+.button.--white, .button.--white::before, .button.--white::after {
   background: #fff;
 }
 
-.button.--white::before, .button.--white::after {
-  background: #fff;
+.button.--green {
+  color: #fff;
+}
+
+.button.--green, .button.--green::before, .button.--green::after {
+  background: #55c57a;
+}
+
+.button.--animated::after, .button.--pulse::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 999rem;
+  z-index: -1;
 }
 
 .button.--animated {
@@ -386,25 +408,6 @@ body {
   transition: -webkit-transform .2s ease-out, -webkit-box-shadow .2s ease-out;
   transition: transform .2s ease-out, box-shadow .2s ease-out;
   transition: transform .2s ease-out, box-shadow .2s ease-out, -webkit-transform .2s ease-out, -webkit-box-shadow .2s ease-out;
-  -webkit-animation: moveInFromBottom .4s ease-out .6s backwards;
-          animation: moveInFromBottom .4s ease-out .6s backwards;
-}
-
-.button.--animated::before, .button.--animated::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  border-radius: 999rem;
-  -webkit-transition: border .1s ease-out;
-  transition: border .1s ease-out;
-  z-index: -1;
-}
-
-.button.--animated::before {
-  animation: pulse 1.3s ease-out .4s infinite reverse;
 }
 
 .button.--animated::after {
@@ -423,11 +426,6 @@ body {
           box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
-.button.--animated:hover::before {
-  -webkit-animation: none;
-          animation: none;
-}
-
 .button.--animated:hover::after {
   opacity: 0;
   -webkit-transform: scale(1.5, 1.6);
@@ -439,6 +437,20 @@ body {
           transform: translateY(-1px);
   -webkit-box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
           box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+}
+
+.button.--pulse {
+  -webkit-animation: moveInFromBottom .4s ease-out .6s backwards;
+          animation: moveInFromBottom .4s ease-out .6s backwards;
+}
+
+.button.--pulse::before {
+  animation: pulse 1.3s ease-out .4s infinite reverse;
+}
+
+.button.--pulse:hover::before {
+  -webkit-animation: none;
+          animation: none;
 }
 
 .button-text:link, .button-text:visited {
@@ -548,6 +560,136 @@ body {
   margin-top: 1.5rem;
 }
 
+.tour-card {
+  position: relative;
+  -webkit-perspective: 100rem;
+          perspective: 100rem;
+}
+
+.tour-card.--primary-color .__front .__heading .__span {
+  background: -webkit-gradient(linear, left top, right bottom, from(rgba(126, 213, 111, 0.9)), to(rgba(40, 180, 133, 0.9)));
+  background: linear-gradient(to right bottom, rgba(126, 213, 111, 0.9), rgba(40, 180, 133, 0.9));
+}
+
+.tour-card.--primary-color .__front .__img,
+.tour-card.--primary-color .__back {
+  background: -webkit-gradient(linear, left top, right bottom, from(#7ed56f), to(#28b485));
+  background: linear-gradient(to right bottom, #7ed56f, #28b485);
+}
+
+.tour-card.--secondary-color .__front .__heading .__span {
+  background: -webkit-gradient(linear, left top, right bottom, from(rgba(255, 185, 0, 0.9)), to(rgba(255, 119, 48, 0.9)));
+  background: linear-gradient(to right bottom, rgba(255, 185, 0, 0.9), rgba(255, 119, 48, 0.9));
+}
+
+.tour-card.--secondary-color .__front .__img,
+.tour-card.--secondary-color .__back {
+  background: -webkit-gradient(linear, left top, right bottom, from(#ffb900), to(#ff7730));
+  background: linear-gradient(to right bottom, #ffb900, #ff7730);
+}
+
+.tour-card.--tertiary-color .__front .__heading .__span {
+  background: -webkit-gradient(linear, left top, right bottom, from(rgba(41, 152, 255, 0.9)), to(rgba(86, 67, 250, 0.9)));
+  background: linear-gradient(to right bottom, rgba(41, 152, 255, 0.9), rgba(86, 67, 250, 0.9));
+}
+
+.tour-card.--tertiary-color .__front .__img,
+.tour-card.--tertiary-color .__back {
+  background: -webkit-gradient(linear, left top, right bottom, from(#2998ff), to(#5643fa));
+  background: linear-gradient(to right bottom, #2998ff, #5643fa);
+}
+
+.tour-card > .__front,
+.tour-card > .__back {
+  border-radius: 3px;
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transition: -webkit-transform .8s;
+  transition: -webkit-transform .8s;
+  transition: transform .8s;
+  transition: transform .8s, -webkit-transform .8s;
+  -webkit-box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.2);
+}
+
+.tour-card:hover > .__front {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.tour-card:hover > .__back {
+  -webkit-transform: rotateY(360deg);
+          transform: rotateY(360deg);
+}
+
+.tour-card .__front {
+  background: #fff;
+}
+
+.tour-card .__front .__heading {
+  text-transform: uppercase;
+  position: absolute;
+  right: 1.5rem;
+  top: 12rem;
+  text-align: right;
+  color: #fff;
+  font-size: 3rem;
+  font-weight: 100;
+  z-index: 1;
+}
+
+.tour-card .__front .__heading .__span {
+  padding: 1rem 1.5rem;
+}
+
+.tour-card .__front .__img {
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+          clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.tour-card .__front .__img > img {
+  display: block;
+  width: 100%;
+  mix-blend-mode: screen;
+}
+
+.tour-card .__front .__list {
+  font-size: 1.5rem;
+  width: 80%;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.tour-card .__front .__list .__item {
+  padding: 1rem;
+}
+
+.tour-card .__front .__list .__item:not(:last-child) {
+  border-bottom: 1px solid #eee;
+}
+
+.tour-card .__back {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  color: #fff;
+  padding: 35% 0;
+}
+
+.tour-card .__back .__only {
+  text-transform: uppercase;
+}
+
+.tour-card .__back .__price {
+  font-size: 6rem;
+  font-weight: 300;
+  margin-bottom: 5rem;
+}
+
 .section-about {
   margin-top: -50vh;
   padding: calc(50vh + 10rem) 0 20% 0;
@@ -568,4 +710,11 @@ body {
 .section-features > * {
   -webkit-transform: skewY(7deg);
           transform: skewY(7deg);
+}
+
+.section-tours {
+  background: #f7f7f7;
+  margin-top: -10rem;
+  padding: 25rem 0 15rem 0;
+  text-align: center;
 }

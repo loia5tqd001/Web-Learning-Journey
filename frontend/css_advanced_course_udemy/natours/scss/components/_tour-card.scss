@@ -1,0 +1,109 @@
+@function gradient-to-rb($from, $to) {
+  @return linear-gradient(to right bottom, $from, $to); 
+}
+  
+@mixin card-theme($color-light, $color-dark) {
+  .__front .__heading .__span {
+    background: gradient-to-rb( rgba($color-light, .9), rgba($color-dark, .9) )
+  }
+  .__front .__img, 
+  .__back {
+    background: gradient-to-rb( $color-light, $color-dark )
+  }
+}
+
+.tour-card {
+  &.--primary-color {
+    @include card-theme($color-primary-light, $color-primary-dark) }
+
+  &.--secondary-color {
+    @include card-theme($color-secondary-light, $color-secondary-dark) }
+
+  &.--tertiary-color {
+    @include card-theme($color-tertiary-light, $color-tertiary-dark) }
+
+  position: relative;
+  perspective: 100rem;
+    
+  & > .__front, 
+  & > .__back {
+    border-radius: 3px;
+    overflow: hidden;
+    backface-visibility: hidden;
+    transition: transform .8s;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .2);
+  }
+
+  &:hover > .__front {
+    transform: rotateY(180deg);
+  }
+  &:hover > .__back {
+    transform: rotateY(360deg);
+  }
+
+
+  .__front {
+    background: $color-white;
+
+    .__heading {
+      text-transform: uppercase;
+      position: absolute;
+      right: 1.5rem;
+      top: 12rem;
+      text-align: right;
+      color: $color-white;
+      font-size: 3rem;
+      font-weight: 100;
+      z-index: 1;
+      
+      .__span {
+        padding: 1rem 1.5rem;
+      }
+    }
+
+    .__img {
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+      
+      > img {
+        display: block;
+        width: 100%;
+        mix-blend-mode: screen;
+      }
+    }
+
+    .__list {
+      font-size: 1.5rem;
+      width: 80%;
+      margin: 0 auto;
+      padding: 2rem 0;
+
+      .__item {
+        padding: 1rem;
+        &:not(:last-child) {
+          border-bottom: 1px solid $color-gray-light-2;
+        }
+      }
+    }
+  }
+
+  .__back {
+    transform: rotateY(180deg);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    color: $color-white;
+    padding: 35% 0;
+
+    .__only {
+      text-transform: uppercase;
+    }
+
+    .__price {
+      font-size: 6rem;
+      font-weight: 300;
+      margin-bottom: 5rem;
+    }
+  }
+    
+}
