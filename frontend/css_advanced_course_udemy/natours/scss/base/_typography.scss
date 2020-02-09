@@ -35,7 +35,6 @@ body {
   letter-spacing: 2px;
   transition: transform .2s, text-shadow .2s;
   @include gradient-text;
-  display: block;
 
   &:hover {
     transform: skew(5deg, 2deg) scale(1.1);

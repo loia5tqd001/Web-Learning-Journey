@@ -29,3 +29,21 @@
   padding: 15rem 20%;
   position: relative;
 }
+
+.section-book {
+  padding: 12rem 10rem;
+  background: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+
+  .__form-container {
+    box-shadow: 0 1rem 4rem rgba($color-black, .3);
+    padding: 6rem;
+    padding-right: 50%;
+    background: linear-gradient(
+      105deg, 
+      rgba($color-white, .9),
+      rgba($color-white, .9) 50%,
+      transparent 50%,
+      ), 
+      url('../img/nat-10.jpg') center/cover;
+  }
+}

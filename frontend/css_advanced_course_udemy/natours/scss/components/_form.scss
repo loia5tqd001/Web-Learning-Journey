@@ -1,0 +1,86 @@
+.form {
+
+  .__group {
+    &:not(:last-child) {
+      margin-bottom: 3rem;
+    }
+
+    .__input {
+      padding: 1rem 1.5rem;
+      border: none;
+      display: block;
+      width: 80%;
+      border-bottom: 3px solid transparent;
+      transition: all .3s;
+  
+      &::placeholder {
+        color: $color-gray-dark-2;
+      }
+  
+      &:focus {
+        outline: none;
+        border-bottom: 3px solid $color-primary-dark;
+        box-shadow: 0 1rem 2rem rgba($color-black, .15);
+      }
+      &:invalid:focus {
+        border-color: $color-secondary-dark;
+      }
+    }
+  
+    .__label {
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-left: 1.6rem;
+      display: block;
+      transform: translateY(-3rem);
+      opacity: 0;
+      transition: transform .3s, opacity .3s;
+    }
+    // (input not empty)
+    .__input:not(:placeholder-shown) + .__label {
+      transform: translateY(.5rem);
+      opacity: 1;
+    }
+  }
+
+
+  .__radio-group {
+    display: inline-block;
+    width: 40%;
+    margin-bottom: 1rem;
+    padding-left: .5rem;
+
+    .__radio {
+      display: none;
+    }
+
+    .__radio-label {
+      position: relative;
+      left: 3rem;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        right: calc(100% + 1rem);
+        top: -.3rem;
+        width: 2rem;
+        height: 2rem;
+        background: transparent;
+        border-radius: 50%;
+        border: .3rem solid transparent;
+        box-shadow: 0 0 0 .5rem $color-primary;
+        transition: all .2s;
+      }
+    }
+
+    .__radio:checked + .__radio-label::before {
+      background: $color-primary;
+      border-color: rgba($color-white, .8);
+    }
+  }
+
+}

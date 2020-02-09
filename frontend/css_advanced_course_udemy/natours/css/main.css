@@ -139,6 +139,10 @@ ul {
   list-style-type: none;
 }
 
+input {
+  font: inherit;
+}
+
 body {
   font-size: 1.6rem;
   font-family: "Lato", sans-serif;
@@ -186,7 +190,6 @@ body {
   background: linear-gradient(to right, #7ed56f, #28b485);
   background-clip: text;
   -webkit-background-clip: text;
-  display: block;
 }
 
 .heading-secondary:hover {
@@ -367,13 +370,19 @@ body {
   width: calc(100% - (calc((100% - 18rem) / 4) + 6rem) * (1));
 }
 
-.button:link, .button:visited {
+.button, .button:link, .button:visited {
   display: inline-block;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 1.2rem 3rem;
+  padding: 1.4rem 3.5rem;
   border-radius: 999rem;
+  font-size: 1.6rem;
+  border: none;
+}
+
+.button:hover, .button:focus {
   outline: none;
+  cursor: pointer;
 }
 
 .button.--white {
@@ -433,7 +442,7 @@ body {
           transform: scale(1.5, 1.6);
 }
 
-.button.--animated:active {
+.button.--animated:active, .button.--animated:focus {
   -webkit-transform: translateY(-1px);
           transform: translateY(-1px);
   -webkit-box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
@@ -479,6 +488,108 @@ body {
           transform: translateY(-1px);
   -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
           box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.form .__group:not(:last-child) {
+  margin-bottom: 3rem;
+}
+
+.form .__group .__input {
+  padding: 1rem 1.5rem;
+  border: none;
+  display: block;
+  width: 80%;
+  border-bottom: 3px solid transparent;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+.form .__group .__input::-webkit-input-placeholder {
+  color: #999;
+}
+
+.form .__group .__input:-ms-input-placeholder {
+  color: #999;
+}
+
+.form .__group .__input::-ms-input-placeholder {
+  color: #999;
+}
+
+.form .__group .__input::placeholder {
+  color: #999;
+}
+
+.form .__group .__input:focus {
+  outline: none;
+  border-bottom: 3px solid #28b485;
+  -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+          box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+}
+
+.form .__group .__input:invalid:focus {
+  border-color: #ff7730;
+}
+
+.form .__group .__label {
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-left: 1.6rem;
+  display: block;
+  -webkit-transform: translateY(-3rem);
+          transform: translateY(-3rem);
+  opacity: 0;
+  -webkit-transition: opacity .3s, -webkit-transform .3s;
+  transition: opacity .3s, -webkit-transform .3s;
+  transition: transform .3s, opacity .3s;
+  transition: transform .3s, opacity .3s, -webkit-transform .3s;
+}
+
+.form .__group .__input:not(:placeholder-shown) + .__label {
+  -webkit-transform: translateY(0.5rem);
+          transform: translateY(0.5rem);
+  opacity: 1;
+}
+
+.form .__radio-group {
+  display: inline-block;
+  width: 40%;
+  margin-bottom: 1rem;
+  padding-left: .5rem;
+}
+
+.form .__radio-group .__radio {
+  display: none;
+}
+
+.form .__radio-group .__radio-label {
+  position: relative;
+  left: 3rem;
+}
+
+.form .__radio-group .__radio-label:hover {
+  cursor: pointer;
+}
+
+.form .__radio-group .__radio-label::before {
+  content: '';
+  position: absolute;
+  right: calc(100% + 1rem);
+  top: -.3rem;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border-radius: 50%;
+  border: .3rem solid transparent;
+  -webkit-box-shadow: 0 0 0 0.5rem #55c57a;
+          box-shadow: 0 0 0 0.5rem #55c57a;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
+.form .__radio-group .__radio:checked + .__radio-label::before {
+  background: #55c57a;
+  border-color: rgba(255, 255, 255, 0.8);
 }
 
 .composition {
@@ -811,4 +922,18 @@ body {
   text-align: center;
   padding: 15rem 20%;
   position: relative;
+}
+
+.section-book {
+  padding: 12rem 10rem;
+  background: -webkit-gradient(linear, left top, right bottom, from(#7ed56f), to(#28b485));
+  background: linear-gradient(to right bottom, #7ed56f, #28b485);
+}
+
+.section-book .__form-container {
+  -webkit-box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.3);
+          box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.3);
+  padding: 6rem;
+  padding-right: 50%;
+  background: linear-gradient(105deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9) 50%, transparent 50%), url("../img/nat-10.jpg") center/cover;
 }
