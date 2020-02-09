@@ -567,10 +567,6 @@ body {
   left: 3rem;
 }
 
-.form .__radio-group .__radio-label:hover {
-  cursor: pointer;
-}
-
 .form .__radio-group .__radio-label::before {
   content: '';
   position: absolute;
@@ -578,8 +574,8 @@ body {
   top: -.3rem;
   width: 2rem;
   height: 2rem;
-  background: transparent;
   border-radius: 50%;
+  background: transparent;
   border: .3rem solid transparent;
   -webkit-box-shadow: 0 0 0 0.5rem #55c57a;
           box-shadow: 0 0 0 0.5rem #55c57a;
@@ -587,9 +583,22 @@ body {
   transition: all .2s;
 }
 
+.form .__radio-group .__radio-label:hover {
+  cursor: pointer;
+}
+
+.form .__radio-group .__radio-label:focus {
+  outline: none;
+}
+
+.form .__radio-group .__radio-label:focus::before {
+  -webkit-box-shadow: 0 0 0 0.5rem #55c57a, 0 0 1rem 0.5rem rgba(0, 0, 0, 0.25);
+          box-shadow: 0 0 0 0.5rem #55c57a, 0 0 1rem 0.5rem rgba(0, 0, 0, 0.25);
+}
+
 .form .__radio-group .__radio:checked + .__radio-label::before {
   background: #55c57a;
-  border-color: rgba(255, 255, 255, 0.8);
+  border-color: rgba(255, 255, 255, 0.85);
 }
 
 .composition {

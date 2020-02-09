@@ -58,10 +58,8 @@
       position: relative;
       left: 3rem;
 
-      &:hover {
-        cursor: pointer;
-      }
-
+      $check-outline: 0 0 0 .5rem $color-primary;
+      
       &::before {
         content: '';
         position: absolute;
@@ -69,17 +67,31 @@
         top: -.3rem;
         width: 2rem;
         height: 2rem;
-        background: transparent;
         border-radius: 50%;
+        background: transparent;
         border: .3rem solid transparent;
-        box-shadow: 0 0 0 .5rem $color-primary;
+        box-shadow: $check-outline;
         transition: all .2s;
       }
+
+      &:hover {
+        cursor: pointer;
+      }
+      &:focus {
+        outline: none;
+
+        &::before {
+          box-shadow: 
+          $check-outline,
+          0 0 1rem .5rem rgba($color-black, .25);
+        }
+      }
+
     }
 
     .__radio:checked + .__radio-label::before {
       background: $color-primary;
-      border-color: rgba($color-white, .8);
+      border-color: rgba($color-white, .85);
     }
   }
 
