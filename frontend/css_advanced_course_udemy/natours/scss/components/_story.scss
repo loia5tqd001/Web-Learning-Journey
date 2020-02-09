@@ -1,0 +1,58 @@
+.story {
+  background: rgba($color-white, .8);
+  padding: 6rem;
+  padding-left: 6rem + 3rem; // 3rem offset from the right in .__figure
+  font-size: 1.5rem;
+  text-align: left;
+  border-radius: 3px;
+  box-shadow: 1rem 1.5rem 6rem rgba($color-black, .15);
+  transform: skewX(-12deg);
+
+  & > * {
+    transform: skew(12deg);
+  }
+
+  .__figure {
+    width: 14rem;
+    height: 14rem;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    float: left;
+    shape-outside: border-box;
+    right: 3rem;
+
+    $trans-time: .5s;
+    
+    .__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.4);
+      transition: transform $trans-time, filter $trans-time;
+    }
+
+    .__caption {
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      text-transform: uppercase;
+      color: $color-white;
+      transform: translate(-50%, 20%);
+      opacity: 0;
+      transition: transform $trans-time, opacity $trans-time;
+    }
+  }
+
+  &:hover {
+    .__caption {
+      transform: translate(-50%, -50%);
+      opacity: 1;
+    }
+    .__img {
+      transform: scale(1);
+      filter: blur(3px) brightness(.8);
+    }
+  }
+}
