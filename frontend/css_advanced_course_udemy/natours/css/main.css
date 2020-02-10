@@ -370,6 +370,61 @@ body {
   width: calc(100% - (calc((100% - 18rem) / 4) + 6rem) * (1));
 }
 
+.footer {
+  padding: 10rem;
+  background: #333;
+  color: #fff;
+  font-size: 1.4rem;
+}
+
+.footer .__logo-box {
+  width: 15rem;
+  margin: 0 auto 10rem;
+}
+
+.footer .__logo-box .__logo {
+  width: 100%;
+}
+
+.footer .__link:link, .footer .__link:visited {
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: inline-block;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  -webkit-transform-origin: 30%;
+          transform-origin: 30%;
+}
+
+.footer .__link:hover {
+  -webkit-transform: translate(-10%, -20%) skew(-12deg, 5deg) scale(1.2);
+          transform: translate(-10%, -20%) skew(-12deg, 5deg) scale(1.2);
+  background: #333;
+  color: #55c57a;
+  -webkit-box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.4);
+          box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.4);
+}
+
+.footer .__left, .footer .__right {
+  width: 43rem;
+  display: inline-block;
+  border-top: 1px solid #777;
+  padding-top: 2rem;
+}
+
+.footer .__right {
+  float: right;
+}
+
+.footer .__item {
+  display: inline-block;
+}
+
+.footer .__item:not(:last-child) {
+  margin-right: 1rem;
+}
+
 .button, .button:link, .button:visited {
   display: inline-block;
   text-transform: uppercase;
