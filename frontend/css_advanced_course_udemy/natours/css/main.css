@@ -425,6 +425,207 @@ body {
   margin-right: 1rem;
 }
 
+.navigation {
+  position: fixed;
+  z-index: 2;
+}
+
+.navigation .__checkbox {
+  display: none;
+}
+
+.navigation .__checkbox:checked ~ .__toggle .__span {
+  background: transparent;
+}
+
+.navigation .__checkbox:checked ~ .__toggle .__span::before {
+  top: 0;
+  -webkit-transform: rotate(135deg);
+          transform: rotate(135deg);
+}
+
+.navigation .__checkbox:checked ~ .__toggle .__span::after {
+  bottom: 0;
+  -webkit-transform: rotate(-135deg);
+          transform: rotate(-135deg);
+}
+
+.navigation .__checkbox:checked ~ .__background {
+  --vmax: 1920;
+  -webkit-transform: scale(calc( var(--vmax)/25));
+          transform: scale(calc( var(--vmax)/25));
+}
+
+@media screen and (max-width: 1680px) {
+  .navigation .__checkbox:checked ~ .__background {
+    --vmax: 1680 ;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .navigation .__checkbox:checked ~ .__background {
+    --vmax: 1440 ;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .navigation .__checkbox:checked ~ .__background {
+    --vmax: 1024 ;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navigation .__checkbox:checked ~ .__background {
+    --vmax: 768 ;
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .navigation .__checkbox:checked ~ .__background {
+    --vmax: 568 ;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .navigation .__checkbox:checked ~ .__background {
+    --vmax: 320 ;
+  }
+}
+
+.navigation .__checkbox:checked ~ .__nav {
+  width: 100%;
+}
+
+.navigation .__toggle,
+.navigation .__background {
+  display: block;
+  position: fixed;
+  top: 4rem;
+  right: 4rem;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+}
+
+.navigation .__toggle {
+  z-index: 2;
+  background: #fff;
+  -webkit-box-shadow: 0 0 3rem rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 3rem rgba(0, 0, 0, 0.2);
+}
+
+.navigation .__toggle:hover {
+  cursor: pointer;
+}
+
+.navigation .__toggle:hover .__span::before,
+.navigation .__toggle:hover .__span::after {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+.navigation .__toggle .__span, .navigation .__toggle .__span::before, .navigation .__toggle .__span::after {
+  display: inline-block;
+  position: absolute;
+  z-index: 1;
+  width: 3rem;
+  height: 2px;
+  background: #333;
+}
+
+.navigation .__toggle .__span {
+  left: 1.5rem;
+  top: calc(6rem/2 - 1px);
+}
+
+.navigation .__toggle .__span::before, .navigation .__toggle .__span::after {
+  content: '';
+  left: 0;
+}
+
+.navigation .__toggle .__span::before {
+  top: -1rem;
+  -webkit-transition: -webkit-transform .3s;
+  transition: -webkit-transform .3s;
+  transition: transform .3s;
+  transition: transform .3s, -webkit-transform .3s;
+  -webkit-transform: translateY(2px);
+          transform: translateY(2px);
+}
+
+.navigation .__toggle .__span::after {
+  bottom: -1rem;
+  -webkit-transition: -webkit-transform .3s;
+  transition: -webkit-transform .3s;
+  transition: transform .3s;
+  transition: transform .3s, -webkit-transform .3s;
+  -webkit-transform: translateY(-2px);
+          transform: translateY(-2px);
+}
+
+.navigation .__background {
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+  background: radial-gradient(#7ed56f, #55c57a);
+  -webkit-transition: 0.8s cubic-bezier(0.98, -0.08, 0.28, 1.05);
+  transition: 0.8s cubic-bezier(0.98, -0.08, 0.28, 1.05);
+}
+
+.navigation .__nav {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 100%;
+  text-align: center;
+  overflow: hidden;
+  -webkit-transition: width 0.8s cubic-bezier(0.51, -0.61, 0.35, 1.67);
+  transition: width 0.8s cubic-bezier(0.51, -0.61, 0.35, 1.67);
+}
+
+.navigation .__nav .__list {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  list-style: none;
+  counter-reset: nav-counter;
+}
+
+.navigation .__nav .__list .__item {
+  counter-increment: nav-counter;
+}
+
+.navigation .__nav .__list .__item .__link:link, .navigation .__nav .__list .__item .__link:visited {
+  display: inline-block;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin: .5rem;
+  padding: 1rem 2.5rem;
+  font-size: 3rem;
+  font-weight: 300;
+  color: #fff;
+  background: linear-gradient(125deg, transparent 50%, #fff 50%);
+  background-size: 225%;
+  background-position: 0%;
+  -webkit-transition: all .4s;
+  transition: all .4s;
+}
+
+.navigation .__nav .__list .__item .__link:hover {
+  -webkit-transform: translateX(1rem);
+          transform: translateX(1rem);
+  color: #55c57a;
+  background-position: 100%;
+}
+
+.navigation .__nav .__list .__item .__link::before {
+  content: counter(nav-counter, decimal-leading-zero);
+  margin-right: 1.5rem;
+}
+
 .button, .button:link, .button:visited {
   display: inline-block;
   text-transform: uppercase;

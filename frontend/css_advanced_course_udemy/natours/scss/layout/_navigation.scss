@@ -1,0 +1,157 @@
+.navigation {
+  position: fixed;
+  z-index: 2;
+
+  .__checkbox { display: none }
+  .__checkbox:checked ~ {
+
+    .__toggle .__span {
+      & {
+        background: transparent;
+      }
+      &::before {
+        top: 0;
+        transform: rotate(135deg);
+      }
+      &::after {
+        bottom: 0;
+        transform: rotate(-135deg);
+      }
+    }
+
+    .__background {
+      --vmax: 1920; // for scale .__background
+      @media screen and (max-width: 1680px) { --vmax: 1680 }
+      @media screen and (max-width: 1440px) { --vmax: 1440 }
+      @media screen and (max-width: 1024px) { --vmax: 1024 }
+      @media screen and (max-width: 768px) { --vmax: 768 }
+      @media screen and (max-width: 568px) { --vmax: 568 }
+      @media screen and (max-width: 320px) { --vmax: 320 }
+
+      transform: scale( calc( var(--vmax)/25 ) ); // depends on viewport
+    }
+
+    .__nav {
+      width: 100%;
+    }
+  } 
+
+
+  $toggle-size: 6rem;
+  $stroke-size: 3rem;
+  $time-bg-appear: .8s;
+
+  .__toggle,
+  .__background {
+    display: block;
+    position: fixed;
+    top: 4rem;
+    right: 4rem;
+    width: $toggle-size;
+    height: $toggle-size;
+    border-radius: 50%;
+  }
+
+  .__toggle {
+    z-index: 2;
+    background: $color-white;
+    box-shadow: 0 0 3rem rgba($color-black, .2);
+
+    &:hover {
+      cursor: pointer;
+
+      .__span::before,
+      .__span::after {
+        transform: translateY(0);
+      }
+    }
+
+    .__span {
+      &, &::before, &::after {
+        display: inline-block;
+        position: absolute;
+        z-index: 1;
+        width: $stroke-size;
+        height: 2px;
+        background: $color-gray-dark-3;
+      }
+      & {
+        left: ($toggle-size - $stroke-size) / 2;
+        top: calc(#{$toggle-size}/2 - 1px);
+      }
+      &::before, &::after {
+        content: '';
+        left: 0;
+      }
+      &::before {
+        // &::before and &::after positioned related to &
+        top: -1rem;
+        transition: transform .3s; // on hover
+        transform: translateY(2px);
+      }
+      &::after {
+        bottom: -1rem;
+        transition: transform .3s; // on hover
+        transform: translateY(-2px);
+      }
+    }
+
+  }
+
+  .__background {
+    transform: scale(.8);
+    background: radial-gradient($color-primary-light, $color-primary);
+    transition: $time-bg-appear cubic-bezier(.98,-0.08,.28,1.05)
+  }
+
+  .__nav {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    text-align: center;
+    overflow: hidden;
+    transition: width $time-bg-appear cubic-bezier(.51,-0.61,.35,1.67);
+
+    .__list {
+      @include center-by-translate;
+      list-style: none;
+      counter-reset: nav-counter; 
+      // https://css-tricks.com/custom-list-number-styling/
+
+      .__item {
+        counter-increment: nav-counter;
+        
+        .__link {
+          &:link, &:visited {
+            display: inline-block;
+            text-transform: uppercase;
+            text-decoration: none;
+            margin: .5rem;
+            padding: 1rem 2.5rem;
+            font-size: 3rem;
+            font-weight: 300;
+            color: $color-white;
+            background: linear-gradient(125deg, transparent 50%, $color-white 50%);
+            background-size: 225%; // why bg-position doesn't have effect when bg-size is 100% (default): https://stackoverflow.com/a/28613432/9787887
+            background-position: 0%;
+            transition: all .4s;
+          }
+          &:hover {
+            transform: translateX(1rem);
+            color: $color-primary;
+            background-position: 100%;
+          }
+    
+          &::before {
+            // how to style <ol>: https://developer.mozilla.org/en-US/docs/Web/CSS/counter#CSS_2
+            content: counter(nav-counter, decimal-leading-zero);
+            margin-right: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+}
