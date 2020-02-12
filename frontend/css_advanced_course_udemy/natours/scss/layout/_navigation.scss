@@ -20,15 +20,7 @@
     }
 
     .__background {
-      --vmax: 1920; // for scale .__background
-      @media screen and (max-width: 1680px) { --vmax: 1680 }
-      @media screen and (max-width: 1440px) { --vmax: 1440 }
-      @media screen and (max-width: 1024px) { --vmax: 1024 }
-      @media screen and (max-width: 768px) { --vmax: 768 }
-      @media screen and (max-width: 568px) { --vmax: 568 }
-      @media screen and (max-width: 320px) { --vmax: 320 }
-
-      transform: scale( calc( var(--vmax)/25 ) ); // depends on viewport
+      transform: scale( 70 );
     }
 
     .__nav {
@@ -137,6 +129,7 @@
             background: linear-gradient(125deg, transparent 50%, $color-white 50%);
             background-size: 225%; // why bg-position doesn't have effect when bg-size is 100% (default): https://stackoverflow.com/a/28613432/9787887
             background-position: 0%;
+            // background-position: 5rem;
             transition: all .4s;
           }
           &:hover {

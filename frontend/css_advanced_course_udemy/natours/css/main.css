@@ -132,6 +132,36 @@ html {
   scroll-behavior: smooth;
 }
 
+@media screen and (max-width: 20em) {
+  html {
+    font-size: 43.75%;
+  }
+}
+
+@media screen and (min-width: 21em) and (max-width: 30em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media screen and (min-width: 31em) and (max-width: 48em) {
+  html {
+    font-size: 53.125%;
+  }
+}
+
+@media screen and (min-width: 49em) and (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+
+@media screen and (min-width: 120em) {
+  html {
+    font-size: 75%;
+  }
+}
+
 body {
   padding: 2rem;
 }
@@ -452,45 +482,8 @@ body {
 }
 
 .navigation .__checkbox:checked ~ .__background {
-  --vmax: 1920;
-  -webkit-transform: scale(calc( var(--vmax)/25));
-          transform: scale(calc( var(--vmax)/25));
-}
-
-@media screen and (max-width: 1680px) {
-  .navigation .__checkbox:checked ~ .__background {
-    --vmax: 1680 ;
-  }
-}
-
-@media screen and (max-width: 1440px) {
-  .navigation .__checkbox:checked ~ .__background {
-    --vmax: 1440 ;
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .navigation .__checkbox:checked ~ .__background {
-    --vmax: 1024 ;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .navigation .__checkbox:checked ~ .__background {
-    --vmax: 768 ;
-  }
-}
-
-@media screen and (max-width: 568px) {
-  .navigation .__checkbox:checked ~ .__background {
-    --vmax: 568 ;
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .navigation .__checkbox:checked ~ .__background {
-    --vmax: 320 ;
-  }
+  -webkit-transform: scale(70);
+          transform: scale(70);
 }
 
 .navigation .__checkbox:checked ~ .__nav {
@@ -1012,7 +1005,7 @@ body {
   text-align: right;
   color: #fff;
   font-size: 3rem;
-  font-weight: 100;
+  font-weight: 300;
   z-index: 1;
 }
 
