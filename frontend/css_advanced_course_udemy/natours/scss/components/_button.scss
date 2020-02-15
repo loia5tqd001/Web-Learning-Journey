@@ -8,6 +8,11 @@
     border-radius: 999rem;
     font-size: $default-font-size;
     border: none;
+
+    @include respond(phone) {
+      font-size: $default-font-size * .8;
+      padding: 1rem 2rem;
+    }
   }
   
   &:hover, &:focus {

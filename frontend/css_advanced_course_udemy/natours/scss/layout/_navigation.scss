@@ -29,18 +29,24 @@
   } 
 
 
-  $toggle-size: 6rem;
-  $stroke-size: 3rem;
   $time-bg-appear: .8s;
+
+  --toggle-size: 6rem;
+  --stroke-size: 3rem;
+
+  @include respond(phone) {
+    --toggle-size: 4.8rem;
+    --stroke-size: 2.4rem;
+  }
 
   .__toggle,
   .__background {
     display: block;
     position: fixed;
-    top: 4rem;
-    right: 4rem;
-    width: $toggle-size;
-    height: $toggle-size;
+    top: calc(var(--toggle-size) * 2 / 3);
+    right: calc(var(--toggle-size) * 2 / 3);
+    width: var(--toggle-size);
+    height: var(--toggle-size);
     border-radius: 50%;
   }
 
@@ -63,13 +69,13 @@
         display: inline-block;
         position: absolute;
         z-index: 1;
-        width: $stroke-size;
+        width: var(--stroke-size);
         height: 2px;
         background: $color-gray-dark-3;
       }
       & {
-        left: ($toggle-size - $stroke-size) / 2;
-        top: calc(#{$toggle-size}/2 - 1px);
+        left: calc( (var(--toggle-size) - var(--stroke-size)) / 2);
+        top: calc( var(--toggle-size) / 2 - 1px );
       }
       &::before, &::after {
         content: '';
@@ -109,9 +115,11 @@
 
     .__list {
       @include center-by-translate;
+      width: 100%;
       list-style: none;
       counter-reset: nav-counter; 
       // https://css-tricks.com/custom-list-number-styling/
+
 
       .__item {
         counter-increment: nav-counter;
@@ -122,15 +130,19 @@
             text-transform: uppercase;
             text-decoration: none;
             margin: .5rem;
-            padding: 1rem 2.5rem;
+            padding: 1rem;
             font-size: 3rem;
             font-weight: 300;
             color: $color-white;
             background: linear-gradient(125deg, transparent 50%, $color-white 50%);
-            background-size: 225%; // why bg-position doesn't have effect when bg-size is 100% (default): https://stackoverflow.com/a/28613432/9787887
+            background-size: 235%; // why bg-position doesn't have effect when bg-size is 100% (default): https://stackoverflow.com/a/28613432/9787887
             background-position: 0%;
             // background-position: 5rem;
             transition: all .4s;
+
+            @include respond(phone) {
+              font-size: 2.5rem;
+            }
           }
           &:hover {
             transform: translateX(1rem);

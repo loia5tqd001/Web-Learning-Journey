@@ -9,7 +9,16 @@
   transform: skewX(-12deg);
 
   & > * {
-    transform: skew(12deg);
+    transform: skewX(12deg);
+  }
+
+  @include respond(phone) {
+    transform: skewX(0);
+    text-align: center;
+    padding: 10%;
+    & > * {
+      transform: skewX(0);
+    }
   }
 
   .__figure {
@@ -23,6 +32,14 @@
     right: 3rem;
 
     $trans-time: .5s;
+
+    @include respond(phone) {
+      max-width: 80%;
+      max-height: 80%;
+      float: none;
+      margin: 0 auto 3rem;
+      right: 0;
+    }
     
     .__img {
       width: 100%;

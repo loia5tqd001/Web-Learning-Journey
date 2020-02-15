@@ -11,9 +11,19 @@
   transform: skewY(-7deg);
   padding: 20rem 0;
   margin-top: -20rem;
-
+  
   & > * {
     transform: skewY(7deg);
+  }
+
+  @include respond(phone) {
+    transform: skewY(-2deg);
+    padding: 12rem 0;
+    margin-top: -15rem;
+
+    & > * {
+      transform: skewY(2deg);
+    }
   }
 }
 
@@ -28,22 +38,46 @@
   text-align: center;
   padding: 15rem 20%;
   position: relative;
+
+  @include respond(tab-port) {
+    padding: 15rem 0;
+  }
 }
 
 .section-book {
   padding: 12rem 10rem;
   background: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
 
+  @include respond(phone) {
+    padding: 5rem 4rem;
+  }
+
+  --form-occupy: 50%;
+
   .__form-container {
     box-shadow: 0 1rem 4rem rgba($color-black, .3);
     padding: 6rem;
-    padding-right: 50%;
+    padding-right: calc(100% - var(--form-occupy));
     background: linear-gradient(
       105deg, 
       rgba($color-white, .9),
-      rgba($color-white, .9) 50%,
-      transparent 50%,
+      rgba($color-white, .9) var(--form-occupy),
+      transparent var(--form-occupy),
       ), 
       url('../img/nat-10.jpg') center/cover;
+
+    @include respond(tab-port) {
+      padding-right: 6rem;
+    }
+    @include respond(phone) {
+      padding: 4rem;
+    }
+  }
+
+  @include respond(tab-land) {
+    --form-occupy: 70%;
+  }
+  @include respond(tab-port) {
+    --form-occupy: 100%;
   }
 }

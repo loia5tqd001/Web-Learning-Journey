@@ -25,28 +25,28 @@
   // Order to handle responiveness: base + typography > general layout + grid > page layout > components
   
   // media query em/rem units don't be affected by root's font-size
-  $phone-small   :  20em; // 320px
-  $phone         :  30em; // 480px
-  $tab-port      :  48em; // 768px
-  $tab-land      :  75em; // 1200px
-  $desktop       :  90em; // 1440px
-  $big-desktop   : 120em; // 1920px
+  $phone-small   :  23.75em; // 380px
+  $phone         :   37.5em; // 600px
+  $tab-port      :  56.25em; // 900px
+  $tab-land      :     75em; // 1200px
+  $desktop       :     90em; // 1440px
+  $big-desktop   :    120em; // 1920px
   
 
   @if ($breakpoint == phone-small) {
-    @media screen and (max-width: 20em) { @content };
+    @media screen and (max-width: $phone-small) { @content };
   }
   @if ($breakpoint == phone) {
-    @media screen and (min-width: 21em) and (max-width: 30em) { @content };
+    @media screen and (max-width: $phone) { @content };
   }
   @if ($breakpoint == tab-port) {
-    @media screen and (min-width: 31em) and (max-width: 48em) { @content };
+    @media screen and (max-width: $tab-port) { @content };
   }
   @if ($breakpoint == tab-land) {
-    @media screen and (min-width: 49em) and (max-width: 75em) { @content };
+    @media screen and (max-width: $tab-land) { @content };
   }
   @if ($breakpoint == big-desktop) {
-    @media screen and (min-width: 120em) { @content };
+    @media screen and (min-width: $big-desktop) { @content };
   }
 
 }

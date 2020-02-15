@@ -12,6 +12,8 @@
   }
 }
 
+$box-shadow: 0 1.5rem 4rem rgba($color-black, .2);
+
 .tour-card {
   &.--primary-color {
     @include card-theme($color-primary-light, $color-primary-dark) }
@@ -24,6 +26,9 @@
 
   position: relative;
   perspective: 100rem;
+
+  max-width: 80rem;
+  margin: auto;
     
   & > .__front, 
   & > .__back {
@@ -31,7 +36,14 @@
     overflow: hidden;
     backface-visibility: hidden;
     transition: transform .8s;
-    box-shadow: 0 1.5rem 4rem rgba($color-black, .2);
+    box-shadow: $box-shadow;
+
+    @include respond(tab-port) {
+      box-shadow: none;
+    }
+  }
+  @include respond(tab-port) {
+    box-shadow: $box-shadow;
   }
 
   &:hover > .__front {
@@ -40,7 +52,12 @@
   &:hover > .__back {
     transform: rotateY(360deg);
   }
-
+  @include respond(tab-port) {
+    &:hover > .__front,
+    &:hover > .__back {
+      transform: rotateY(0);
+    }
+  }
 
   .__front {
     background: $color-white;
@@ -59,14 +76,34 @@
       .__span {
         padding: 1rem 1.5rem;
       }
+
+      @include respond(tab-land) {
+        top: 9rem;
+        font-size: 2.5rem;
+        .__span {
+          padding: .8rem 1.2rem;
+        }
+      }
+
+      @include respond(tab-port) {
+        font-size: 3.5rem;
+        .__span {
+          padding: 1.2rem 1.6rem;
+        }
+      }
     }
 
     .__img {
       clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+      @include respond(tab-port) {
+        clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+      }
       
       > img {
         display: block;
         width: 100%;
+        height: 100%;
         mix-blend-mode: screen;
       }
     }
@@ -76,6 +113,11 @@
       width: 80%;
       margin: 0 auto;
       padding: 2rem 0;
+
+      @include respond(tab-port) {
+        font-size: 2rem;
+        padding: 3rem 2rem 23rem;
+      }
 
       .__item {
         padding: 1rem;
@@ -94,6 +136,14 @@
     top: 0;
     color: $color-white;
     padding: 35% 0;
+
+    @include respond(tab-port) {
+      position: relative;
+      transform: rotateY(0);
+      padding: 15% 0;
+      clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+      margin-top: -20rem;
+    }
 
     .__only {
       text-transform: uppercase;

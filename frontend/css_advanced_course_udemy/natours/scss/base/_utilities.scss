@@ -23,3 +23,15 @@
 .u-ml-md { margin-left: 2rem }
 .u-ml-lg { margin-left: 4rem }
 .u-ml-hg { margin-left: 8rem }
+
+@include respond(tab-port) {
+  .u-mt-lg { margin-top: 3rem }
+  .u-mr-lg { margin-right: 3rem }
+  .u-mb-lg { margin-bottom: 3rem }
+  .u-ml-lg { margin-left: 3rem }
+
+  .u-mt-hg { margin-top: 5rem }
+  .u-mr-hg { margin-right: 5rem }
+  .u-mb-hg { margin-bottom: 5rem }
+  .u-ml-hg { margin-left: 5rem }
+}

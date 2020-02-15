@@ -41,7 +41,7 @@
 
     <div class="__text-box">
       <h1 class="heading-primary">
-        <span class="__main">Ourdoors</span>
+        <span class="__main">Outdoors</span>
         <span class="__sub">is where life happens</span>
       </h1>
 
@@ -77,9 +77,26 @@
 
         <div class="col-1-of-2">
           <div class="composition">
+            <img class="__photo --p1" 
+                 srcset="img/nat-1-large.jpg 1000w, img/nat-1.jpg 300w"
+                 sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px"
+                 src="img/nat-1-large.jpg" 
+                 alt="Photo 1" >
+            <img class="__photo --p2" 
+                 srcset="img/nat-2-large.jpg 1000w, img/nat-2.jpg 300w"
+                 sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px"
+                 src="img/nat-2-large.jpg" 
+                 alt="Photo 2" >
+            <img class="__photo --p3" 
+                 srcset="img/nat-3-large.jpg 1000w, img/nat-3.jpg 300w"
+                 sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px"
+                 src="img/nat-3-large.jpg" 
+                 alt="Photo 3" >
+            <!-- 
             <img src="img/nat-1-large.jpg" alt="Photo 1" class="__photo --p1">
-            <img src="img/nat-2.jpg" alt="Photo 2" class="__photo --p2">
-            <img src="img/nat-3.jpg" alt="Photo 3" class="__photo --p3">
+            <img src="img/nat-2-large.jpg" alt="Photo 2" class="__photo --p2">
+            <img src="img/nat-3-large.jpg" alt="Photo 3" class="__photo --p3"> 
+            -->
           </div>
         </div> 
       </div>
@@ -324,7 +341,10 @@
 
 
     <div class="__logo-box">
-      <img class="__logo" src="img/logo-green-2x.png" alt="Big logo">
+      <picture>
+        <source media="(max-width: 37.5em)" srcset="img/logo-green-small-1x.png 1x, img/logo-green-small-2x.png 2x">
+        <img class="__logo" srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" src="img/logo-green-2x.png" alt="Big logo">
+      </picture>
     </div>
 
     <div class="row">
@@ -332,7 +352,7 @@
         <ul class="__list">
           <li class="__item"><a class="__link" href="javascript:">company</a></li>
           <li class="__item"><a class="__link" href="javascript:">contact us</a></li>
-          <li class="__item"><a class="__link" href="javascript:">carrers</a></li>
+          <li class="__item"><a class="__link" href="javascript:">careers</a></li>
           <li class="__item"><a class="__link" href="javascript:">privacy policy</a></li>
           <li class="__item"><a class="__link" href="javascript:">terms</a></li>
         </ul>

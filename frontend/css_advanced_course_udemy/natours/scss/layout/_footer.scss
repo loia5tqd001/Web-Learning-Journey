@@ -3,10 +3,21 @@
   background: $color-gray-dark-3;
   color: $color-white;
   font-size: 1.4rem;
+
+  @include respond(phone) {
+    padding: 8rem 4rem;
+  }
+  @include respond(phone-small) {
+    padding: 6rem 2rem;
+  }
   
   .__logo-box {
     width: 15rem;
     margin: 0 auto 10rem;
+
+    @include respond(tab-port) {
+      margin: 0 auto 4rem;
+    }
 
     .__logo {
       width: 100%;
@@ -35,6 +46,13 @@
     display: inline-block;
     border-top: 1px solid $color-gray-dark;
     padding-top: 2rem;
+
+    @include respond(tab-land) {
+      text-align: center;
+      margin: 0 auto 2rem !important;
+      float: none !important;
+      vertical-align: top;
+    }
   }
   .__right {
     float: right;
@@ -46,6 +64,12 @@
     &:not(:last-child) {
       margin-right: 1rem;
     }
+  }
+
+  .row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 
 }

@@ -12,6 +12,10 @@
       width: 80%;
       border-bottom: 3px solid transparent;
       transition: all .3s;
+
+      @include respond(tab-port) {
+        width: 100%;
+      }
   
       &::placeholder {
         color: $color-gray-dark-2;
@@ -50,23 +54,33 @@
     margin-bottom: 1rem;
     padding-left: .5rem;
 
+    @include respond(tab-port) {
+      width: 49%;
+
+      &:not(:last-of-type) {
+        margin-bottom: 2rem;
+      }
+    }
+
     .__radio {
       display: none;
     }
 
     .__radio-label {
-      position: relative;
-      left: 3rem;
+      --size: 2rem;
 
-      $check-outline: 0 0 0 .5rem $color-primary;
+      position: relative;
+      left: calc(var(--size) * 1.5);
+
+      $check-outline: 0 0 0 calc(var(--size) * .25) $color-primary;
       
       &::before {
         content: '';
         position: absolute;
-        right: calc(100% + 1rem);
+        right: calc(100% + var(--size) * .5);
         top: -.3rem;
-        width: 2rem;
-        height: 2rem;
+        width: var(--size);
+        height: var(--size);
         border-radius: 50%;
         background: transparent;
         border: .3rem solid transparent;
@@ -87,11 +101,22 @@
         }
       }
 
+      @include respond(phone) {
+        --size: 1.5rem;
+      }
+
     }
 
     .__radio:checked + .__radio-label::before {
       background: $color-primary;
       border-color: rgba($color-white, .85);
+    }
+  }
+
+  @include respond(tab-port) {
+    .heading-secondary {
+      margin-left: 0;
+      margin-right: 0;
     }
   }
 
