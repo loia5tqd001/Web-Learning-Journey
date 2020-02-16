@@ -21,18 +21,18 @@
   transform: translate(-50%, -50%);
 }
 
-@mixin respond($breakpoint) {
-  // Order to handle responiveness: base + typography > general layout + grid > page layout > components
-  
-  // media query em/rem units don't be affected by root's font-size
-  $phone-small   :  23.75em; // 380px
-  $phone         :   37.5em; // 600px
-  $tab-port      :  56.25em; // 900px
-  $tab-land      :     75em; // 1200px
-  $desktop       :     90em; // 1440px
-  $big-desktop   :    120em; // 1920px
-  
+// Order to handle responiveness: base + typography > general layout + grid > page layout > components
 
+// media query em/rem units don't be affected by root's font-size
+$phone-small   :  23.75em; // 380px
+$phone         :   37.5em; // 600px
+$tab-port      :  56.25em; // 900px
+$tab-land      :     75em; // 1200px
+$desktop       :     90em; // 1440px
+$big-desktop   :    120em; // 1920px
+
+@mixin respond($breakpoint) {
+  
   @if ($breakpoint == phone-small) {
     @media screen and (max-width: $phone-small) { @content };
   }
@@ -49,4 +49,24 @@
     @media screen and (min-width: $big-desktop) { @content };
   }
 
+}
+
+
+
+@mixin response-background-image($small-url, $big-url) {
+  --bg-img: #{$small-url};
+  // --bg-img: url("../../img/hero-small.jpg");
+
+  background-image: linear-gradient(to right, rgba($color-primary-light, .8), rgba($color-primary-dark, .8)), var(--bg-img);
+  background-size: cover;
+  background-position: top;
+
+  @media only screen and (min-resolution: 192dpi) and (min-width: $phone),
+         only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: $phone),
+         only screen and (min-width: 120em) {
+
+    --bg-img: #{$big-url};
+    // --bg-img: url("../../img/hero.jpg");
+          
+  }
 }
