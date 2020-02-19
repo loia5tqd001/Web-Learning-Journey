@@ -32,7 +32,7 @@ header {
 
 h1 {
   letter-spacing: .5rem;
-  font-size: 2.2rem;
+  font-size: 2.1rem;
   margin: 0;
 }
 
@@ -41,7 +41,7 @@ h1 + p {
 }
 
 h2 {
-  margin-top: 2em;
+  margin-top: 1.8em;
   text-transform: uppercase;
   position: relative;
 }
@@ -85,5 +85,10 @@ p.project > strong:first-child {
 @media only screen and (min-resolution: 97dpi) {
   body {
     font-size: 0.8rem;
+  }
+}
+@media only print {
+  :root {
+    font-size: 0.9rem;
   }
 }
