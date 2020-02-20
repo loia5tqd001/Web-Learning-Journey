@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Breakcum Pagination</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: grid;
+      place-items: center;
+      font-family: sans-serif;
+    }
+
+    .pagination {
+      display: flex;
+      width: 80rem;
+      height: 6rem;
+      line-height: 6rem;
+      vertical-align: center;
+      font-size: 2rem;
+      color: #fff;
+    }
+
+    .pagination > * {
+      flex: 1;
+      background: red;
+      text-align: center;
+      padding-right: 1rem;
+    }
+
+    .pagination > :not(:first-child) {
+      position: relative;
+      margin-left: 1rem;
+    }
+    .pagination > :not(:first-child)::before,
+    .pagination > :not(:first-child)::after {
+      content: '';
+      position: absolute;
+      border: 3rem solid transparent;
+      z-index: 1;
+    }
+
+    .pagination > :not(:first-child)::before {
+      border-right: 1.5rem solid white;
+      right: calc(100% + 1rem);
+    }
+    .pagination > :not(:first-child)::after {
+      border-right: 1.5rem solid red;
+      right: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+  
+  <div class="pagination">
+    <div class="head">&lt;</div>
+    <div class="num">1</div>
+    <div class="num">2</div>
+    <div class="num">3</div>
+    <div class="num">4</div>
+    <div class="num">5</div>
+    <div class="num">6</div>
+    <div class="tail">&gt;</div>
+  </div>
+
+</body>
+</html>
