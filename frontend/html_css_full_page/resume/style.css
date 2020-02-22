@@ -9,6 +9,15 @@ body {
   letter-spacing: 0.1rem;
   line-height: 1.7;
   position: relative;
+
+  --bg-clr1: rgb(233, 241, 239, 0.6);
+  --bg-clr2: rgba(233, 241, 239, 0.4);;
+  background: linear-gradient(to right,
+    var(--bg-clr1) 0%,
+    var(--bg-clr1) 70%,
+    var(--bg-clr2) 70%,
+    var(--bg-clr2) 100%
+  );
 }
 
 header {
@@ -49,7 +58,7 @@ h1 + p {
 }
 
 h2 {
-  margin-top: 1em;
+  margin-top: 1.8rem;
   text-transform: uppercase;
   position: relative;
 }
@@ -97,6 +106,6 @@ p.project > strong:first-child {
 }
 /* @media only print {
   :root {
-    font-size: 0.9rem;
+    font-size: 1.05rem;
   }
 } */
