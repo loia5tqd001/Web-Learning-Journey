@@ -1,0 +1,134 @@
+{
+  "info": {
+    "name": "Nguyễn Huỳnh Lợi",
+    "others" : [
+      "Thu Duc, Ho Chi Minh, VN",
+      "0961178682",
+      "loia5tqd001@gmail.com"
+    ]
+  },
+
+  "media": [
+    {
+      "iconClass": "fab fa-stack-overflow",
+      "href": "https://stackoverflow.com/users/9787887",
+      "display": "stackoverflow.com/users/9787887"
+    },
+    {
+      "iconClass": "fab fa-github",
+      "href": "https://github.com/loia5tqd001",
+      "display": "github.com/loia5tqd001"
+    },
+    {
+      "iconClass": "fab fa-linkedin",
+      "href": "https://linkedin.com/in/loia5tqd001",
+      "display": "linkedin.com/in/loia5tqd001"
+    },
+    {
+      "iconClass": "fab fa-facebook",
+      "href": "https://facebook.com/loia5tqd001",
+      "display": "facebook.com/loia5tqd001"
+    }
+  ],
+
+  "sections": [
+    {
+      "section": "Objective",
+      "subSection": false,
+      "iconClass": "fas fa-user",
+      "contentClass": "",
+      "contents": [
+        "Currently I'm an undergraduate at the [UIT](https://en.uit.edu.vn/). I'm grinding and persuing frontend technologies and am quite active on [Github](https://github.com/loia5tqd001). I used to aggressively active on [**Stackoverflow**](https://stackoverflow.com/users/9787887) as well, ranked among the top 15% of users with frontend-related tags."
+      ]
+    },
+    {
+      "section": "Skills",
+      "subSection": false,
+      "iconClass": "fas fa-briefcase",
+      "contentClass": "skills",
+      "contents": [
+        "**HTML5, CSS3, Javascript, SCSS, VueJS, React**",
+        "**Git, Github**",
+        "**Figma, Photoshop**",
+        "*Willing to learn: Nodejs, Typescript, Puppeteer, CI/CD,...*"
+      ]
+    },
+    {
+      "section": "Awards",
+      "subSection": true,
+      "iconClass": "fas fa-award",
+      "contentClass": "project",
+      "contents": [
+        {
+          "heading": [
+            "Academic Excellence Award",
+            "[Github](https://github.com/loia5tqd001/DevC-React-Native-Weekly-Assignments)"
+          ],
+          "body": [
+            "For: Outstanding academic performance (got the highest score among the class)",
+            "Program: https://devc-challenge.coderschool.vn",
+            "Technology: React Native"
+          ]
+        }
+      ]
+    },
+    {
+      "section": "Projects",
+      "subSection": true,
+      "iconClass": "fas fa-laptop-code",
+      "contents": [
+        {
+          "heading": [
+            "Tool Đăng Ký Học Phần UIT",
+            "[Live Preview](https://docs.google.com/spreadsheets/d/1DtVql2fZgBr2bwzHHVePjWf8gELXi5uK_wXD8aTppTw/edit#gid=1431592489)",
+            "[Video](https://www.youtube.com/watch?v=KmW7qu52dpE)",
+            "[Stale Video](https://youtu.be/ouvqw7VA32I)",
+            "[Github](https://github.com/loia5tqd001/Dang-Ky-Hoc-Phan-UIT)"
+          ],
+          "body": [
+            "Role: Personal project",
+            "Technologies: **Google Sheets, SheetJs, Bootstrap, ...**",
+            "Summary: Help UIT students register for classes easier "
+          ]
+        },
+        {
+          "heading": [
+            "Netflix Redesign",
+            "[Live Demo](https://nostalgic-lichterman-4cf223.netlify.com/watching)",
+            "[Github](https://github.com/loia5tqd001/Clone-Netflix-SE215)"
+          ],
+          "body": [
+            "Role: One-man",
+            "Technologies: **Figma, VueJS, NuxtJS, Vuetify**",
+            "Summary: Wireframe, redesign, high-fidelity mockup and prototype some pages of the Netflix site. "
+          ]
+        },
+        {
+          "heading": [
+            "Game Captain America and The Avengers NES remake",
+            "[Video Demo](https://www.youtube.com/watch?v=opvoS4-yUgg)",
+            "[Github](https://github.com/loia5tqd001/SE102-UIT-Game-Captain-America-and-The-Avengers)",
+            "[Release](https://github.com/loia5tqd001/SE102-UIT-Game-Captain-America-and-The-Avengers/releases)"
+          ],
+          "body": [
+            "Role: Developer, Technical Architect and Leader (of team 3 people)",
+            "Technologies: **C++17, DirectX9**",
+            "Summary: Clone 4 stages of the game *Captain America and The Avengers NES* with the restriction of not using any third-party engine nor framework, but plain C++ and DirectX",
+            "Facts: Effectively collaborated by 3 team members, the team was super productive. This was the best project in one of (if not) **the toughest classes in the UIT**, being done blazingly fast, with super high quality. It's far superior than the runner-up teams, and far superior over what the subject expected. **My proudest project** so far."
+          ]
+        },
+        {
+          "heading": [
+            "Web Learning Journey",
+            "[Github](https://github.com/loia5tqd001/Web-Learning-Journey)"
+          ],
+          "body": [
+            "Role: Personal project",
+            "Technologies: **HTML5, CSS3, JS, SCSS, Vuejs, React, NodeJS, Puppeteer,...**",
+            "Summary: Repository contains tons of small to medium-sized practice projects on the web related"
+          ]
+        }
+      ]
+    }
+  ]
+}

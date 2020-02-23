@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather&display=swap');
+
+body {
+  font-family: 'Merriweather', serif;
+  max-width: 1024px;
+  margin: 0 auto;
+  color: #333;
+  padding: 3em;
+  letter-spacing: 0.1rem;
+  line-height: 1.7;
+  position: relative;
+
+  --bg-clr1: rgb(233, 241, 239, 0.6);
+  --bg-clr2: rgba(233, 241, 239, 0.4);;
+  background: linear-gradient(to right,
+    var(--bg-clr1) 0%,
+    var(--bg-clr1) 70%,
+    var(--bg-clr2) 70%,
+    var(--bg-clr2) 100%
+  );
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info p {
+  margin-top: .2rem;
+}
+
+.media {
+  margin: 0 5em;
+}
+
+.media p {
+  margin-bottom: 0;
+}
+
+.media a {
+  text-decoration: none;
+}
+
+.media .fab {
+  text-decoration: none;
+  display: inline-block;
+  margin-right: .4em;
+}
+
+h1 {
+  letter-spacing: .5rem;
+  font-size: 2.1rem;
+  margin: 0;
+}
+
+h1 + p {
+  align-self: flex-end;
+}
+
+h2 {
+  margin-top: 1.8rem;
+  text-transform: uppercase;
+  position: relative;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  display: block;
+  border-top: 3px dotted #333;
+  width: 100%;
+}
+
+h1,
+h2,
+h2::after,
+a:link,
+a:visited {
+  --main-color: rgb(10, 78, 100);
+  color: var(--main-color);
+  border-color: var(--main-color);
+}
+
+p.skills > strong::before {
+  content: '\2022  ';
+}
+
+p.project span {
+  font-size: .85rem;
+}
+p.project > strong:first-child {
+  text-transform: uppercase;
+  font-size: 1.1em;
+  letter-spacing: .1rem;
+  color:rgb(10, 78, 100);
+}
+.li::before {
+  content: '\2022  ';
+}
+
+@media only screen and (min-resolution: 97dpi) {
+  body {
+    font-size: 0.8rem;
+  }
+}
+/* @media only print {
+  :root {
+    font-size: 1.05rem;
+  }
+} */
