@@ -1,3 +1,4 @@
+## LIXI88
 - Url: https://lixi88.info/home.shtml  
 - Mode: Sổ xố siêu tốc  
 - Desc: Get 18 tail-numbers from xo-so table  
@@ -108,3 +109,18 @@ Array.from(document.querySelectorAll('.result__special td:last-child, .result__s
 ```javascript
 31,45,48,74,70,43,06,62,34,19,38,82,79,23,42,99,55,18
 ```
+
+
+## Google Sheets
+
+- Query:
+```
+=ARRAYFORMULA(COUNTIF(SPLIT("__NUMBERS__",","),__RANGE__))
+```
+- Sample:
+```
+=ARRAYFORMULA(COUNTIF(SPLIT("84,77,62,92,98,38,38,18,32,89,37,93,79,03,66,73,92,83",","),$A2:$A101))
+```
+- [Link Google Sheets]
+
+[Link Google Sheets]: https://docs.google.com/spreadsheets/d/1vC1we7zshRPYL37KyrFnzKe09B283R7ef5XRGuvKMkA/edit?usp=sharing
