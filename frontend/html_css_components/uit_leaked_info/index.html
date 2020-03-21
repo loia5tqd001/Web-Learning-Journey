@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UIT Leaked Info</title>
+</head>
+
+<body>
+  <input style="width: 200px; position: fixed; top: 10px;" placeholder="Nhập mssv, cmnd, hoặc họ tên" type="text">
+  <pre id="display" style="margin-top: 40px;"></pre>
+
+  <script>
+    const global_data = []
+    const input = document.querySelector('input[type="text"]')
+    const paragraph = document.querySelector('#display')
+
+    function isMatch({ mssv, codeNumber, fullName, dormitoryFullName }, query) {
+      if (query.length < 2) return false
+      return mssv.includes(query) || codeNumber.includes(query) || fullName.includes(query) || dormitoryFullName.includes(query)
+    }
+
+    input.addEventListener('input', function () {
+      const searchQuery = this.value.trim()
+      const matchedStudents = global_data.filter(student => isMatch(student, searchQuery))
+      paragraph.textContent = JSON.stringify(matchedStudents, null, 4)
+    })
+
+    fetch('./data.json')
+      .then(res => res.json())
+      .then(data => global_data.push(...data))
+      .catch(err => console.log(err))
+  </script>
+</body>
+
+</html>
