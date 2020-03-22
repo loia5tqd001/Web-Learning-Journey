@@ -1,44 +1,22 @@
-const axios = require('axios')
-const cheerio = require('cheerio')
-const fs = require('fs')
-const useragent = require('random-useragent')
+const axios = require('axios') // to call request and get html files
+const cheerio = require('cheerio') // to parse html to data
+const fs = require('fs') // (filesystem), to write data to json files
+const useragent = require('random-useragent') // to create random useagent, prevent from being blocked when making continuous requests
+const _ = require('lodash') // javascript utility library, help writing more concise code
 
-// get all possible student codes in UIT: 19520000 -> 19523000, 18520000 -> 18523000, 17520000 -> 17523000, 16520000 -> 16523000
-function getAllMssv() {
-  const heads = ['15', '16', '17', '18', '19']
-
-  const array = Array.from({ length: 3000 }).map((_, index) => {
-    const tail = '52' + index.toString().padStart(4, '0')
-    return heads.map(x => x + tail)
-  })
-
-  return heads.reduce((acc, _, i) => {
-    return [...acc, ...array.map(x => x[i])]
-  }, [])
+function getAllStudentCode() {
+  return [
+    ..._.range(15520000, 15522500),
+    ..._.range(16520000, 16522500),
+    ..._.range(17520000, 17522500),
+    ..._.range(18520000, 18523000),
+    ..._.range(19520000, 19523000)
+  ]
 }
 
-// convert a large array to multiple smaller chunks
-function batchArray(array, batchSize) {
-  console.assert(batchSize)
-
-  return array.reduce(
-    (acc, cur) => {
-      const lastBatch = acc[acc.length - 1]
-
-      if (lastBatch.length < batchSize) {
-        lastBatch.push(cur)
-      } else {
-        acc.push([cur])
-      }
-
-      return acc
-    },
-    [[]]
-  )
-}
-
-// call ajax and get info of a student, with his/her student code
-async function getInfo(mssv) {
+// call ajax and get info of 1 student, with his/her student code
+// if student doesn't exist in the system, return undefined
+async function getInfo1Student(mssv) {
   const selectors = {
     codeNumber: '#CodeNumber',
     fullName: '#FullName',
@@ -67,35 +45,41 @@ async function getInfo(mssv) {
   for (const [key, selector] of Object.entries(selectors)) {
     const val = $(selector).val()
 
-    if (key === 'gender') {
-      info[key] = val === 'true' ? 'Nữ' : 'Nam'
-    } else {
-      info[key] = val
+    switch (key) {
+      case 'gender':
+        info[key] = val === 'true' ? 'Nữ' : 'Nam'
+        break
+
+      default:
+        info[key] = val
     }
   }
   return info
 }
 
 async function main() {
-  const studentCodes = batchArray(getAllMssv(), 100)
+  // chunked student code: [[15520000..15520099],[15520100,15520199],...]
+  // for each 100 students, save to 1 file json
+  const studentCodes = _.chunk(getAllStudentCode(), 100)
 
-  for (const batch of studentCodes) {
-    const batchedInfo = []
+  for (const chunk of studentCodes) {
+    const chunkOfInfo = []
 
-    for (let i = 0; i < batch.length; i++) {
-      const mssv = batch[i]
+    for (let i = 0; i < chunk.length; i++) {
+      const mssv = chunk[i]
       try {
-        const info = await getInfo(mssv)
-        info && batchedInfo.push(info) && console.log('got', mssv)
+        const info = await getInfo1Student(mssv)
+        info && chunkOfInfo.push(info) && console.log('got', mssv)
       } catch {
         console.log('failed at mssv =', mssv)
         i--
       }
     }
 
+    // each chunk of info, write to 1 file json
     fs.writeFileSync(
-      `data_${batch[0]}.json`,
-      JSON.stringify(batchedInfo, null, 2)
+      `data_${chunk[0]}.json`,
+      JSON.stringify(chunkOfInfo, null, 2)
     )
   }
 }
