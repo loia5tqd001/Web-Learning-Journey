@@ -1,0 +1,33 @@
+@mixin column($count, $size) { // Can not make any change in this code.
+  width: getWidth($count, $size);
+  margin-left: 3%;
+  margin-right: 3%;
+}
+
+@mixin desktop {
+  @media screen and (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    @content;
+  }
+}
+
+@function getWidth($count, $size) {
+  @return 50; // For example purpose only.
+}
+
+.c {
+  @include desktop {
+    @include column(10, large);
+  }
+
+  @include desktop {
+    @include column(11, large);
+	}
+	
+	margin: 0 auto;
+}

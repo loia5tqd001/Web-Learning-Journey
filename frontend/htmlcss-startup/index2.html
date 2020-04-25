@@ -1,0 +1,74 @@
+<style>
+.slideshow__slide {
+  overflow: hidden;
+  height: 359px;
+  position: relative;
+}
+
+.slide__bg {
+  position: absolute;
+  width: 100%;
+  margin: 0;
+  color: #fff;
+  background: #333;
+  overflow-x: hidden;
+  -webkit-box-shadow: inset 0 0 0 1px #f0f0f0;
+  box-shadow: inset 0 0 0 1px #f0f0f0;
+  transition: all 1.5s ease;
+}
+
+.slide__bg img {
+  display: block;
+}
+</style>
+
+<section class="slideshow__slide slide">
+  <figure class="slide__bg current">
+    <img src="https://via.placeholder.com/620x200/070" />
+  </figure>
+  <figure class="slide__bg">
+    <img src="https://via.placeholder.com/620x200/700" />
+  </figure>
+  <figure class="slide__bg">
+    <img src="https://via.placeholder.com/620x200/007" />
+  </figure>
+</section>
+
+
+<script>
+  var slideIndex = 0;
+
+  function carousel() {
+    var i;
+    var slideShowSlide = document.querySelector('.slideshow__slide');
+    var slideBgFigure = Array.from(slideShowSlide.children);
+    var slideWidth = slideBgFigure[0].getBoundingClientRect().width;
+
+    // slideIndex = slideIndex % slideBgFigure.length + 1
+    slideBgFigure[slideIndex].style.transform = "translateX(0px)";
+
+    slideBgFigure.forEach((_, index) => {
+      slideBgFigure[slideIndex].style['z-index'] = index === slideIndex ? "1" : "0";
+    })
+
+    console.log(slideIndex)
+
+    setTimeout(() => {
+      for (i = 0; i < slideBgFigure.length; i++) {
+        if (i !== slideIndex) {
+          slideBgFigure[i].style.transform = "translateX(-" + slideWidth + "px)";
+        }
+
+        // if (i === slideIndex) {
+        //   slideBgFigure[i].style['z-index'] = "1";
+        // } else {
+        //   slideBgFigure[i].style['z-index'] = "0";
+        // }
+      }
+      slideIndex = (slideIndex + 1) % slideBgFigure.length;
+    }, 1500)
+  };
+
+  carousel()
+  setInterval(carousel, 3000);
+</script>

@@ -1,0 +1,36 @@
+.box {
+  background-image: linear-gradient(to right, red, yellow);
+  height: 50vh;
+  width: 100%;
+}
+
+.foo {
+  height: 50vh;
+  width: 100%;
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqy1uodNithL90ttojytSP2imO4RC1y3qlm_ebZdRmNWh_8juV9Q');
+}
+
+div[background-image*="url"] {
+  height: 100px;
+}
+
+::-webkit-scrollbar {
+    width: 14px;
+    height: 18px;
+}
+::-webkit-scrollbar-thumb {
+    height: 6px;
+    border: 4px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+    -webkit-border-radius: 7px;
+    background-color: rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: inset -1px -1px 0px rgba(0, 0, 0, 0.05), inset 1px 1px 0px rgba(0, 0, 0, 0.05);
+}
+::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+    display: none;
+}
+::-webkit-scrollbar-corner {
+    background-color: transparent;
+}

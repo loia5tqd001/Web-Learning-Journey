@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <link rel="stylesheet/less" type="text/css" href="scss/style.less" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="javascript/script.js"></script>
+  <script src="javascript/language.js"></script>
+
+  <link rel="stylesheet" href="./main.css">
+
+
+
+  <!-- Slideshow -->
+
+
+
+
+
+
+
+
+  <title>My Portfolio</title>
+</head>
+
+<body>
+  <div class="navigation-bar">
+    <div class="bg transition">
+
+      <div id="navigation-container">
+
+        <ul>
+          <li class="font"><a href="#about" class="lang" key="about">על מה מדובר</a></li>
+          <li class="font"><a href="#projects" class="lang" key="project">תיק עבודות</a></li>
+          <li class="font"><a href="#services" class="lang" key="service">שירות</a></li>
+          <li class="font"><a href="#contact" class="lang" key="contact">צור קשר</a></li>
+          <li><a onClick="applyLanguage('english')" class="translate" id="english">English</a>|<a
+              onClick="applyLanguage('hebrew')" class="translate" id="hebrew">עברית</a></li>
+          <li style="display: inline-block; margin: 0 0 0;">
+            <div id="cf"><a href="#"><img class="bottom" src="images/logohover.png" /><img class="top"
+                  src="images/logo.png" /></a></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Project section  -->
+  <div id="projects" class="section header">
+
+
+    <div id="slideshow">
+      <div class="slideitem current">
+        <img src="images/home.jpg">
+      </div>
+      <div class="slideitem">
+        <img src="images/services.png">
+      </div>
+      <div class="slideitem">
+        <img src="images/techbg.jpg">
+      </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="item" data-aos="slide-up">
+      <h1>ברוך הבא</h1>
+    </div>
+    <div class="item" data-aos="slide-up">
+
+
+
+
+
+
+
+
+
+      <div class="pc-tab">
+        <input checked="checked" id="tab1" type="radio" name="pct" />
+        <input id="tab2" type="radio" name="pct" />
+        <input id="tab3" type="radio" name="pct" />
+        <nav>
+          <ul>
+            <li class="tab1">
+              <label for="tab1">First Tab</label>
+            </li>
+            <li class="tab2">
+              <label for="tab2">Second Tab</label>
+            </li>
+            <li class="tab3">
+              <label for="tab3">Third Tab</label>
+            </li>
+          </ul>
+        </nav>
+        <section>
+          <div class="tab1">
+            <h2>First</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus itaque quidem minus nostrum,
+              voluptatem accusamus aspernatur quia harum ratione, officia laudantium inventore autem doloribus atque
+              labore numquam non. Hic, animi.</p>
+          </div>
+          <div class="tab2">
+            <h2>Second</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum nesciunt ipsum dolore error repellendus
+              officiis aliquid a, vitae reprehenderit, accusantium vero, ad. Obcaecati numquam sapiente cupiditate.
+              Praesentium eaque, quae error!</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, maiores.</p>
+          </div>
+          <div class="tab3">
+            <h2>Third</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, nobis culpa rem, vitae earum aliquid.
+            </p>
+          </div>
+        </section>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+
+
+
+
+  <div id="about" class="section">
+    <div class="item" data-aos="fade-right">
+      <img src="images/person.png" style="width: 300px; margin-top: -180px;" />
+      <div class="text">
+        <p>My name is Yotam Dahan and I'm a web developer, mastering HTML, CSS, JavaScript, jQuery and PHP</p>
+      </div>
+    </div>
+  </div>
+  <div id="services" class="section">
+    <div class="item" data-aos="zoom-out">
+      <div class="text">
+        <p>I'm also offering application services and software development.</p>
+      </div>
+    </div>
+  </div>
+  <div id="contact" class="section">
+    <div class="item" data-aos="fade-right">
+      <div class="text">
+        <p>You may contact me by E-Mail or by Phone Number</p>
+      </div>
+    </div>
+</body>
+
+</html>
+<script>
+  AOS.init({
+    duration: 1200,
+  })
+</script>
+
+<script src="script.js"></script>
